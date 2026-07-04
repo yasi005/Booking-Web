@@ -4,7 +4,6 @@ import { useAppPhase } from "@/context/app-phase-context";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 
 const navItems = [
@@ -82,15 +81,6 @@ export function MobileHeaderMenu({ onHero = false }: MobileHeaderMenuProps) {
                     </button>
                   </li>
                 ))}
-                <li>
-                  <Link
-                    href="/sandbox"
-                    onClick={() => setOpen(false)}
-                    className="block rounded-2xl px-4 py-3 text-sm tracking-wide text-amber-300/90 transition hover:bg-white/10"
-                  >
-                    KINETIC.OS Sandbox
-                  </Link>
-                </li>
               </ul>
             </motion.div>
           </motion.div>

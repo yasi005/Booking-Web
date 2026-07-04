@@ -1,7 +1,6 @@
 "use client";
 
 import { MobileHeaderMenu } from "@/components/discovery/mobile-header-menu";
-import Link from "next/link";
 import { useAppPhase } from "@/context/app-phase-context";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
@@ -87,15 +86,6 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-5">
-          <Link
-            href="/sandbox"
-            className={cn(
-              "hidden text-[11px] tracking-[0.14em] uppercase transition-colors sm:inline",
-              onHero ? "text-white/60 hover:text-white" : "text-neutral-400 hover:text-neutral-800",
-            )}
-          >
-            KINETIC.OS
-          </Link>
           <button
             type="button"
             className={cn(
