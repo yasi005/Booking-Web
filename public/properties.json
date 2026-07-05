@@ -1,173 +1,199 @@
 {
+  "area": "Kolonaki, Athens",
+  "source": "hostaway",
+  "exportedAt": "2026-07-04T22:05:38.803814+00:00",
   "properties": [
     {
-      "id": "midnight-ocean-villa",
-      "name": "Acropolis Sky Penthouse",
-      "location": "Kolonaki, Athens, Greece",
+      "id": "366405",
+      "name": "Kolonaki Comfort - Walk to Metro, Plaka & Syntagma",
+      "location": "Kolonaki, Athina, Greece",
       "locationDisplay": "KOLONAKI, ATHENS",
-      "coordinates": { "lat": 37.9778, "lng": 23.743 },
-      "anchorRate": 4500,
-      "rating": 4.98,
-      "beds": 4,
-      "baths": 3,
-      "sqft": 1589,
-      "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "alpine-glass-retreat",
-      "name": "Plaka Heritage Maison",
-      "location": "Plaka, Athens, Greece",
-      "locationDisplay": "PLAKA, ATHENS",
-      "coordinates": { "lat": 37.9715, "lng": 23.7267 },
-      "anchorRate": 3800,
-      "rating": 4.92,
-      "beds": 3,
-      "baths": 2,
-      "sqft": 1240,
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "terrace-du-lac",
-      "name": "Aegean Riviera Villa",
-      "location": "Vouliagmeni, Athens, Greece",
-      "locationDisplay": "VOULIAGMENI, ATHENS",
-      "coordinates": { "lat": 37.848, "lng": 23.786 },
-      "anchorRate": 5200,
-      "rating": 4.99,
-      "beds": 5,
-      "baths": 4,
-      "sqft": 2100,
-      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "kolonaki-glass-residence",
-      "name": "Kolonaki Glass Residence",
-      "location": "Kolonaki, Athens, Greece",
-      "locationDisplay": "KOLONAKI, ATHENS",
-      "coordinates": { "lat": 37.9795, "lng": 23.7412 },
-      "anchorRate": 4100,
-      "rating": 4.95,
-      "beds": 3,
-      "baths": 3,
-      "sqft": 1450,
-      "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "glyfada-coastal-estate",
-      "name": "Glyfada Coastal Estate",
-      "location": "Glyfada, Athens, Greece",
-      "locationDisplay": "GLYFADA, ATHENS",
-      "coordinates": { "lat": 37.8614, "lng": 23.7538 },
-      "anchorRate": 3600,
-      "rating": 4.91,
-      "beds": 4,
-      "baths": 3,
-      "sqft": 1680,
-      "image": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "kifisia-estate-gardens",
-      "name": "Kifisia Estate Gardens",
-      "location": "Kifisia, Athens, Greece",
-      "locationDisplay": "KIFISIA, ATHENS",
-      "coordinates": { "lat": 38.0743, "lng": 23.811 },
-      "anchorRate": 4800,
-      "rating": 4.97,
-      "beds": 5,
-      "baths": 4,
-      "sqft": 2400,
-      "image": "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "pangrati-loft-villa",
-      "name": "Pangrati Loft Villa",
-      "location": "Pangrati, Athens, Greece",
-      "locationDisplay": "PANGRATI, ATHENS",
-      "coordinates": { "lat": 37.968, "lng": 23.748 },
-      "anchorRate": 3200,
-      "rating": 4.89,
-      "beds": 3,
-      "baths": 2,
-      "sqft": 1320,
-      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "psychiko-hill-villa",
-      "name": "Psychiko Hill Villa",
-      "location": "Psychiko, Athens, Greece",
-      "locationDisplay": "PSYCHIKO, ATHENS",
-      "coordinates": { "lat": 38.013, "lng": 23.772 },
-      "anchorRate": 5500,
-      "rating": 4.96,
-      "beds": 6,
-      "baths": 5,
-      "sqft": 2850,
-      "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "filothei-modern-villa",
-      "name": "Filothei Modern Villa",
-      "location": "Filothei, Athens, Greece",
-      "locationDisplay": "FILOTHEI, ATHENS",
-      "coordinates": { "lat": 38.015, "lng": 23.782 },
-      "anchorRate": 4700,
-      "rating": 4.94,
-      "beds": 4,
-      "baths": 4,
-      "sqft": 1980,
-      "image": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1600&q=80"
-    },
-    {
-      "id": "syntagma-executive-suite",
-      "name": "Syntagma Executive Suite",
-      "location": "Syntagma, Athens, Greece",
-      "locationDisplay": "SYNTAGMA, ATHENS",
-      "coordinates": { "lat": 37.9755, "lng": 23.7348 },
-      "anchorRate": 2900,
-      "rating": 4.88,
+      "coordinates": {
+        "lat": 37.9788794,
+        "lng": 23.7427962
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
       "beds": 2,
-      "baths": 2,
-      "sqft": 980,
-      "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80"
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-aNmwtcsTBTA7k0AGzwzlCn8LpyX80CojtCEeIJk0u0I-67fee12beb7e3"
     },
     {
-      "id": "monastiraki-stone-house",
-      "name": "Monastiraki Stone House",
-      "location": "Monastiraki, Athens, Greece",
-      "locationDisplay": "MONASTIRAKI, ATHENS",
-      "coordinates": { "lat": 37.9755, "lng": 23.725 },
-      "anchorRate": 3400,
-      "rating": 4.93,
-      "beds": 3,
-      "baths": 2,
-      "sqft": 1180,
-      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=80"
+      "id": "479411",
+      "name": "Kolonaki Urban Gem by Zeus Suites",
+      "location": "Kolonaki, Athens, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9788794,
+        "lng": 23.7427962
+      },
+      "anchorRate": 90,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-StLOwldlsp3B8jAi4Jyt3M-kz57cWkQ9CUAAWN8hu1M-697363a12c82a"
     },
     {
-      "id": "ekali-country-estate",
-      "name": "Ekali Country Estate",
-      "location": "Ekali, Athens, Greece",
-      "locationDisplay": "EKALI, ATHENS",
-      "coordinates": { "lat": 38.108, "lng": 23.835 },
-      "anchorRate": 5900,
-      "rating": 4.98,
-      "beds": 6,
-      "baths": 5,
-      "sqft": 3200,
-      "image": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?auto=format&fit=crop&w=1600&q=80"
+      "id": "366866",
+      "name": "Kolonaki Xanthipou by Zeus suites",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.97887273,
+        "lng": 23.74276089
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-RfUILSBqhGcE8Yh9n3QZmXBCCeEct0m4CmTHtIHjZpg-67fee941987e4"
     },
     {
-      "id": "piraeus-marina-residence",
-      "name": "Piraeus Marina Residence",
-      "location": "Piraeus, Athens, Greece",
-      "locationDisplay": "PIRAEUS, ATHENS",
-      "coordinates": { "lat": 37.947, "lng": 23.645 },
-      "anchorRate": 3700,
-      "rating": 4.9,
-      "beds": 4,
-      "baths": 3,
-      "sqft": 1520,
-      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80"
+      "id": "366425",
+      "name": "Tsakalof 10 Central Apartment by Zeussuites",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780303,
+        "lng": 23.7407143
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-6ZIS3HKS9AspF6pQSMmHIfIpnrsKR-kUTKmCZF0J7co-67c6856924c3c"
+    },
+    {
+      "id": "367741",
+      "name": "Tsakalof 10 Kolonaki by Zeus Suites",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.97801012,
+        "lng": 23.74069022
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-ztk-kAxHf-7WdMybdWUl7cp9lUfWoSm--OrgYYH--XsQs-68596d9384bfe"
+    },
+    {
+      "id": "367027",
+      "name": "Tsakalof 10 Veranda Kolonaki",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780303,
+        "lng": 23.7407143
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 1,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-palxBxBwEaxzoNbYYiwM97qOvPKBfrBO--YrnBjM9cjY-67c6cbeb49737"
+    },
+    {
+      "id": "367006",
+      "name": "Tsakalof 10A Center",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780303,
+        "lng": 23.7407143
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-TqzJcxTOQFJDPniyLPGmLlqzO4WziUaWZXlEanPTCgk-67c6cd0970466"
+    },
+    {
+      "id": "366426",
+      "name": "Tsakalof 10A View Central Apartment",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780303,
+        "lng": 23.7407143
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-745x-N580sBC9RUuzEyxGyCUV22qOCRhp7ANDok1n4Y-67fee3c3842a1"
+    },
+    {
+      "id": "366949",
+      "name": "Tsakalof 17 Jacuzzi Kolonaki",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.97849428,
+        "lng": 23.74026912
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 1,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-0tVqEpwTXxpyPrwOE5vjQ1wk2wbCTxH7rMXivYb3Tjo-67c6cfefb18f8"
+    },
+    {
+      "id": "366404",
+      "name": "Tsakalof Loft Apartment by Zeussuites",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780303,
+        "lng": 23.7407143
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 700,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-nf00LjZVJMY5Znv9huBSlVGHWL0vL--qxZ8ou6QciYA0-68495752840b4"
+    },
+    {
+      "id": "366955",
+      "name": "Tsakalof Loft Kolonaki by Zeussuites",
+      "location": "Kolonaki, Athina, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.97799321,
+        "lng": 23.74066877
+      },
+      "anchorRate": 105,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-9i5IZ8zeQXbtvkgc8MwZ0cNOViE9CT7L5IdJyWA6XJA-67c6cf6dee66d"
+    },
+    {
+      "id": "479319",
+      "name": "Tsakalof Luxe by Zeus Suites",
+      "location": "Kolonaki, Athens, Greece",
+      "locationDisplay": "KOLONAKI, ATHENS",
+      "coordinates": {
+        "lat": 37.9780177,
+        "lng": 23.740699
+      },
+      "anchorRate": 100,
+      "rating": 4.85,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 900,
+      "image": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-6NXNaQ0LRQII5-ebybXgqG-wx--nFP4KJVzxDwfttT7Q-69733fe13e593"
     }
   ]
 }

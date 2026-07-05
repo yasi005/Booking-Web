@@ -1,7 +1,9 @@
 "use client";
 
+import { useLocale } from "@/context/locale-context";
 import { usePreviewProperty } from "@/hooks/use-preview-property";
 import { useSaves } from "@/context/saves-context";
+import { getPropertyName } from "@/lib/localized-property";
 import { formatCurrency } from "@/lib/utils";
 import { getAnchorRate } from "@/lib/property-utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,6 +14,7 @@ export function FavoritesDrawer() {
   const { savesDrawerOpen, closeSavesDrawer, savedProperties, isSaved, toggleSave } =
     useSaves();
   const previewProperty = usePreviewProperty();
+  const { locale, t } = useLocale();
 
   return (
     <AnimatePresence>
@@ -65,7 +68,7 @@ export function FavoritesDrawer() {
                       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
                         <Image
                           src={property.previewImage ?? property.image}
-                          alt={property.name}
+                          alt={getPropertyName(property, locale)}
                           fill
                           className="object-cover"
                           sizes="64px"
@@ -73,12 +76,12 @@ export function FavoritesDrawer() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-sm font-medium text-neutral-900">
-                          {property.name}
+                          {getPropertyName(property, locale)}
                         </p>
                         <p className="text-xs text-neutral-500">{property.location}</p>
                         <p className="mt-1 text-xs font-medium text-neutral-800">
                           {formatCurrency(getAnchorRate(property))}
-                          <span className="font-normal text-neutral-400"> / night</span>
+                          <span className="font-normal text-neutral-400"> {t.editorial.perNight}</span>
                         </p>
                         <div className="mt-2 flex gap-2">
                           <button

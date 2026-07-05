@@ -2,10 +2,12 @@
 
 import { MapPropertyPopupCard } from "@/components/map/map-property-popup-card";
 import { useAppPhase } from "@/context/app-phase-context";
+import { useMarketplace } from "@/context/marketplace-context";
 import { usePropertyMap } from "@/context/map-context";
 import { useVibe } from "@/context/vibe-context";
-import { properties } from "@/data/properties";
-import { getPropertyById } from "@/data/properties";
+import { useLocale } from "@/context/locale-context";
+import { getPropertyById } from "@/lib/property-registry";
+import { getPropertyName } from "@/lib/localized-property";
 import { getMapStyle } from "@/lib/map-styles";
 import { getAnchorRate } from "@/lib/property-utils";
 import { cn, formatCurrency } from "@/lib/utils";
@@ -27,10 +29,10 @@ type GeoProperty = {
   anchorRate: number;
 };
 
-function toGeoProperty(property: Property): GeoProperty {
+function toGeoProperty(property: Property, locale: "en" | "el"): GeoProperty {
   return {
     id: property.id,
-    name: property.name,
+    name: getPropertyName(property, locale),
     coordinates: property.coordinates,
     anchorRate: getAnchorRate(property),
   };
@@ -66,10 +68,13 @@ function PricePill({
 
 export function PropertyMap() {
   const { selectedProperty, selectProperty } = useAppPhase();
+  const { allProperties } = useMarketplace();
   const { registerMap, flyToProperty } = usePropertyMap();
   const { vibe } = useVibe();
-  const [geoProperties, setGeoProperties] = useState<GeoProperty[]>(() =>
-    properties.map(toGeoProperty),
+  const { locale } = useLocale();
+  const geoProperties = useMemo(
+    () => allProperties.map((property) => toGeoProperty(property, locale)),
+    [allProperties, locale],
   );
   const [popupPropertyId, setPopupPropertyId] = useState<string | null>(
     selectedProperty.id,
@@ -77,19 +82,6 @@ export function PropertyMap() {
 
   const mapStyle = useMemo(() => getMapStyle(vibe), [vibe]);
   const popupProperty = popupPropertyId ? getPropertyById(popupPropertyId) : null;
-
-  useEffect(() => {
-    fetch("/properties.json")
-      .then((response) => response.json())
-      .then((data: { properties: GeoProperty[] }) => {
-        if (data.properties?.length) {
-          setGeoProperties(data.properties);
-        }
-      })
-      .catch(() => {
-        setGeoProperties(properties.map(toGeoProperty));
-      });
-  }, []);
 
   useEffect(() => {
     flyToProperty(selectedProperty);
@@ -108,9 +100,9 @@ export function PropertyMap() {
   return (
     <Map
       initialViewState={{
-        longitude: 23.7275,
-        latitude: 37.9838,
-        zoom: 11.2,
+        longitude: 23.742,
+        latitude: 37.978,
+        zoom: 14.5,
         pitch: 0,
         bearing: 0,
       }}

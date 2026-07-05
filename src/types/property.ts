@@ -28,6 +28,30 @@ export type FloorPlanRoom = {
   path: string;
   mapHotspot: { x: number; y: number };
   imageFocus: { x: number; y: number; scale: number };
+  galleryRoom?: RoomCategory;
+};
+
+export type RoomCategory =
+  | "living"
+  | "bedroom"
+  | "kitchen"
+  | "dining"
+  | "bathroom"
+  | "exterior"
+  | "other";
+
+export type PropertyGalleryImage = {
+  id: string;
+  url: string;
+  caption?: string;
+  room: RoomCategory;
+};
+
+export type PropertyLocalizedContent = {
+  name: string;
+  tagline: string;
+  description: string;
+  locationDisplay: string;
 };
 
 export type Property = {
@@ -37,6 +61,11 @@ export type Property = {
   locationDisplay: string;
   tagline: string;
   description: string;
+  localized: {
+    en: PropertyLocalizedContent;
+    el: PropertyLocalizedContent;
+  };
+  galleryImages: PropertyGalleryImage[];
   rating: number;
   reviewCount: number;
   rent: number;

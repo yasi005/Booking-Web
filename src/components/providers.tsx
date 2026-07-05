@@ -1,6 +1,9 @@
 "use client";
 
 import { AppPhaseProvider } from "@/context/app-phase-context";
+import { AuthProvider } from "@/context/auth-context";
+import { CatalogBootstrap } from "@/components/catalog-bootstrap";
+import { LocaleProvider } from "@/context/locale-context";
 import { CanvasFocusProvider } from "@/context/canvas-focus-context";
 import { MapProvider } from "@/context/map-context";
 import { MarketplaceProvider } from "@/context/marketplace-context";
@@ -12,9 +15,12 @@ import type { ReactNode } from "react";
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
-    <AppPhaseProvider>
-      <MarketplaceProvider>
-        <MapProvider>
+    <LocaleProvider>
+      <AuthProvider>
+      <AppPhaseProvider>
+        <MarketplaceProvider>
+          <CatalogBootstrap />
+          <MapProvider>
           <SavesProvider>
             <PreferencesProvider>
               <VibeProvider>
@@ -27,5 +33,7 @@ export function Providers({ children }: { children: ReactNode }) {
         </MapProvider>
       </MarketplaceProvider>
     </AppPhaseProvider>
+      </AuthProvider>
+    </LocaleProvider>
   );
 }

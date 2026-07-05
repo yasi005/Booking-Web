@@ -2,6 +2,8 @@
 
 import { EditorialPanel } from "@/components/editorial/editorial-panel";
 import { useAppPhase } from "@/context/app-phase-context";
+import { useLocale } from "@/context/locale-context";
+import { getLocationDisplay, getPropertyName } from "@/lib/localized-property";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ChevronUp } from "lucide-react";
@@ -9,6 +11,7 @@ import { useState } from "react";
 
 export function MobileEditorialSheet() {
   const { selectedProperty } = useAppPhase();
+  const { locale } = useLocale();
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -28,10 +31,10 @@ export function MobileEditorialSheet() {
         >
           <div className="min-w-0 flex-1">
             <p className="truncate text-[10px] tracking-[0.18em] text-neutral-400 uppercase">
-              {selectedProperty.locationDisplay}
+              {getLocationDisplay(selectedProperty, locale)}
             </p>
             <p className="truncate font-serif text-lg text-neutral-900">
-              {selectedProperty.name}
+              {getPropertyName(selectedProperty, locale)}
             </p>
           </div>
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-600">

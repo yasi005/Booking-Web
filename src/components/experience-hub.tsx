@@ -19,7 +19,7 @@ export function ExperienceHub() {
   }, [isDiscovery, isMarketplace]);
 
   return (
-    <AnimatePresence mode="popLayout" initial={false}>
+    <AnimatePresence mode="sync" initial={false}>
       {isDiscovery && (
         <motion.div
           key="discovery"

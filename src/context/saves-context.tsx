@@ -1,6 +1,7 @@
 "use client";
 
-import { properties } from "@/data/properties";
+import { getAllProperties } from "@/lib/property-registry";
+import type { Property } from "@/types/property";
 import {
   createContext,
   useCallback,
@@ -17,7 +18,7 @@ type SavesContextValue = {
   savesDrawerOpen: boolean;
   openSavesDrawer: () => void;
   closeSavesDrawer: () => void;
-  savedProperties: typeof properties;
+  savedProperties: Property[];
 };
 
 const SavesContext = createContext<SavesContextValue | null>(null);
@@ -41,7 +42,7 @@ export function SavesProvider({ children }: { children: ReactNode }) {
   const closeSavesDrawer = useCallback(() => setSavesDrawerOpen(false), []);
 
   const savedProperties = useMemo(
-    () => properties.filter((p) => savedIds.has(p.id)),
+    () => getAllProperties().filter((p) => savedIds.has(p.id)),
     [savedIds],
   );
 

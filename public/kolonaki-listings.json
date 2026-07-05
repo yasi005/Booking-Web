@@ -1,0 +1,1743 @@
+{
+  "area": "Kolonaki, Athens",
+  "source": "hostaway",
+  "exportedAt": "2026-07-04T22:05:38.803814+00:00",
+  "count": 12,
+  "listings": [
+    {
+      "id": 366405,
+      "name": "Kolonaki Comfort - Walk to Metro, Plaka & Syntagma",
+      "description": "Perfectly located at Kolonaki, surrounded by all the in-spots of Athens and close to Lycabettus hill, combines all the best this city has to offer like coffe and food, amazing sunsets, culture and market too! It's an easy accesed location only 6 minutes walk from Evangelismos station and one station from Syntagma- the heart of Athens!\n\nThe accommodation is located in the high-end area of Athens, where all artistic events, gastronomy, and entertainment can be found in Agion Theodoron Square, just 100 meters away from our property, and in Agia Irini Square, which is 500 meters away on foot. We are just steps away from Syntagma Square, surrounded by vibrant nightlife, bustling shops, art galleries, restaurants, and close to timeless landmarks such as the Acropolis and the Ancient Agora. Additionally, we share the building with the Tourist Police. The nearest metro station, \"Panepistimio,\" is 250 meters away. Nearby popular points of interest include Ermou Street, 800 meters away, Syntagma Metro Station, 700 meters away, and Syntagma Square, also 700 meters away on foot. The closest airport is Eleftherios Venizelos Airport, located 31 km from the property.",
+      "address": "Xanthippou 7 , elevated ground floor",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9788794,
+      "lng": 23.7427962,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-aNmwtcsTBTA7k0AGzwzlCn8LpyX80CojtCEeIJk0u0I-67fee12beb7e3",
+          "caption": "2Q6A1141-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-MsR-iPYOuh8TEmpFwAQOpRvqcrc8HAntroHB0ua8lI8-6849696e189d6",
+          "caption": "kolonaki xanthippou_010.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-iFtNHVTvIfAl--960sJ7GlnW--SDs--jBof5L95yc5RGcM-68596d0dd2eeb",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-r6--S8XCd0ehJhqdpt--RTlzTYPp-ntzTZaQ1QaXaP2BE-6849697aa8a61",
+          "caption": "kolonaki xanthippou_015.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-GPeKdi7kJBAKOGkaMXvipsF3YPesiG--htFNmj2BdYFs-67feec4965351",
+          "caption": "2Q6A1158.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-gO--qOjLW2EHnfaF2--vXM62h0gMhzukv3tTvlg0GBs2k-67fee14a88faa",
+          "caption": "2Q6A1149-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-d4ut1s0grceM5irM1FodG2zM0Yt4dmx6dk1lUcvtR7Y-67fee13bb6bb5",
+          "caption": "2Q6A1144-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-joiJJw6urdrExBBPNrsQo20cHLXfH2fOpYJDNI1TAqM-67feec1b32e8d",
+          "caption": "2Q6A1218.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-ro0slscakn0O1S4j4ijqcH--sm--F8MA7CzEHI9VV--1A4-67feec333f443",
+          "caption": "2Q6A1217.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-uzazYJd12MdrBNSSFkrLUYXIbO9e----WTjcCnw32Duks-67fee1968b5a2",
+          "caption": "2Q6A1252-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-AKDnDu0f0gIfD08PchGk--5HGAtr8odjREJcxiFjLFeI-67fee1d43a05b",
+          "caption": "2Q6A1264-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-BI6U6iTtfpaMIqpzdfLlOnRH7pKbfgjg2swbj4GVHWs-67fee1f035512",
+          "caption": "2Q6A1255-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-6E--cuE31wGvPxKMUiz--W4Z2ViGbYj9fq--o8whLtHqo-67fee1b053a73",
+          "caption": "2Q6A1249-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-ymTGt8Bf1bLHs9Sjx0wge-QVIFL1XOvWg6KmCjMNH6Q-67fee2148bb07",
+          "caption": "2Q6A1293.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-QHzlui4mgFHjc0SetYISTcr1WNAw7HEYRxWN3xCooJ0-67feec631c6e5",
+          "caption": "2Q6A1296-2.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-PPYp3KhO0GbS0-dzfrtm5--cnFzGR5sKoPqLCcuP9pjs-67fee17723ca5",
+          "caption": "2Q6A1270-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-i6vd--KNtudQ--k0kBAReMGxiWYlQxogEWn-F9HOo21E8-67fee1864a3f9",
+          "caption": "2Q6A1300-2.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-SMLWWuQTg--dyCJQ--DKtWR7rY70kdBN--T-Yv3DnZVTq4-67feec76db51b",
+          "caption": "2Q6A1279-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-kXOTey57msA3CfOeZwoCpCswGIOUwGUDqKe8DLmTE0E-67fee253aa62d",
+          "caption": "2Q6A1245-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366405-ayO-A9CkbpLwfAWWVqkDMvw431CSm0a9tVR5crvzGzw-67feec90ad8e1",
+          "caption": "2Q6A1236-HDR.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Heating",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "Laptop Friendly workspace",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Microwave",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Tub",
+        "Stove",
+        "Towels",
+        "Kitchen utensils",
+        "Hot water",
+        "Private entrance",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Room darkening shades",
+        "Long term stays allowed",
+        "Free WiFi",
+        "Smart TV",
+        "Cleaning products",
+        "Body soap",
+        "Conditioner",
+        "Shower gel",
+        "Clothing storage",
+        "Coffee",
+        "Mini fridge",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.333272+00:00"
+    },
+    {
+      "id": 479411,
+      "name": "Kolonaki Urban Gem by Zeus Suites",
+      "description": "Kolonaki Comfort ∼ Walk to Metro ∼ Plaka & Syntagma\n\nExperience the best of Athens from this stylish and autonomous apartment located in the most elegant and secure neighborhood of the city – Kolonaki. Situated on Xanthippou Street 7-9, right below the iconic Saint George Lycabettus Hotel, the apartment offers a peaceful stay just steps away from everything.\n\nThe location is unbeatable: within walking distance to Kolonaki Square, Syntagma, the historic Plaka district, and just minutes from the “Evangelismos” metro station. Adjacent to the Prime Minister’s residence, the area offers a heightened sense of security and tranquility.\nJust one minute away is the charming Dexamenis Square, a beloved spot for families and locals alike, featuring a children’s playground, open-air summer cinema, cozy cafés, and excellent restaurants. For nature lovers, Lycabettus Hill is right next door — a green oasis perfect for morning walks and breathtaking views of the city.\nFully equipped and thoughtfully designed, the apartment is ideal for couples, families with children, and business travelers seeking comfort, style, and a prime location.\n\nEnjoy Athens with ease, elegance, and everything at your doorstep — from the city’s most prestigious neighborhood.\n\nEnjoy full and exclusive access to the entire apartment – your own private retreat in the heart of the city.\n\nWe are available via the Airbnb chat for anything you may need. \nFor emergencies, feel free to call the number provided in your reservation. \n\nKindly note that messages and requests sent between 22:00 and 09:00am are handled by our automated system.\n\nWelcome to Kolonaki, one of Athens’ most elegant and vibrant neighborhoods. Located on the iconic Tsakalof Street, the apartment is surrounded by stylish cafés, upscale boutiques, fine dining restaurants, and art galleries, offering a perfect blend of sophistication and local charm.\n\nJust steps from Kolonaki Square, you’ll enjoy a lively yet safe atmosphere, ideal for both business and leisure travelers.\n\nThe location is exceptionally convenient:\n∼ 15 minutes’ walk from Evangelismos Metro Station\n∼  Close to major attractions like Lycabettus Hill, Syntagma Square, Ermou Street, and numerous museums and landmarks\n\nThis is the perfect base to experience Athens like a local, with comfort, style, and culture at your doorstep.",
+      "address": "Xanthippou 7-9",
+      "city": "Athens",
+      "country": "Greece",
+      "lat": 37.9788794,
+      "lng": 23.7427962,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 90,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-StLOwldlsp3B8jAi4Jyt3M-kz57cWkQ9CUAAWN8hu1M-697363a12c82a",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-kvolJwbRT-SltvrwuW--WWrdF45xv4TcwdLx1PLpFkI-69736a43b81fd",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-Ew83LB3dqvPhVTCzKKD3jLMqb1fnM--Egt91UdmMwvyw-69736386c2d54",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-k0slc2Lexq-YUTjFCXAX--cpoOfONFI6XGyxTAkHuEYc-69736387b7e1f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-yJRbgT--O86fX83Jy9GRbbGv3Ge0UiHN7RVK8qcA4F9A-69736388bc929",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-5SB--1SRRzY0N0REruJ--PhOSpJViITfnDBq880LtA-d4-69736389ca1b0",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-7mlK1GRTj2cSk1wFPOE--DjVq5nhrQsV1mQahOT2F9lU-6973638aef9bc",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411---cw4xzzHJyt9R--cdXPo7JogkOoQwCCetrJCPS4u6Vh0-6973638c316f3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-VJ1WUFT58Pgt3jBMD3CbaKUwBLTLyADXgSxP-sHTPeI-6973638d3bde3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-KKvG--mZnCrOJDDTWktvG--hRYfQHZYqX3yPsq12uf3dY-6973638e4c459",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-HsenLRzLSw--WVExao-kZVLaV6PLyZk4J6qVx-vrAN9A-6973638f8f94d",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-IarUfRMl8yyq9sm3-P8SMwZk4HIfmHeriZLk2HpXyNs-697363909ffd6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-bIHDhc6eNe3u4-bqoB2uF9EweyqPG4eH4Tb13gbhDXc-69736391cec58",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-aE3z-Pfh0DNL2wgWT8tL--AkUCH--h0KQSgt1pXWHl--g0-69736a41219c3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-C00eoeQ0mq--Ke2LMguuzKPKkAPfRBQniYF1fhOgCYPI-69736393e7ad2",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-c83OZTIlaX8cTvbH1wjJUQn5UwF7UtzxAxTfcxjfZvI-6973639501565",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-qNpcEbCyFj0Q5terA4XrcJNC0qELcXduwA4b-GHMBJM-697363964abb5",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-4VJG5vuDmXZBZYWwiqA8RjydCe3RlcVOtM9aD4qd37g-697363978629f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-JBu7M--MV2BUmgd284xUVsYYMdujhVPlFl29pY7TsLWw-69736398b10a3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-3FpoxjMH-ah-fO06JSyKoJdXkk7VL-MC7Cga-GDvWuU-69736399acd06",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-cWKZG4zm86--EE0u5wz2eJGKT4jBG-UxbNkzN3DpNN7w-6973639ae2f13",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-5QPaIExwF-rnnfKajfslJf0Yi-lq0uItmV2giKSIx9I-6973639c142fc",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-wHq1PTntHRM4nWnecqAUi5fz8MqSckW6D3uK8UE8TJk-6973639d47043",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-jbuqok-f--IFjhJBwJ3-Vxc8LIiIEnoBrE5gu--W8U12Y-6973639e8190a",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479411-jN0Zi0ZxNVvQJg9QTP5Kft8uGxoSnaQRpIDxihMIinQ-6973639fe3ca7",
+          "caption": ""
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Hair Dryer",
+        "Heating",
+        "Smoke detector",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "Laptop Friendly workspace",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Paid parking",
+        "Linens",
+        "Toaster",
+        "Microwave",
+        "Oven",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Refrigerator",
+        "Kitchen utensils",
+        "Hot water",
+        "Cooking basics",
+        "Room darkening shades",
+        "Long term stays allowed",
+        "Body soap",
+        "Shower gel",
+        "Clothing storage",
+        "Coffee",
+        "Freezer",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 24,
+          "quantity": 1,
+          "bedroomNumber": 0
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 0
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.336246+00:00"
+    },
+    {
+      "id": 366866,
+      "name": "Kolonaki Xanthipou by Zeus suites",
+      "description": "Αυτός ο ξεχωριστός χώρος είναι κοντά σε όλα, διευκολύνοντας τον προγραμματισμό του ταξιδιού σας.",
+      "address": "Xanthippou 7-9, elevated ground floor, Athina 106 75, Greece",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.97887273,
+      "lng": 23.74276089,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-RfUILSBqhGcE8Yh9n3QZmXBCCeEct0m4CmTHtIHjZpg-67fee941987e4",
+          "caption": "2Q6A1252-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-GxDcTrJX8MgVH4wBLSoynvAtbMTke7xgmSxaPKcpBqA-67fee930b7a19",
+          "caption": "2Q6A1144-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-BooHiXrrkSvUC--UzWuh4EHxYHhgBZSWjLHS1rEHKvQE-67fee8f030a89",
+          "caption": "2Q6A1217.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-dAij85SQSmleAggf0SoVmhT0nnqCgnS8--SaXCzdI1--w-67fee90011f2e",
+          "caption": "2Q6A1218.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-G7HlkUxyGuS0RqmVj1bdBovzRPQ1Y0zEurc2wY5ZMFY-67fee91e47188",
+          "caption": "2Q6A1158.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-nZeOTjsw3CEXCh--94AUSQEw84AaNB0QbleCjLLTMIZo-67fee955ae4ba",
+          "caption": "2Q6A1255-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-iDXbss2PGRuY-8Oua--FQ2WRSZrBYiyw5DMY3S5eu--gU-67fee9724939b",
+          "caption": "2Q6A1296-2.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-InR8sGNWL7B7tfNfSznkUtIELoHPu01fbw5Wt2g79AQ-67c6d7e609b57",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-fLJ54w51ODsXs2RstHkAIR8F82nRQ--WI8HGlnSbfulI-67c6d7e46561b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-fMjtM9DCd2PShNfpz42LMWbR47v-ergGYwt-RU2GF8g-67fee9865e9c9",
+          "caption": "2Q6A1249-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-zwEuinPTIbJTVFULhkapFTBQ6I2JfccAOaGvYW2OKQg-67fee99b1921c",
+          "caption": "2Q6A1270-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866---MdOS-K5h7DRUDOpb3hy-N05mb3j2nfHNtn4iZEndsg-67fee9ad785aa",
+          "caption": "2Q6A1300-2.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-SNagJfS0nCdkyiceDUvLqdOX0VLuvS51UWr6uGeVX8o-67c6d7e21ce5e",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-n260zrDazBBMXGFyPnEK7eYp3w66gajxG2Vuh-IeJYk-67c6d7dd17792",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-ATbHXaCOvlNDVuDPDTI2tOwoMSJ9Pue--j115L4spDTw-67fee9bfec290",
+          "caption": "2Q6A1279-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-VMTLdljD6vmW4Xh769WIAzEDnc9JSqjQwNGWZ61Ulqo-67c6ed65dd43f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-pKJFgVnUMp6bTNkW7baI1gfM6itZTd3HtNuayJgN--p8-67fee9d55caa9",
+          "caption": "2Q6A1236-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366866-yGmQ0yU0x5qcSTfa--cEkLNZv-LPwZYJne2T1FgkVq-4-67fee9ea7a043",
+          "caption": "2Q6A1245-HDR.jpg"
+        }
+      ],
+      "amenities": [
+        "Cable TV",
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Stove",
+        "Refrigerator",
+        "Towels",
+        "Hot water",
+        "Toilet",
+        "Dining area",
+        "Free WiFi",
+        "Smart TV",
+        "Rain Shower",
+        "Shower gel",
+        "Coffee",
+        "Freezer"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.333630+00:00"
+    },
+    {
+      "id": 366425,
+      "name": "Tsakalof 10 Central Apartment by Zeussuites",
+      "description": "This appealing 27m² studio, is situated in the exclusive and vibrant neighborhood of Kolonaki only 5 minutes walk away from Syntagma square. It is found on a pedestrian street, brimming with boutiques, cafes and clubs. The bright open plan living/dining space, with a fully equipped kitchen and one bedroom is ideal for a city getaway, a romantic weekend or a business trip. The studio is on the first floor of a small building with a cafe - bar on the ground floor.\n\nΗ διαμονή βρίσκεται στην υψηλού επιπέδου περιοχή της Αθήνας, όπου πραγματοποιούνται όλες οι καλλιτεχνικές εκδηλώσεις, η γαστρονομία και η διασκέδαση, στην Πλατεία Αγίων Θεοδώρων, μόλις 100 μέτρα από το κατάλυμά μας, και στην Πλατεία Αγίας Ειρήνης, η οποία απέχει 500 μέτρα με τα πόδια. Είμαστε μόλις λίγα βήματα από την Πλατεία Συντάγματος, περιτριγυρισμένοι από ζωντανή νυχτερινή ζωή, πολυσύχναστα καταστήματα, γκαλερί τέχνης, εστιατόρια και κοντά σε διαχρονικά μνημεία όπως η Ακρόπολη και η Αρχαία Αγορά. Επιπλέον, μοιραζόμαστε το κτήριο με την Τουριστική Αστυνομία. Ο πλησιέστερος σταθμός μετρό, το \"Πανεπιστήμιο\", απέχει 250 μέτρα. Δημοφιλή σημεία ενδιαφέροντος κοντά περιλαμβάνουν την οδό Ερμού, 800 μέτρα μακριά, το Σταθμό Μετρό Συντάγματος, 700 μέτρα μακριά, και την Πλατεία Συντάγματος, επίσης 700 μέτρα με τα πόδια. Το πλησιέστερο αεροδρόμιο είναι το Αεροδρόμιο Ελευθέριος Βενιζέλος, το οποίο βρίσκεται 31 χλμ από το κατάλυμα.",
+      "address": "Tsakalof 10 , 1st floor",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9780303,
+      "lng": 23.7407143,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-6ZIS3HKS9AspF6pQSMmHIfIpnrsKR-kUTKmCZF0J7co-67c6856924c3c",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-2JBhxGK9xXhAzXvcmkf5w7jJ70x3z1GOxfQJu5Md4v8-68596d6929b94",
+          "caption": "tsakalof 10 p018.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-Vc7HRBIZvn6GpfauiBBvG0Ibe4q63w1l448bFQnVRlM-68596d743c476",
+          "caption": "tsakalof 10 p017.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-H9IBN-ZrdepETWqm85ht--sKdyc--OkLBNjEjdVeF0Fh0-68485315a6151",
+          "caption": "tsakalof 10 p003.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-I1bIBDg5BgMzB----NsISAzo0lnOm5r-y7tKX0P--b7yTY-67c659eb24bd5",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-Bav5GHMu7AUfTTjBPAfMOkiN6XsnHM7WzbpNPKKhrhU-68596d617294c",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-owdSWTQfe4kp9XZY3slf3OepuIsG9aYlqT9iKFRbQEQ-67ea8dfb18a6c",
+          "caption": "APL_0838.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-0jzoNbfSabiO3GnKi--fk2JgNT801UaK-hHHG4KKSuOY-6862a7e130b73",
+          "caption": "tsakalof 10 p006.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-zjIo5Lxqb021b9GClFNKvOxcF6IPw3O7hWbWkI1uk-E-6862a7ef7e4f2",
+          "caption": "tsakalof 10 p005.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-06WpoMlu45yVh9mOG5pzU5FRRT--tlGqvXt0dXCPdRDM-67c5ff26f3578",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425--wsMQfU3fyJyS4PnnI71U2rjZ0AtPJfrGpjWRUt37Js-67c5ff25859fd",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-Hkn8g--CMaDa3zn2cMQDWXCrdg9JfNl-DaLH2hnfV6PE-6862a801c30c8",
+          "caption": "tsakalof 10 p011.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-cVpDVqFEXj6XhgBmiHtIyznmxXP8yQNorDfx6UzRpuA-67c5ff23c9f3f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-vVz1y5kJ8rvB1J7LHsx6bvrv9lKqwyT1FiX682BzNcw-67c5ff2228775",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366425-sTo88lkZJUOE--g2hzwbXYhKMT4DwHTU7gpYQf4G4uKY-68596d5aa1a40",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Electric kettle",
+        "Bidet",
+        "Baby crib",
+        "Towels",
+        "Kitchen utensils",
+        "Hot water",
+        "Private entrance",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Room darkening shades",
+        "Free WiFi",
+        "Smart TV",
+        "Body soap",
+        "Clothing storage",
+        "Coffee",
+        "Freezer",
+        "Mini fridge",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.333306+00:00"
+    },
+    {
+      "id": 367741,
+      "name": "Tsakalof 10 Kolonaki by Zeus Suites",
+      "description": "Αυτός ο ξεχωριστός χώρος είναι κοντά σε όλα, διευκολύνοντας τον προγραμματισμό του ταξιδιού σας.",
+      "address": "Tsakalof 10, 1st floor, Athina 106 73, Greece",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.97801012,
+      "lng": 23.74069022,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-ztk-kAxHf-7WdMybdWUl7cp9lUfWoSm--OrgYYH--XsQs-68596d9384bfe",
+          "caption": "tsakalof 10 p022.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-EZ5jb1HOeuKGq60u8HFCfmD2A7nz3HncUItDIkNY7Gg-6848531820767",
+          "caption": "tsakalof 10 p003.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-pFDxT-58tIpYK2y8--dJ--enrkL4mXdYuPAZUCnZH9DwY-6862a7ed6c04f",
+          "caption": "tsakalof 10 p008.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-DdUKiOs--BuNGSG63dfZHD-L4iRCctMDLNPF1svCSBU0-67c82abc351fe",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-2SDu5KZs3zoipyVsbGz4apcpXW8tC--jn2--g7uJ4Oals-67c82abd65211",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-SsZWgOZsRkV0KWFMLc8vm4VdTo4SrkGYpWzIIhwH0Uc-6862a7f98b160",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-I4LC6SXXMvBBBGcHGBlLnTEn7EIIJanduH6vKrkihrs-67c82abb0b830",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-D0FXMGncnjXFP9OS-3gy-wlxpl-Vsi8nbVcVkiw6afY-6862a80394f2a",
+          "caption": "tsakalof 10 p006.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-LuCLNIVsa2zBObzWLZzjjyY28uZOJPMvBkrTZqLkIpI-6862a80e000c1",
+          "caption": "tsakalof 10 p005.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-uo1D3p8czun0T534VX8dJpEmjsyZCe4rwnYMIpRiU6A-67c82ab9e5165",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-LCN--5FDB7sB0kLejiXWCcybV4thrfGNlrtIvL2oKXco-67c82ab7cff6b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367741-8aSeoGOxxbY5Nc4bPsI15eeOsN8hvD4v7dV2WKIN6IY-67c82ab1e3339",
+          "caption": ""
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Heating",
+        "Shampoo",
+        "Hangers",
+        "TV",
+        "Suitable for children",
+        "Linens",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Towels",
+        "Hot water",
+        "Private entrance",
+        "Extra pillows and blankets",
+        "Toilet",
+        "Free WiFi",
+        "Smart TV",
+        "Rain Shower",
+        "Shower gel",
+        "Coffee",
+        "Mini fridge"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.335427+00:00"
+    },
+    {
+      "id": 367027,
+      "name": "Tsakalof 10 Veranda Kolonaki",
+      "description": "Θα περάσετε υπέροχα σε αυτόν τον άνετο χώρο διαμονής.",
+      "address": "Tsakalof 10",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9780303,
+      "lng": 23.7407143,
+      "personCapacity": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 1,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-palxBxBwEaxzoNbYYiwM97qOvPKBfrBO--YrnBjM9cjY-67c6cbeb49737",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-V-tqaXLLdEN6R08VXHsfuFTifOxaSth9O--4SYwZDJaE-67c6cbe9c2ec6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-wU39ngsidyz6ps1q5Lrjq3Q7SQajF0--8rcBLlb--g6eA-67c6e7ad35a59",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-oJUCxqdVQ8TTNFg0ht8nMzoGM-WzHxAS7ZIW4EezyZQ-67c6e7abe708e",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-x1WDo2kkBVienKPuEdeHgrRplzDRXMRZcofhXoe6BVg-67c6e7aadfa8a",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-7IFtnu1AxWiEqEFa-q8P5ZWJPsMMzaaQbWoS6FAcWwE-67c6e7a9a5d4f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-EMiQqIr2zqUAyB2vetVJQ4xIoL8hS40pI7Byynx1UOE-67c6cbe61fbdb",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-hsFvp9roc8iLmupqkM7-TaYNkfOV7TrUHlFvK6ojBHo-67c6e7a88b8d7",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-gmZTctUAWiPQ6c-9B0bxFWo89aKAqiAG3WXQ2QAlTDc-67c6cbe3aef74",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-TG5T6wNe2nKs8oS1I1jao1N4Kngf0qCXZxeUh--WEGvw-67c6cbdfbed67",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-B6Yoip5pvDvY6Gc-uzVIMBvrNiENZPKq9VEKQB6g9-8-6849674c4e24d",
+          "caption": "tsakalov 10 veranda_034.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-eaosLGFbuoq3AWDDVNM91-CoRsPpWjp1-WW9Ut8d0Us-6849675683801",
+          "caption": "tsakalov 10 veranda_039.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-vcNERZ39afQ76jQkjxKNuyDfqJk--P7gdFTbijAyp1mE-68496762b0b48",
+          "caption": "tsakalov 10 veranda_043.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-WpXSAHeyT3FLqbj3rwSlF8S--lqbOwK9s51zSSXof0qc-6849676c7372e",
+          "caption": "tsakalov 10 veranda_044.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-XUqc2NRfukMrTOBPRcg4twDxDAxxPEmJt3cAJmKbxA8-68496776c002a",
+          "caption": "tsakalov 10 veranda_011.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-WP9htBbGfn-EKoSlaBR--rwug--H--AmZzW6Xvv3O7s4zU-6849678198d54",
+          "caption": "tsakalov 10 veranda_016.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-frFV5phYtac--eSSNAmSIg5shHnPK91vjs--w9Ex3GRb8-6849678c0b728",
+          "caption": "tsakalov 10 veranda_021.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-JZ1zzv9HJftfn69nsZuyhJXIk2ciP7RhF8d6kZj1zHs-685accf9aee6c",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-gwWag--0mPCPPW2kNJnVniKMH3AMk5y1EASyYzp66zME-685acd032b763",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367027-oUKWZN6VHqKHwbLpaREZ8aHAfCsDnMsCdtmY--pLc-9c-685acd10ac97d",
+          "caption": "tsakalov 10 veranda_011.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants"
+      ],
+      "bedTypes": [],
+      "syncedAt": "2026-07-04T21:48:05.335021+00:00"
+    },
+    {
+      "id": 367006,
+      "name": "Tsakalof 10A Center",
+      "description": "This appealing 30m² studio, is situated in the exclusive and vibrant neighborhood of Kolonaki only 5 minutes walk away from Syntagma square. It is found on a pedestrian street, brimming with boutiques, cafes and clubs. The bright open plan living/dining space, with a fully equipped kitchen and one bedroom is ideal for a city getaway, a romantic weekend or a business trip. The studio is on the first floor of a small building with a cafe - bar on the ground floor.\n\nΗ διαμονή βρίσκεται στην υψηλού επιπέδου περιοχή της Αθήνας, όπου πραγματοποιούνται όλες οι καλλιτεχνικές εκδηλώσεις, η γαστρονομία και η διασκέδαση, στην Πλατεία Αγίων Θεοδώρων, μόλις 100 μέτρα από το κατάλυμά μας, και στην Πλατεία Αγίας Ειρήνης, η οποία απέχει 500 μέτρα με τα πόδια. Είμαστε μόλις λίγα βήματα από την Πλατεία Συντάγματος, περιτριγυρισμένοι από ζωντανή νυχτερινή ζωή, πολυσύχναστα καταστήματα, γκαλερί τέχνης, εστιατόρια και κοντά σε διαχρονικά μνημεία όπως η Ακρόπολη και η Αρχαία Αγορά. Επιπλέον, μοιραζόμαστε το κτήριο με την Τουριστική Αστυνομία. Ο πλησιέστερος σταθμός μετρό, το \"Πανεπιστήμιο\", απέχει 250 μέτρα. Δημοφιλή σημεία ενδιαφέροντος κοντά περιλαμβάνουν την οδό Ερμού, 800 μέτρα μακριά, το Σταθμό Μετρό Συντάγματος, 700 μέτρα μακριά, και την Πλατεία Συντάγματος, επίσης 700 μέτρα με τα πόδια. Το πλησιέστερο αεροδρόμιο είναι το Αεροδρόμιο Ελευθέριος Βενιζέλος, το οποίο βρίσκεται 31 χλμ από το κατάλυμα.",
+      "address": "Tsakalof 10, 1st floor",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9780303,
+      "lng": 23.7407143,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-TqzJcxTOQFJDPniyLPGmLlqzO4WziUaWZXlEanPTCgk-67c6cd0970466",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-ZVrD87o7l--UOi2HEfGc9k0Haw1PMfhJP7kclj8pXv98-68596e4586005",
+          "caption": "tsakalof 10 A_025.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-uoN3Pn8Ov3ZLKnlcPBl0DGnhdhurBaatU30KG0Wx2to-6862ae4ab496c",
+          "caption": "tsakalof 10 A_001.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-Hyg--9g1Ns3JzqOXjJCIiJ--VL0YYcbJ3E6BKWWPhCeYQ-68596e5242f38",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-hGlKfS55TkV3tm7jJJxNkgqh7jWyFrfHHCnVFt04CUg-67c6e8404c2f4",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-smt81VPoX-0J4NiUFZa34fysLOB5cxUo2s8hNdJ6svc-67c6e84279430",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-bR6Z23xpab1XVhhph19zu3ZV5u9cxj2LuP--w--pNkLiw-6862af5d168cf",
+          "caption": "2Q6A1348-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-q1yZzoWbnxeZDiNS10SVqm2MvwTx6IDgQUsqMrraqBw-6862af40a31b9",
+          "caption": "tsakalof 10 A_010.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-N-OugmM98DFDp97Ww8NeByNS3qaBeAOpXOyiJL-CY8w-67c6e844dc9dc",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-8LvwfiyVLgXObJbOtZ1Wh12KwfA--5R3RhvIjmoqFgf0-6862af4ee6644",
+          "caption": "tsakalof 10 A_030.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-AyV6fMu495wjRhxOIYITKZuneCKTBX79kN45AE9x9Gw-68596e5c7f7e8",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006---US4k5yEVSTC1qsyl-CgkvrWvES8n-t6tUgLP65Z5ss-67c6cd026367b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-2oQgFJV3SOTtgEvTx5gCjgldoEEWM--a-ixtONi0Hnhs-6862af7a6d179",
+          "caption": "2Q6A1360-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-5Z401Qn-Q3dg135Wp1XAjWmsgOQY08-xM8iqSXV2TqA-67c6e83937007",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-367006-rnciYSLXM3ycu8jk0tgHe7DXTLKo73Ye--qPXn1Qby38-67c6e834c407c",
+          "caption": ""
+        }
+      ],
+      "amenities": [
+        "Cable TV",
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Heating",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Linens",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Shower",
+        "Hot water",
+        "Toilet",
+        "Free WiFi",
+        "Smart TV",
+        "Body soap",
+        "Rain Shower",
+        "Shower gel",
+        "Coffee",
+        "Mini fridge"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.334998+00:00"
+    },
+    {
+      "id": 366426,
+      "name": "Tsakalof 10A View Central Apartment",
+      "description": "This appealing 30m² studio, is situated in the exclusive and vibrant neighborhood of Kolonaki only 5 minutes walk away from Syntagma square. It is found on a pedestrian street, brimming with boutiques, cafes and clubs. The bright open plan living/dining space, with a fully equipped kitchen and one bedroom is ideal for a city getaway, a romantic weekend or a business trip. The studio is on the first floor of a small building with a cafe - bar on the ground floor.\n\nΗ διαμονή βρίσκεται στην υψηλού επιπέδου περιοχή της Αθήνας, όπου πραγματοποιούνται όλες οι καλλιτεχνικές εκδηλώσεις, η γαστρονομία και η διασκέδαση, στην Πλατεία Αγίων Θεοδώρων, μόλις 100 μέτρα από το κατάλυμά μας, και στην Πλατεία Αγίας Ειρήνης, η οποία απέχει 500 μέτρα με τα πόδια. Είμαστε μόλις λίγα βήματα από την Πλατεία Συντάγματος, περιτριγυρισμένοι από ζωντανή νυχτερινή ζωή, πολυσύχναστα καταστήματα, γκαλερί τέχνης, εστιατόρια και κοντά σε διαχρονικά μνημεία όπως η Ακρόπολη και η Αρχαία Αγορά. Επιπλέον, μοιραζόμαστε το κτήριο με την Τουριστική Αστυνομία. Ο πλησιέστερος σταθμός μετρό, το \"Πανεπιστήμιο\", απέχει 250 μέτρα. Δημοφιλή σημεία ενδιαφέροντος κοντά περιλαμβάνουν την οδό Ερμού, 800 μέτρα μακριά, το Σταθμό Μετρό Συντάγματος, 700 μέτρα μακριά, και την Πλατεία Συντάγματος, επίσης 700 μέτρα με τα πόδια. Το πλησιέστερο αεροδρόμιο είναι το Αεροδρόμιο Ελευθέριος Βενιζέλος, το οποίο βρίσκεται 31 χλμ από το κατάλυμα.",
+      "address": "Tsakalof 10 , 1st floor",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9780303,
+      "lng": 23.7407143,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-745x-N580sBC9RUuzEyxGyCUV22qOCRhp7ANDok1n4Y-67fee3c3842a1",
+          "caption": "2Q6A1329-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-kevAeeipl4pDIeusGB8HEajK2nTGB61uAx9s9MgKL2k-67c5ff1e83d77",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-qfrdnPOR1YGw1GTiQyAZEiY00YqAmy0eB9zHbAEGUuo-68596e4aa003c",
+          "caption": "tsakalof 10 A_025.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-H0qjFlJQnmPdZXuHkHZw3zcGyGz6--amWGA0kUe2HDME-6862ae3b50640",
+          "caption": "tsakalof 10 A_001.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-uZq2E0nmzoMZZkKs--R-j6--meZiQOwIc-whlunEmjWMw-67c659e71ce13",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-zfsHx3J7B2CxBImnfxNFps0fU1K--n16JrThWpVLWvVQ-680e2d761c3fd",
+          "caption": "2Q6A1414-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-hMe56AL4tIftvC8tkCbZ6--ZAb-2kxgS8zQUvu2mBB6c-680e2d8016fa8",
+          "caption": "2Q6A1348-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-9u9f4bi0bDtgGCo8qKUphTA33--kCXNUQg7eWIWP--yzw-680e2d92aeb0a",
+          "caption": "2Q6A1354-HDR.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-1UWzBVQDe9K81zGzEhoJni4sVAS3itPE9BdVYtZaKP4-68596e54dfc0c",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366426-Vm6c0BJaoehY--aIjRskg2axTYdz5ehWy---WMD5a25j0-68596e5c44daa",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Linens",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Baby crib",
+        "Towels",
+        "Kitchen utensils",
+        "Hot water",
+        "Private entrance",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Room darkening shades",
+        "Toilet",
+        "Free WiFi",
+        "Smart TV",
+        "Body soap",
+        "Rain Shower",
+        "Shower gel",
+        "Clothing storage",
+        "Coffee",
+        "Freezer",
+        "Mini fridge",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.333350+00:00"
+    },
+    {
+      "id": 366949,
+      "name": "Tsakalof 17 Jacuzzi Kolonaki",
+      "description": "This stylish and comfortable apartment is located on Tsakalof & Iraklitou 15, one of the most central areas of Athens, just 5 minutes from Syntagma Square. The apartment blends modern design with practicality, providing an ideal space for short or extended stays.\nIts prime location offers easy access to Athens' top landmarks, cafes, restaurants, and shops. Whether exploring cultural sites or enjoying the vibrant nightlife, everything is within walking distance.",
+      "address": "Tsakalof 17, elevated ground floor, Athina 106 73, Greece",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.97849428,
+      "lng": 23.74026912,
+      "personCapacity": 2,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 1,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-0tVqEpwTXxpyPrwOE5vjQ1wk2wbCTxH7rMXivYb3Tjo-67c6cfefb18f8",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-CSw4Toes7JRbWTnRK2R92kuzYa7gunDZEfOd2J463Fo-67c6cff131d56",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-pvEd1OmTiEso7RJ9KReNzjiezIgIVmbeOsIfVnMIxzU-67c6cfc19fa58",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-057zmOIBCG6eTcBkCZILkwnX6VGq8g3inpI767AhWnA-67c6cfc47f6d6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-Goms-g-jBsvQE5Tv5duvYgnv4f45YLBQY-9iHdLYTQc-67c6cfc61ee2e",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-yQS4--BweudyxgtPWZz2-tIKG-CbYA8VhwZ6D7RPi44g-67c6cfc7ec5a6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-bImZsZv2SK4iygjuBl62x-3oaXMopjAlpeC1L8OLus0-67c6cfcc51886",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-Q2k0NoW4Utpg0VsPMYXtVf7IyZMaAGQcDi1nm48b0RU-67c6cfce5af24",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-tKX0JLte29L0naI3zQJNgtqP19bqfAcELCud--PF6xMA-67c6e9531bbf6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-5PPguvuGjwgtWP1qK86--gF4iJ9XeasElFKkdII8hnXU-67c6e954275a8",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-bQFz6N3gegVe2HOoG-WglbdIinHnpQWoAKzYoIHDb98-67c6cfd41abc1",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-UX8rhLJvuHsKhIm2I9MfOwt9lumafqfo7172kQ4oAdE-67c6cfd54e364",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-3eIBuFc-qE4hAYHgCYyC--iUiJ573aKTjBFgxPwn5nyw-67c6cfd949d24",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-yuYssu2Egtp--As87DgjkOn--db3NovNqnmu7H6WoGRts-67c6e9555ef9f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-HT561iAzd0rTShfS5VFukUPqwKqQPtam--WILTYgT4gE-67c6e95668177",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-f7ZS1cDQoVrsprxC7FOghbiIerLpmojiqzIsDkqSLkc-67c6cfde38d6d",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-dtaCv33Bb3WMuuyDxx04wzwYC9-R9CmSEAtqGqTx53o-67c6cfe116137",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-x1--N9VIfqi09E9-40rlv441xViccJWxBLwsjGPR7Qno-67c6cfe2c4dc8",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-WtV0h04u2G8HAvkbMDHXdB37t55RfQSlDQxy1amuIaI-67c6cfe4bf0e3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-xsk1UXEPFQZ8Iv453V6RoKS9OPi-JFPNe4z-je2z6yQ-67c6cfe82f687",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-zpvnU6hGK7lcScIFhVTrhB51gdGKD74yrm2XQFpqNrQ-67c6cfeb5cf8f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-gBh--r--ujGqBIy2wY1dTjHKIzQtBsdSfJHgCKGgKTvLM-67c6cfee436ec",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366949-uaw1i1WrnsQwLhXnmsNBfk8GzI8joPNY1prBvtj3SkI-6859712fc5b5a",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 24,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.334863+00:00"
+    },
+    {
+      "id": 366404,
+      "name": "Tsakalof Loft Apartment by Zeussuites",
+      "description": "This impressive 65m² loft apartment is located in the prestigious and vibrant neighborhood of Kolonaki, just 5 minutes on foot from Syntagma Square. Situated on a pedestrian street, it is surrounded by boutiques, cafes, and clubs, offering a unique urban experience.\nThe location is perfect for exploring Athens' most iconic landmarks. Syntagma Square is only 7 minutes on foot (600 meters), while the bustling Monastiraki is just 10 minutes on foot (800 meters). The famous Ermou Street, lined with shops and cafes, is 10 minutes on foot (850 meters), and the picturesque Plaka, Athens' historic neighborhood, is 12 minutes on foot (1 km).\nThis apartment is ideal for those who want to experience Athens at its best, with easy access to cultural landmarks, shopping, and the city's vibrant nightlife.",
+      "address": "Tsakalof 10 , 2nd floor",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.9780303,
+      "lng": 23.7407143,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": 65,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-nf00LjZVJMY5Znv9huBSlVGHWL0vL--qxZ8ou6QciYA0-68495752840b4",
+          "caption": "tsakalov 10 loft_013.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-HD4Qli7l2gg9RosnXbaajv2pVI--PhjURdz5YgVPw-Js-67c600ef082a6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-cbKuuymp46qJaRgsNF56lzJzk--XDHXLsuw0eREV0DHU-67c600e55569b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-zGh1u42SMRG--W7xM1-O67h1svYj2Y09jQkSoqpJz5-Q-67c65a662ccbf",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-D2twv5-5oppEBgDeQxuynba8e--EU62bshDa9yNVXl30-67c65a64dafb6",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-kNACjVQ9R5pue0I19j78Z3g6--T4f2zHIo--3O74DORoU-67c65a637e709",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-Of05JLhSjmlkyBgpMk9JdUf6e--1PFigLFul90rGFRW8-67c65a6246504",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-9j0V0VyaBo681pVMyojWDaOSeRImCr1zuujGb6oMbZM-67c65a6098d7f",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-YCBydSgbKrXyBqLEIxX1u7O0xNUUO5FeAWGORc7U5Uk-67c600d5c91fc",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-GRCUbxT1M7DiswziYKtXQ3Lct3vtv9vxNDCBUGelARM-67c600d24e034",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-K96atYNkLrQGox9rcS81E0h2vJJA6wjSq-iblbsFdps-67c65a5c6df49",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-G2b2wCAs7csmktjx5--xfgE9uFseHudtAV-yMEzohrVA-684955c2ca99d",
+          "caption": "tsakalov 10 loft_033.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-wO---qfK4IIwUrRe8ieeCgJermQW--DVjXeU3y5t8--dPQ-684955cc0c467",
+          "caption": "tsakalov 10 loft_003.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-cAYwv5ia5WyJWRaKLBJAEFinzdycl1SjXMQkx9QIvCU-684955d5ccbab",
+          "caption": "tsakalov 10 loft_004.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-iw3XfuFpg-08DsC4jJkmbt00DfNSA2p8AK-7g8buSPo-684955dfb49ab",
+          "caption": "tsakalov 10 loft_005.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-a4Rn-9ObhXKQLk5gQVRPxe01LPkOOpMj7mnJbMQvoRw-684955e9e4e26",
+          "caption": "tsakalov 10 loft_009.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-53EWfE64sZ7P1HnXZ9MHb2odU6FakhuBvmPckkMbIZY-684955f43eb9d",
+          "caption": "tsakalov 10 loft_016.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-nYp--ugsywe2LaNJgmfR3XiNQvpLUGJAkDO1--OrM--E38-684955ff32a51",
+          "caption": "tsakalov 10 loft_023.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-eNj6L5ehR2MvRT-YxPVu0DKP1jPlVNL5jtPO8MUkJok-6849564a23785",
+          "caption": "tsakalov 10 loft_045.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-5ZFiGr1NZbBjOIEhz--IWFR1a--PGg--W--cbhCV7QdeEE8-68495662e7f4a",
+          "caption": "tsakalov 10 loft_047.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-ukyckua9yFhKw56Tczo7WXjBpUVXjjDPP9T5yPipd6I-6849566f4a029",
+          "caption": "tsakalov 10 loft_049.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-B2enjy49aSu6mFUVziAKDo0-c-EpHUgNp33ySeirelo-6849567c549d5",
+          "caption": "tsakalov 10 loft_051.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-3IxfYH9znWA5w7IMNTBzUawpjkpCmTOd9wHJLTxP1NU-68495689dda66",
+          "caption": "tsakalov 10 loft_052.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-gDf--lJ96lRCDeFt7KempFzHOHnwRxa62rpdzHwXmFuw-6849569a91374",
+          "caption": "tsakalov 10 loft_006.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-eF0uIAfheym86tTmpLieeghosVsmrp1hxCaArp1Z3x8-684956a978d90",
+          "caption": "tsakalov 10 loft_053.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-hCkBLZKWDFdtAyG--A0qcLbaO--m0zeGeY6y3B6BvZdIQ-684956b8d6ae5",
+          "caption": "tsakalov 10 loft_008.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-oTitpoMRv3413lK2aQF33RUqxJTaSDcXt1YMDReG50w-684956ce30db2",
+          "caption": "tsakalov 10 loft_002.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404--Lhahyj443S8A5YrHsUhJWkgBp4S0jpuL2--mSV7HJ60-684956dcc82aa",
+          "caption": "tsakalov 10 loft_010.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-D4BxABCwoHhsXbnvmSVBnCWnjN-jQxKiVU8IzPprT9A-684956ec194e0",
+          "caption": "tsakalov 10 loft_011.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-bUoC9GCs7UkVgmSWJlNlJD36HhAW0UwNJQMWrs8Qsns-684956fd576ff",
+          "caption": "tsakalov 10 loft_015.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-JtLqCVv4sunApScY10gLCR2hRlwTYYcX4yXwMHunSGg-6849570e7fdbe",
+          "caption": "tsakalov 10 loft_020.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-YZb98DPgRndo--mde8GMqSOOTYdHpFg7fgbHPZgZSfNE-6849571e3c5f4",
+          "caption": "tsakalov 10 loft_040.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-WDuxf37FK--SdlI0WnYfSQuntbeWVDDRJ-pXv4zZt6k8-6849572e80d3e",
+          "caption": "tsakalov 10 loft_022.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-1XTGIE-LNn1sNezcSdixkAHw0zI3oJ--ITlxM7SGyYFU-684957402fe8d",
+          "caption": "tsakalov 10 loft_043.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366404-ULdTR3UW9Kee5hONdP3QdCPtooyd9hY--Awz8i1Gohy4-68596c5a34862",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Washing Machine",
+        "Elevator",
+        "24-hour checkin",
+        "Hair Dryer",
+        "Heating",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Private living room",
+        "Suitable for children",
+        "Suitable for infants",
+        "Linens",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Baby crib",
+        "Stove",
+        "Towels",
+        "Kitchen utensils",
+        "Hot water",
+        "Private entrance",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Room darkening shades",
+        "Toilet",
+        "Downtown",
+        "Town",
+        "Long term stays allowed",
+        "Enhanced Cleaning Practices",
+        "Contactless Check-In/Out",
+        "Free WiFi",
+        "WiFi speed (50+ Mbps)",
+        "Smart TV",
+        "Body soap",
+        "Conditioner",
+        "Rain Shower",
+        "Shower gel",
+        "Clothing storage",
+        "Coffee",
+        "Mini fridge",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.333210+00:00"
+    },
+    {
+      "id": 366955,
+      "name": "Tsakalof Loft Kolonaki by Zeussuites",
+      "description": "This impressive 65m² loft apartment is located in the prestigious and vibrant neighborhood of Kolonaki, just 5 minutes on foot from Syntagma Square. Situated on a pedestrian street, it is surrounded by boutiques, cafes, and clubs, offering a unique urban experience.\n\nThe location is perfect for exploring Athens' most iconic landmarks. Syntagma Square is only 7 minutes on foot (600 meters), while the bustling Monastiraki is just 10 minutes on foot (800 meters). The famous Ermou Street, lined with shops and cafes, is 10 minutes on foot (850 meters), and the picturesque Plaka, Athens' historic neighborhood, is 12 minutes on foot (1 km).\n\nThis apartment is ideal for those who want to experience Athens at its best, with easy access to cultural landmarks, shopping, and the city's vibrant nightlife.",
+      "address": "Tsakalof 10, 2nd floor, Athina 106 73, Greece",
+      "city": "Athina",
+      "country": "Greece",
+      "lat": 37.97799321,
+      "lng": 23.74066877,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 105,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-9i5IZ8zeQXbtvkgc8MwZ0cNOViE9CT7L5IdJyWA6XJA-67c6cf6dee66d",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-mI7jo9h10WTQ2M4oqr10Wm4Nt60LCYBrDYgrfVX28nw-67c6e93a4a7af",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-taTv9znbTcZjjsN4U5kBMRdZzoZwCRhvDTa---5nw-BY-67c6cf735e2e4",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-UHbksH6uXeCwzsDEbPxSyw20sEjlY5q4Elqfdldmnb4-67c6cf7115add",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-pcT-pibWVF7ubtuCEcT25nTzTagMm8x2ozvMzBI4Iak-67c6cf6c1b306",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-RfTyzmQtU-PDkGW3bTqbWikivMgOefF3hNAu--yApwfo-67c6e936e7e41",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-Ymw87FuqGeKhnk5k4wKzFjr8qsB6VN7u6iWBsgy42Xo-67c6cf689b194",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-TXarBBO17JAlCfH3-E6KwZGvtwOqJIL2FBxBSclJRCw-67c6cf66e7db2",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-2z6h6xpFodOmCajnY0PR1RCRKWCKwLUZNs9DzRL4Itc-67c6e935b710a",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-vuAUkCobLK4oaCvf--nrroZ0nQlOxZebjykKGNcNp0Y0-67c6cf6152b44",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-bzFeMh-NARTu7ZBAOeit5hWAfRpSVRuhFvXuGmsacao-67c6cf58cc9ae",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-urm7DSA9Ca0FU07wi-ylJoCPokRk-CcPohsBvsKLMcw-67c6e934aaac5",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-DHcCOYIpuBsJZLDUULZNP--pOLlPBcT27obV--K8h8gig-67c6e93b3c3f2",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-JE2U9aQATUE1u8tkMyvlALDm08PkL0RZo5Z6Zwvd7fM-6849567828f56",
+          "caption": "tsakalov 10 loft_003.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-AB6jZ3QIZR1hdtIyv6--XS4i0jTnw2PebdojwSLaALMw-6849568480738",
+          "caption": "tsakalov 10 loft_033.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-Xy4V--2patKpDYCQVh4JWXCMWxhv8O9L3Uv3bVMHSdFM-68495690d57dc",
+          "caption": "tsakalov 10 loft_004.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-b-JU1I2Cj1XXeZ5kMoNSHoalIyJI7hf5rqWpJ3cGwsg-6849569da7800",
+          "caption": "tsakalov 10 loft_005.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-BsRAndhtmoOuyyICYibhySfuCCObcxbiEwdiR2nYwVY-684956ac0c65e",
+          "caption": "tsakalov 10 loft_009.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-hUK6QgPkYyRNZJw--ZZoIgLI6qmzdnuMDe0C4mn7tzRo-6849570482b82",
+          "caption": "tsakalov 10 loft_047.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-0gR-yr8MgpSC--WSZvBh-uki3tFNWssKnJQU7QiYnQjM-6849574434d51",
+          "caption": "tsakalov 10 loft_056.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-YnN4J-UL3PPU5te-NXYENwhX8JEm8t7QmvRclvlC--d0-6849575a0a9e0",
+          "caption": "tsakalov 10 loft_006.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-psfZMCWTkuTlqjGONtfLCqFuq--L9HVbzLV-GjmskKw8-684957676dee9",
+          "caption": "tsakalov 10 loft_008.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-CB5rvZRJsZNssmcrspR0UWpRzsPjMyFgU1ggDRqNRZo-684957758976c",
+          "caption": "tsakalov 10 loft_010.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-4dxiyL5BQIu27--kjLLgd4ihJbs76bFdxo45Btlswlr4-68495784355db",
+          "caption": "tsakalov 10 loft_030.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-TophVKUEVmFGX562N5qE2frRg2EUPQ-d--J3eJHLc6TM-6849579255e63",
+          "caption": "tsakalov 10 loft_036.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-LzL78xzKZPTckOQisX--Pss4pidDsGQ7ESHKpTqvpI50-684957a16250f",
+          "caption": "tsakalov 10 loft_041.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-GRQ01PNtuk9zem59RSKm5CSenPikU2xaGB--Dd7I5RRc-684957b1698e3",
+          "caption": "tsakalov 10 loft_001.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-ZORv3iV44arBJhRBouaHJueBmWJi4X-Fp2Rtf8-fVmI-68596c468a91f",
+          "caption": "εικόνα_Viber_2025-06-01_14-28-11-038.jpg"
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-366955-pP9AXCStf8YKxg4NZ6gR3bHxgUUtvSLCYxuqUEoOgq4-68596c545f68f",
+          "caption": "εικόνα_Viber_2025-06-16_15-12-42-008.jpg"
+        }
+      ],
+      "amenities": [
+        "Cable TV",
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Elevator",
+        "24-hour checkin",
+        "Shampoo",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Oven",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Stove",
+        "Refrigerator",
+        "Towels",
+        "Hot water",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Toilet",
+        "Dining area",
+        "Free WiFi",
+        "WiFi speed (50+ Mbps)",
+        "Smart TV",
+        "Dining table",
+        "Body soap",
+        "Rain Shower",
+        "Clothing storage",
+        "Coffee",
+        "Freezer",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 18,
+          "quantity": 1,
+          "bedroomNumber": 1
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 1
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.334946+00:00"
+    },
+    {
+      "id": 479319,
+      "name": "Tsakalof Luxe by Zeus Suites",
+      "description": "Green View in the Heart of Kolonaki -  This stylish apartment is located in the  heart of Kolonaki, one of the most elegant areas of Athens, featuring stylish shops, top-quality cafés & restaurants. Right on Tsakalof Street, Athens’ most iconic pedestrian walkway, known for its atmosphere & charm. Located on the second floor of a well-maintained building, one of the apartment’s standout elements, it’s view of centuries-old trees lining the pedestrian street, an oasis in the heart of the city.\n\n∼ Enjoy the spacious living room which is bathed in natural light thanks to a large window wall. It offers a comfortable setting for relaxation or socializing, with cozy seating and leafy green views.\n∼ Adjacent to the living area is a dining space featuring elegant vintage furniture. The fully equipped open-plan kitchen is modern and practical.\n∼ The generously sized bedroom includes a comfortable double bed and high-quality linens, offering restful nights in a serene atmosphere.\n∼ The apartment comfortably accommodates up to 4 guests, 2 in the main bedroom and 2 more on the convertible sofa bed in the living room.\n\nEnjoy full and exclusive access to the entire apartment – your own private retreat in the heart of the city.\n\nWe are available via the Airbnb chat for anything you may need. \nFor emergencies, feel free to call the number provided in your reservation. \n\nKindly note that messages and requests sent between 22:00 and 09:00am are handled by our automated system.\n\nWhat makes this apartment truly unique is the unexpected calm it offers, right in the middle of one of Athens’ most vibrant and upscale neighborhoods. From the window, your eyes are drawn to the tall, centuries-old trees lining the pedestrian street ∼ a rare green oasis in the urban landscape. \n\nLegend has it that a river once flowed beneath these roots, long before the area became a hub of luxury boutiques and fine dining.\n\nThe location is exceptional: just steps from Kolonaki Square, Evangelismos metro station, Lycabettus Hill, Benaki Museum, and Syntagma. Whether you’re a couple, a solo traveler, or visiting for business, this apartment offers a unique combination of elegance, comfort, and authentic Athenian character.",
+      "address": "Tsakalof 10",
+      "city": "Athens",
+      "country": "Greece",
+      "lat": 37.9780177,
+      "lng": 23.740699,
+      "personCapacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "squareMeters": null,
+      "basePrice": 100,
+      "currency": "USD",
+      "checkInTimeStart": 15,
+      "checkInTimeEnd": null,
+      "checkOutTime": 11,
+      "images": [
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-6NXNaQ0LRQII5-ebybXgqG-wx--nFP4KJVzxDwfttT7Q-69733fe13e593",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-cJzQbKJV1t1VF--f637bMk3--hXqPDTmz-hFmMI5H5fno-69733fe004d63",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-xiJrZymcZix5TQVKf--WidLBY1cFR2ta3DBUc-BRBN4w-697347001b050",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-rybwDLpqfS--FX0GNdsncCmDnQW8nHFGQQuiYyPtaPj4-697346ff141e5",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-SLjwC48L--YEDiK3WNslNreSfgSdA6JLSSG1ZEePfYys-69733fddf125b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-CaBxlK--B5n7a7sZjX-05Zh4A3h5sUKtZA--vD2i05tUM-697346fe2fdc5",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-KjmFcHdX0MGSj--9F2AgK8E31jmumk-WfUS98mrrCcRo-69733fdc83e8b",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-wLTjW4XqglH0mJcxPIl8O049Y-smJX03f3koxMhkEDY-69733fd034f95",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-4tmZalmgjACdF4Opa-xkcBjVksKXdLSvU--oAEYu3EaE-69733fd151618",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-jbleWEUAkbXJYkdlvRHsMVXvRD24ZI7YMEzyiIO-GXU-69733fd2488e4",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-q4Bbk5T7l1GCOoquWt1tT8ihCfojmBpLiZIOMKm6JuE-697346fd4db3c",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-8XhgN-efijR68Jj2jf3--MebYjSlvwnUSce2UAsTs1W0-69733fd3c5a46",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-xJY8UNHh--kc0kDtbw9Ci1LO06vdo--cKoqlbtnTfpzU4-69733fd4d5183",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-E9RL7Ea--xA9QJsZU59eBJKZEWTE-0WQ21yhIJiTgtMM-69733fd6bd5e9",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-hN46iT--IpcZJHkPS0JWuHQAbPF3mniHs-K3zoXdlivU-69733fd7f2937",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-dIF7Mv9W0hhNTbB0XV97hEYjgIqgkovFXkBCvVbbLLU-69733fd92b7f3",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-5twj9ZrVDfi5ai3bY30OCywNcIr-nQvEDuGyiO10--sY-69733fda5f7ed",
+          "caption": ""
+        },
+        {
+          "url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/137274-479319-49qDmH9GwfDXkTs6p521112YfmxwPzP2JCMvGvzRubo-69733fdb4e566",
+          "caption": ""
+        }
+      ],
+      "amenities": [
+        "Internet",
+        "Wireless",
+        "Air conditioning",
+        "Kitchen",
+        "Washing Machine",
+        "Elevator",
+        "Hair Dryer",
+        "Heating",
+        "Smoke detector",
+        "Fire Extinguisher",
+        "Essentials",
+        "Shampoo",
+        "Hangers",
+        "Iron",
+        "TV",
+        "Suitable for children",
+        "Suitable for infants",
+        "Linens",
+        "Oven",
+        "Electric kettle",
+        "Coffee/tea maker",
+        "Refrigerator",
+        "Kitchen utensils",
+        "Hot water",
+        "Extra pillows and blankets",
+        "Cooking basics",
+        "Room darkening shades",
+        "Long term stays allowed",
+        "Dining table",
+        "Body soap",
+        "Shower gel",
+        "Clothing storage",
+        "Drying rack for clothing",
+        "Coffee",
+        "Freezer",
+        "Wine glasses"
+      ],
+      "bedTypes": [
+        {
+          "bedTypeId": 24,
+          "quantity": 1,
+          "bedroomNumber": 0
+        },
+        {
+          "bedTypeId": 30,
+          "quantity": 1,
+          "bedroomNumber": 0
+        }
+      ],
+      "syncedAt": "2026-07-04T21:48:05.336216+00:00"
+    }
+  ]
+}

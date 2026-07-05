@@ -2,7 +2,9 @@
 
 import { useAppPhase } from "@/context/app-phase-context";
 import { useCanvasFocus } from "@/context/canvas-focus-context";
+import { useLocale } from "@/context/locale-context";
 import { useViewMode } from "@/context/view-mode-context";
+import { getRoomLabel } from "@/lib/localized-property";
 import { cn } from "@/lib/utils";
 import type { FloorPlanRoom } from "@/types/property";
 import { useState } from "react";
@@ -20,6 +22,7 @@ export function InteractiveFloorPlan() {
   const { selectedProperty } = useAppPhase();
   const { focusedRoom, setFocusedRoom } = useCanvasFocus();
   const { setMode } = useViewMode();
+  const { locale, t } = useLocale();
   const [activeFloor, setActiveFloor] = useState<1 | 2>(1);
 
   const rooms = selectedProperty.floorPlanRooms.filter((r) => r.floor === activeFloor);
@@ -33,11 +36,15 @@ export function InteractiveFloorPlan() {
     setMode("gallery");
   };
 
+  if (rooms.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-8">
       <div className="mb-4 flex items-center justify-between">
         <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-400">
-          Floor Plan
+          {t.editorial.floorPlan}
         </p>
         <div className="flex gap-1">
           {([1, 2] as const).map((floor) => (
@@ -52,7 +59,7 @@ export function InteractiveFloorPlan() {
                   : "text-neutral-400 hover:text-neutral-600",
               )}
             >
-              Floor {floor}
+              {t.editorial.floor(floor)}
             </button>
           ))}
         </div>
@@ -64,6 +71,10 @@ export function InteractiveFloorPlan() {
           {rooms.map((room) => {
             const isActive = focusedRoom?.id === room.id;
             const center = roomCenter(room.path);
+            const label = room.galleryRoom
+              ? getRoomLabel(locale, room.galleryRoom)
+              : room.label;
+
             return (
               <g key={room.id}>
                 <path
@@ -83,14 +94,14 @@ export function InteractiveFloorPlan() {
                     isActive ? "fill-neutral-800" : "fill-neutral-400",
                   )}
                 >
-                  {room.label}
+                  {label}
                 </text>
               </g>
             );
           })}
         </svg>
         <p className="mt-3 text-center text-[10px] tracking-[0.12em] text-neutral-400 uppercase">
-          Tap a room to move the gallery camera
+          {t.editorial.floorHint}
         </p>
       </div>
     </section>

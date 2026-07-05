@@ -1,6 +1,8 @@
 "use client";
 
+import { useLocale } from "@/context/locale-context";
 import { usePreviewProperty } from "@/hooks/use-preview-property";
+import { getPropertyName } from "@/lib/localized-property";
 import { getAnchorRate } from "@/lib/property-utils";
 import { formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
@@ -12,6 +14,7 @@ type PropertyGridCardProps = {
 
 export function PropertyGridCard({ property }: PropertyGridCardProps) {
   const previewProperty = usePreviewProperty();
+  const { locale, t } = useLocale();
   const anchorRate = getAnchorRate(property);
 
   return (
@@ -19,7 +22,7 @@ export function PropertyGridCard({ property }: PropertyGridCardProps) {
       <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-100">
         <Image
           src={property.previewImage ?? property.image}
-          alt={property.name}
+          alt={getPropertyName(property, locale)}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -43,13 +46,14 @@ export function PropertyGridCard({ property }: PropertyGridCardProps) {
       </div>
 
       <p className="mt-1 text-sm text-neutral-500">
-        {property.beds} Beds • {property.baths} Baths •{" "}
-        {property.sqft.toLocaleString()} sqft
+        {property.beds} {t.editorial.specs.beds} • {property.baths}{" "}
+        {t.editorial.specs.baths} • {property.sqft.toLocaleString()}{" "}
+        {t.editorial.specs.sqft}
       </p>
 
       <p className="mt-2 text-sm text-neutral-800">
         <span className="font-semibold">{formatCurrency(anchorRate)}</span>
-        <span className="text-neutral-400"> / night</span>
+        <span className="text-neutral-400"> {t.editorial.perNight}</span>
       </p>
     </article>
   );

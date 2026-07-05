@@ -1,7 +1,9 @@
 "use client";
 
 import { usePreviewProperty } from "@/hooks/use-preview-property";
+import { useLocale } from "@/context/locale-context";
 import { useSaves } from "@/context/saves-context";
+import { getPropertyName, getLocationDisplay } from "@/lib/localized-property";
 import { getAnchorRate } from "@/lib/property-utils";
 import { cn, formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
@@ -46,6 +48,7 @@ export function CinematicPropertyCard({
 }: CinematicPropertyCardProps) {
   const previewProperty = usePreviewProperty();
   const { isSaved, toggleSave } = useSaves();
+  const { locale } = useLocale();
   const [hovered, setHovered] = useState(false);
   const liked = isSaved(property.id);
   const rate = getAnchorRate(property);
@@ -53,7 +56,10 @@ export function CinematicPropertyCard({
   const handleShare = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (navigator.share) {
-      await navigator.share({ title: property.name, text: property.tagline });
+      await navigator.share({
+        title: getPropertyName(property, locale),
+        text: property.localized[locale].tagline,
+      });
     }
   };
 
@@ -85,7 +91,7 @@ export function CinematicPropertyCard({
       >
         <Image
           src={property.image}
-          alt={property.name}
+          alt={getPropertyName(property, locale)}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
           sizes={isFeatured ? "(max-width: 1024px) 100vw, 80vw" : "(max-width: 1024px) 100vw, 33vw"}
@@ -162,7 +168,7 @@ export function CinematicPropertyCard({
             layout="position"
             className="text-[10px] font-light tracking-[0.2em] text-neutral-200 uppercase"
           >
-            {property.locationDisplay}
+            {getLocationDisplay(property, locale)}
           </motion.p>
 
           <motion.h3
@@ -172,7 +178,7 @@ export function CinematicPropertyCard({
               hovered ? "mt-3 text-2xl sm:text-3xl md:text-4xl" : "mt-1.5 text-lg sm:mt-2 sm:text-xl md:text-2xl",
             )}
           >
-            {property.name}
+            {getPropertyName(property, locale)}
           </motion.h3>
 
           <motion.p

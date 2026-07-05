@@ -77,6 +77,20 @@ type PropertySeed = {
 
 function athensProperty(seed: PropertySeed): Property {
   const locationDisplay = `${seed.neighborhood.toUpperCase()}, ATHENS`;
+  const localized = {
+    en: {
+      name: seed.name,
+      tagline: seed.tagline,
+      description: seed.description,
+      locationDisplay,
+    },
+    el: {
+      name: seed.name,
+      tagline: seed.tagline,
+      description: seed.description,
+      locationDisplay: `${seed.neighborhood.toUpperCase()}, ΑΘΗΝΑ`,
+    },
+  };
   return {
     id: seed.id,
     name: seed.name,
@@ -84,6 +98,14 @@ function athensProperty(seed: PropertySeed): Property {
     locationDisplay,
     tagline: seed.tagline,
     description: seed.description,
+    localized,
+    galleryImages: [
+      {
+        id: `${seed.id}-hero`,
+        url: seed.image,
+        room: "exterior",
+      },
+    ],
     rating: seed.rating,
     reviewCount: seed.reviewCount,
     rent: seed.rent,

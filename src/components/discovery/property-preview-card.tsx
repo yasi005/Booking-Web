@@ -1,5 +1,7 @@
 "use client";
 
+import { useLocale } from "@/context/locale-context";
+import { getPropertyName } from "@/lib/localized-property";
 import { formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
 import { ArrowUpRight } from "lucide-react";
@@ -11,6 +13,8 @@ type PropertyPreviewCardProps = {
 };
 
 export function PropertyPreviewCard({ property, onSelect }: PropertyPreviewCardProps) {
+  const { locale, t } = useLocale();
+
   return (
     <button
       type="button"
@@ -21,7 +25,7 @@ export function PropertyPreviewCard({ property, onSelect }: PropertyPreviewCardP
       <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-zinc-200">
         <Image
           src={property.previewImage ?? property.image}
-          alt={property.name}
+          alt={getPropertyName(property, locale)}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           sizes="(max-width: 768px) 50vw, 25vw"
@@ -33,7 +37,7 @@ export function PropertyPreviewCard({ property, onSelect }: PropertyPreviewCardP
             {property.location}
           </p>
           <h4 className="mt-2 text-lg font-light tracking-tight text-black">
-            {property.name}
+            {getPropertyName(property, locale)}
           </h4>
           <p className="mt-1 text-sm text-black/45">
             {formatCurrency(property.rent)}

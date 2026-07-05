@@ -1,14 +1,16 @@
 "use client";
 
 import { useAppPhase } from "@/context/app-phase-context";
+import { useLocale } from "@/context/locale-context";
 
 export function SpecRow() {
   const { selectedProperty } = useAppPhase();
+  const { t } = useLocale();
 
   const items = [
-    `${selectedProperty.beds} Beds`,
-    `${selectedProperty.baths} Baths`,
-    `${selectedProperty.sqft.toLocaleString()} Sq Ft`,
+    `${selectedProperty.beds} ${t.editorial.specs.beds}`,
+    `${selectedProperty.baths} ${t.editorial.specs.baths}`,
+    `${selectedProperty.sqft.toLocaleString()} ${t.editorial.specs.sqft}`,
   ];
 
   return (

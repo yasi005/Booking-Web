@@ -1,6 +1,6 @@
 "use client";
 
-import { featuredProperty } from "@/data/properties";
+import { PLACEHOLDER_PROPERTY } from "@/lib/placeholder-property";
 import type { Property } from "@/types/property";
 import {
   createContext,
@@ -38,14 +38,20 @@ const AppPhaseContext = createContext<AppPhaseContextValue | null>(null);
 
 export function AppPhaseProvider({ children }: { children: ReactNode }) {
   const [phase, setPhase] = useState<AppPhase>("discovery");
-  const [selectedProperty, setSelectedProperty] = useState<Property>(featuredProperty);
+  const [selectedProperty, setSelectedProperty] = useState<Property>(PLACEHOLDER_PROPERTY);
   const [homeSearchQuery, setHomeSearchQuery] = useState("");
   const [morphingPropertyId, setMorphingPropertyId] = useState<string | null>(null);
 
   const enterMarketplace = useCallback((query?: string) => {
     if (query !== undefined) setHomeSearchQuery(query);
     setMorphingPropertyId(null);
-    setPhase("marketplace");
+    setPhase((current) => {
+      if (current === "marketplace") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return current;
+      }
+      return "marketplace";
+    });
   }, []);
 
   const enterWorkspace = useCallback((property: Property) => {

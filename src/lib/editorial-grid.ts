@@ -1,5 +1,4 @@
 import type { Property } from "@/types/property";
-import { properties as catalogOrder } from "@/data/properties";
 
 export type EditorialLayout = {
   featured: Property | null;
@@ -35,10 +34,6 @@ export function sortProperties(items: Property[], sortBy: SortOption): Property[
     case "rating":
       return copy.sort((a, b) => b.rating - a.rating);
     default:
-      return copy.sort(
-        (a, b) =>
-          catalogOrder.findIndex((p) => p.id === a.id) -
-          catalogOrder.findIndex((p) => p.id === b.id),
-      );
+      return copy.sort((a, b) => a.name.localeCompare(b.name));
   }
 }

@@ -1,7 +1,9 @@
 "use client";
 
 import { usePreviewProperty } from "@/hooks/use-preview-property";
+import { useLocale } from "@/context/locale-context";
 import { useSaves } from "@/context/saves-context";
+import { getLocationDisplay, getPropertyName } from "@/lib/localized-property";
 import { getAnchorRate } from "@/lib/property-utils";
 import { cn, formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
@@ -16,13 +18,17 @@ type MarketplaceListingCardProps = {
 export function MarketplaceListingCard({ property }: MarketplaceListingCardProps) {
   const previewProperty = usePreviewProperty();
   const { isSaved, toggleSave } = useSaves();
+  const { locale, t } = useLocale();
   const liked = isSaved(property.id);
   const rate = getAnchorRate(property);
 
   const handleShare = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (navigator.share) {
-      await navigator.share({ title: property.name, text: property.tagline });
+      await navigator.share({
+        title: getPropertyName(property, locale),
+        text: property.localized[locale].tagline,
+      });
     }
   };
 
@@ -43,7 +49,7 @@ export function MarketplaceListingCard({ property }: MarketplaceListingCardProps
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-neutral-100">
           <Image
             src={property.previewImage ?? property.image}
-            alt={property.name}
+            alt={getPropertyName(property, locale)}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 50vw, 30vw"
@@ -51,7 +57,7 @@ export function MarketplaceListingCard({ property }: MarketplaceListingCardProps
 
           <div className="absolute top-3 right-3 left-3 flex items-center justify-between">
             <span className="rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-neutral-800 backdrop-blur-sm">
-              {property.locationDisplay}
+              {getLocationDisplay(property, locale)}
             </span>
             <div className="flex gap-1.5">
               <span
@@ -93,13 +99,13 @@ export function MarketplaceListingCard({ property }: MarketplaceListingCardProps
         </div>
 
         <p className="mt-1 text-sm text-neutral-500">
-          {property.beds} Beds • {property.baths} Baths •{" "}
-          {property.sqft.toLocaleString()} sqft
+          {property.beds} {t.editorial.specs.beds} • {property.baths} {t.editorial.specs.baths} •{" "}
+          {property.sqft.toLocaleString()} {t.editorial.specs.sqft}
         </p>
 
         <p className="mt-2 text-sm text-neutral-800">
           <span className="font-semibold">{formatCurrency(rate)}</span>
-          <span className="text-neutral-400"> / night</span>
+          <span className="text-neutral-400"> {t.editorial.perNight}</span>
         </p>
       </button>
     </motion.article>

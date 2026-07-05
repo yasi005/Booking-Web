@@ -65,9 +65,9 @@ export function MarketplaceMap({
     <div className="relative h-full min-h-[480px] w-full overflow-hidden rounded-2xl border border-neutral-100">
       <Map
         initialViewState={{
-          longitude: 23.7275,
-          latitude: 37.9838,
-          zoom: 11.2,
+          longitude: 23.742,
+          latitude: 37.978,
+          zoom: 14.5,
           pitch: 0,
           bearing: 0,
         }}

@@ -1,20 +1,26 @@
 "use client";
 
 import { ArchitectureNarrative } from "@/components/editorial/architecture-narrative";
+import { BookingReservePanel } from "@/components/editorial/booking-reserve-panel";
 import { BookingTimeline } from "@/components/editorial/booking-timeline";
 import { EditorialHeaderActions } from "@/components/editorial/editorial-header-actions";
 import { HeritageHeader } from "@/components/editorial/heritage-header";
 import { HostValidationCard } from "@/components/editorial/host-validation-card";
 import { InteractiveFloorPlan } from "@/components/editorial/interactive-floor-plan";
+import { PropertyImageGallery } from "@/components/editorial/property-image-gallery";
 import { SeasonalPriceChart } from "@/components/editorial/seasonal-price-chart";
 import { SpecRow } from "@/components/editorial/spec-row";
+import { useAppPhase } from "@/context/app-phase-context";
+import { useCanvasFocus } from "@/context/canvas-focus-context";
 import { usePreferences } from "@/context/preferences-context";
 import { vibeOverlays, useVibe } from "@/context/vibe-context";
 import { cn } from "@/lib/utils";
 
 export function EditorialPanel() {
+  const { selectedProperty } = useAppPhase();
   const { vibe } = useVibe();
   const { discretionMode } = usePreferences();
+  const { focusedRoom } = useCanvasFocus();
   const panelTint = vibeOverlays[vibe].panelTint;
 
   return (
@@ -37,9 +43,11 @@ export function EditorialPanel() {
           <div className="flex flex-col">
             <HeritageHeader />
             <SpecRow />
+            <PropertyImageGallery activeRoom={focusedRoom?.galleryRoom ?? null} />
             <ArchitectureNarrative />
             <SeasonalPriceChart />
             <BookingTimeline />
+            <BookingReservePanel property={selectedProperty} />
             <InteractiveFloorPlan />
             <HostValidationCard />
           </div>

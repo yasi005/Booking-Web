@@ -1,0 +1,169 @@
+import {
+  AuthRequestError,
+  parseAuthApiError,
+  type AuthErrorContext,
+} from "@/lib/auth-errors";
+
+const AUTH_API = "/backend/api/auth";
+const BACKEND_API = "/backend/api";
+
+export type AuthUser = {
+  id: number;
+  email: string | null;
+  name: string | null;
+  username: string;
+  isVerified: boolean;
+  accountStatus: string;
+};
+
+export type RegisterResult = {
+  status: string;
+  message: string;
+  user: AuthUser;
+  devVerifyCode?: string | null;
+};
+
+async function authFetch<T>(
+  path: string,
+  init?: RequestInit,
+  context?: AuthErrorContext,
+): Promise<T> {
+  const response = await fetch(`${AUTH_API}${path}`, {
+    ...init,
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+      ...(init?.headers ?? {}),
+    },
+  });
+
+  const payload = (await response.json().catch(() => null)) as
+    | { detail?: string; message?: string }
+    | T
+    | null;
+
+  if (!response.ok) {
+    throw new AuthRequestError(parseAuthApiError(payload, response.status, context));
+  }
+
+  return payload as T;
+}
+
+export async function registerUser(input: {
+  email: string;
+  password: string;
+  name: string;
+}): Promise<RegisterResult> {
+  return authFetch<RegisterResult>(
+    "/register",
+    {
+      method: "POST",
+      body: JSON.stringify(input),
+    },
+    "register",
+  );
+}
+
+export async function loginUser(input: {
+  email: string;
+  password: string;
+}): Promise<{ user: AuthUser; requiresVerification: boolean }> {
+  const result = await authFetch<{
+    user: AuthUser;
+    requiresVerification: boolean;
+  }>(
+    "/login",
+    {
+      method: "POST",
+      body: JSON.stringify(input),
+    },
+    "login",
+  );
+  return result;
+}
+
+export async function fetchSession(): Promise<{
+  authenticated: boolean;
+  user?: AuthUser;
+}> {
+  return authFetch("/session");
+}
+
+export async function verifyEmailCode(code: string): Promise<{ status: string; message: string }> {
+  return authFetch(
+    "/verify",
+    {
+      method: "POST",
+      body: JSON.stringify({ code }),
+    },
+    "verify",
+  );
+}
+
+export async function resendVerification(): Promise<{
+  status: string;
+  message: string;
+  devVerifyCode?: string;
+}> {
+  return authFetch("/resend-verification", { method: "POST" }, "resend");
+}
+
+export async function logoutUser(): Promise<void> {
+  await fetch("/backend/logout", { method: "POST", credentials: "include" });
+}
+
+export async function fetchMyBookings(): Promise<{
+  count: number;
+  bookings: Array<{
+    id: number;
+    listing_id: number;
+    check_in_date: string;
+    check_out_date: string;
+    total_price: number;
+    booking_status: string;
+  }>;
+}> {
+  return authFetch("/bookings");
+}
+
+export async function fetchListingAvailability(
+  listingId: string,
+  checkIn: string,
+  checkOut: string,
+): Promise<{ available: boolean; blockedDates: string[]; currency: string }> {
+  const response = await fetch(
+    `${BACKEND_API}/availability/${listingId}?checkInDate=${checkIn}&checkOutDate=${checkOut}`,
+    { cache: "no-store" },
+  );
+  if (!response.ok) {
+    throw new Error("Could not check availability");
+  }
+  return response.json();
+}
+
+export async function createBooking(input: {
+  listingId: number;
+  checkInDate: string;
+  checkOutDate: string;
+  guestFirstName: string;
+  guestLastName: string;
+  guestEmail: string;
+  guestPhone: string;
+  numberOfGuests: number;
+  totalPrice: number;
+  currency?: string;
+}): Promise<{ status: string; totalPrice: number; currency: string }> {
+  const response = await fetch(`${BACKEND_API}/reservations`, {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  });
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) {
+    throw new AuthRequestError(
+      parseAuthApiError(payload, response.status, response.status === 403 ? "login" : undefined),
+    );
+  }
+  return payload;
+}

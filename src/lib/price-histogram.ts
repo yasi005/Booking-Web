@@ -1,14 +1,14 @@
 "use client";
 
-import { properties } from "@/data/properties";
+import { getAllProperties } from "@/lib/property-registry";
 import { getAnchorRate } from "@/lib/property-utils";
 
-const MIN = 2400;
-const MAX = 7000;
+const MIN = 0;
+const MAX = 6500;
 const BUCKETS = 12;
 
 export function buildPriceHistogram() {
-  const rates = properties.map(getAnchorRate);
+  const rates = getAllProperties().map(getAnchorRate);
   const bucketSize = (MAX - MIN) / BUCKETS;
   const counts = Array.from({ length: BUCKETS }, () => 0);
 

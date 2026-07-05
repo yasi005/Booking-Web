@@ -1,5 +1,7 @@
 "use client";
 
+import { useLocale } from "@/context/locale-context";
+import { getPropertyName } from "@/lib/localized-property";
 import { formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
 import { motion } from "framer-motion";
@@ -16,6 +18,8 @@ export function FeaturedPropertyCard({
   onSelect,
   layoutId,
 }: FeaturedPropertyCardProps) {
+  const { locale, t } = useLocale();
+
   return (
     <button
       type="button"
@@ -31,7 +35,7 @@ export function FeaturedPropertyCard({
       >
         <Image
           src={property.image}
-          alt={property.name}
+          alt={getPropertyName(property, locale)}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -42,10 +46,10 @@ export function FeaturedPropertyCard({
             {property.location}
           </p>
           <h3 className="mt-3 text-2xl font-light tracking-tight text-white md:text-3xl">
-            {property.name}
+            {getPropertyName(property, locale)}
           </h3>
           <p className="mt-4 text-lg text-white/80">
-            From{" "}
+            {t.editorial.from}{" "}
             <span className="font-medium text-white">
               {formatCurrency(property.rent)}
             </span>
