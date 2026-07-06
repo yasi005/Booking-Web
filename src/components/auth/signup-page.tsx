@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useTranslation } from "@/context/locale-context";
 import { getAuthErrorMessage } from "@/lib/auth-errors";
@@ -37,8 +38,8 @@ export function SignupPage() {
   return (
     <div className="relative flex min-h-full flex-col bg-[#0b0d10] text-zinc-100">
       <header className="relative z-10 flex items-center justify-between px-6 py-5 sm:px-10">
-        <Link href="/" className="font-serif text-lg tracking-[0.12em] text-white/90">
-          REMAX
+        <Link href="/" className="shrink-0 transition-opacity hover:opacity-80" aria-label="ZEUS home">
+          <BrandLogo size="auth" />
         </Link>
         <LanguageSwitcher variant="hero" />
       </header>

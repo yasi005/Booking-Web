@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useAuth } from "@/context/auth-context";
 import { useTranslation } from "@/context/locale-context";
@@ -44,8 +45,8 @@ function LoginForm() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.14),transparent_42%)]" />
 
       <header className="relative z-10 flex items-center justify-between px-6 py-5 sm:px-10">
-        <Link href="/" className="font-serif text-lg tracking-[0.12em] text-white/90">
-          REMAX
+        <Link href="/" className="shrink-0 transition-opacity hover:opacity-80" aria-label="ZEUS home">
+          <BrandLogo size="auth" />
         </Link>
         <LanguageSwitcher variant="hero" />
       </header>

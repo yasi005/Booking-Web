@@ -3,12 +3,13 @@
 import { GlassHeader } from "@/components/discovery/glass-header";
 import { EditorialPropertyGrid } from "@/components/marketplace/editorial-property-grid";
 import { MarketplaceStickyControls } from "@/components/marketplace/marketplace-sticky-controls";
+import { PropertyPagination } from "@/components/marketplace/property-pagination";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
 import { useMarketplace } from "@/context/marketplace-context";
 import { COLLECTION_BATCH_SIZE } from "@/lib/editorial-grid";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function MarketplacePage() {
   const { homeSearchQuery } = useAppPhase();
@@ -22,21 +23,29 @@ export function MarketplacePage() {
     isLoading,
     loadError,
   } = useMarketplace();
-  const [visibleCount, setVisibleCount] = useState(COLLECTION_BATCH_SIZE);
-  const [previousVisibleCount, setPreviousVisibleCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (homeSearchQuery) setSearchQuery(homeSearchQuery);
   }, [homeSearchQuery, setSearchQuery]);
 
   useEffect(() => {
-    setPreviousVisibleCount(0);
-    setVisibleCount(COLLECTION_BATCH_SIZE);
+    setCurrentPage(1);
   }, [filters, sortBy]);
 
-  const visibleProperties = sortedProperties.slice(0, visibleCount);
-  const hasMore = visibleCount < sortedProperties.length;
+  const totalPages = Math.max(1, Math.ceil(sortedProperties.length / COLLECTION_BATCH_SIZE));
+  const safePage = Math.min(currentPage, totalPages);
+  const pageStart = (safePage - 1) * COLLECTION_BATCH_SIZE;
+  const pageProperties = sortedProperties.slice(pageStart, pageStart + COLLECTION_BATCH_SIZE);
   const total = filteredProperties.length;
+  const visibleStart = total === 0 ? 0 : pageStart + 1;
+  const visibleEnd = Math.min(pageStart + pageProperties.length, total);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -73,41 +82,25 @@ export function MarketplacePage() {
           </div>
         ) : sortedProperties.length > 0 ? (
           <>
-            <div className="py-10 md:py-14 lg:py-16">
-              <EditorialPropertyGrid
-                properties={visibleProperties}
-                revealFromIndex={previousVisibleCount}
-              />
+            <div ref={gridRef} className="scroll-mt-[calc(5.5rem+env(safe-area-inset-top))] py-10 md:py-14 lg:py-16">
+              <EditorialPropertyGrid properties={pageProperties} revealFromIndex={0} />
             </div>
 
-            <div className="border-t border-neutral-100 px-4 py-12 text-center sm:px-8 md:px-12 md:py-16 lg:px-16">
+            <div className="border-t border-neutral-100 px-4 py-10 text-center sm:px-8 md:px-12 md:py-14 lg:px-16">
               <p className="text-[11px] tracking-[0.2em] text-neutral-400 uppercase">
-                {t.marketplace.showing(Math.min(visibleCount, total), total)}
+                {visibleStart === visibleEnd
+                  ? t.marketplace.showing(visibleEnd, total)
+                  : t.marketplace.showingRange(visibleStart, visibleEnd, total)}
+              </p>
+              <p className="mt-2 text-sm text-neutral-500">
+                {t.marketplace.pageOf(safePage, totalPages)}
               </p>
 
-              {hasMore ? (
-                <motion.button
-                  type="button"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  onClick={() => {
-                    setPreviousVisibleCount(visibleCount);
-                    setVisibleCount((count) =>
-                      Math.min(count + COLLECTION_BATCH_SIZE, sortedProperties.length),
-                    );
-                  }}
-                  className="mt-8 font-serif text-xl tracking-tight text-neutral-900 transition hover:text-neutral-600"
-                >
-                  {t.marketplace.viewNext}
-                  <span className="mt-2 block text-[11px] font-sans tracking-[0.18em] text-neutral-400 uppercase">
-                    Chapter {Math.ceil(visibleCount / COLLECTION_BATCH_SIZE) + 1}
-                  </span>
-                </motion.button>
-              ) : (
-                <p className="mt-8 font-serif text-lg text-neutral-400">
-                  {t.marketplace.endOfCollection}
-                </p>
-              )}
+              <PropertyPagination
+                currentPage={safePage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
             </div>
           </>
         ) : (

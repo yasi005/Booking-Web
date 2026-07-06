@@ -3,6 +3,7 @@
 import { loadAllProperties } from "@/lib/backend-api";
 import { filterProperties, type MarketplaceFilters } from "@/lib/marketplace-filters";
 import { sortProperties, type SortOption } from "@/lib/editorial-grid";
+import { getCatalogPriceBounds } from "@/lib/price-histogram";
 import { getAllProperties, setPropertyCatalog } from "@/lib/property-registry";
 import type { Property } from "@/types/property";
 import {
@@ -15,15 +16,19 @@ import {
   type ReactNode,
 } from "react";
 
-const DEFAULT_FILTERS: MarketplaceFilters = {
+const BASE_FILTERS: Omit<MarketplaceFilters, "priceRange"> = {
   searchQuery: "",
-  priceRange: [0, 6500],
   season: null,
   propertyTypes: [],
   infinityPool: false,
   privateHelipad: false,
   automatedConcierge: false,
 };
+
+function createDefaultFilters(catalog: Property[]): MarketplaceFilters {
+  const { min, max } = getCatalogPriceBounds(catalog);
+  return { ...BASE_FILTERS, priceRange: [min, max] };
+}
 
 type MarketplaceContextValue = {
   filters: MarketplaceFilters;
@@ -36,6 +41,7 @@ type MarketplaceContextValue = {
   resetFilters: () => void;
   sortBy: SortOption;
   setSortBy: (sort: SortOption) => void;
+  defaultPriceRange: [number, number];
   filteredProperties: Property[];
   sortedProperties: Property[];
   allProperties: Property[];
@@ -46,7 +52,9 @@ type MarketplaceContextValue = {
 const MarketplaceContext = createContext<MarketplaceContextValue | null>(null);
 
 export function MarketplaceProvider({ children }: { children: ReactNode }) {
-  const [filters, setFilters] = useState<MarketplaceFilters>(DEFAULT_FILTERS);
+  const [filters, setFilters] = useState<MarketplaceFilters>(() =>
+    createDefaultFilters([]),
+  );
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -77,6 +85,17 @@ export function MarketplaceProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const catalog = useMemo(() => getAllProperties(), [catalogTick, isLoading]);
+
+  const defaultPriceRange = useMemo((): [number, number] => {
+    const { min, max } = getCatalogPriceBounds(catalog);
+    return [min, max];
+  }, [catalog]);
+
+  useEffect(() => {
+    if (catalog.length === 0) return;
+    const { min, max } = getCatalogPriceBounds(catalog);
+    setFilters((current) => ({ ...current, priceRange: [min, max] }));
+  }, [catalogTick, catalog.length]);
 
   const setSearchQuery = useCallback((searchQuery: string) => {
     setFilters((f) => ({ ...f, searchQuery }));
@@ -113,7 +132,9 @@ export function MarketplaceProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const resetFilters = useCallback(() => setFilters(DEFAULT_FILTERS), []);
+  const resetFilters = useCallback(() => {
+    setFilters(createDefaultFilters(catalog));
+  }, [catalog]);
 
   const filteredProperties = useMemo(
     () => filterProperties(catalog, filters),
@@ -137,6 +158,7 @@ export function MarketplaceProvider({ children }: { children: ReactNode }) {
       resetFilters,
       sortBy,
       setSortBy,
+      defaultPriceRange,
       filteredProperties,
       sortedProperties,
       allProperties: catalog,
@@ -153,6 +175,7 @@ export function MarketplaceProvider({ children }: { children: ReactNode }) {
       toggleVip,
       resetFilters,
       sortBy,
+      defaultPriceRange,
       filteredProperties,
       sortedProperties,
       catalog,

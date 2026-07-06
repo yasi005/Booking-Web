@@ -1,6 +1,6 @@
 "use client";
 
-import { vibeOverlays, useVibe } from "@/context/vibe-context";
+import { vibeOverlays } from "@/context/vibe-context";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useCanvasFocus } from "@/context/canvas-focus-context";
 import { useLocale } from "@/context/locale-context";
@@ -21,10 +21,9 @@ const FALLBACK_IMAGE =
 
 export function GalleryCanvas() {
   const { selectedProperty } = useAppPhase();
-  const { vibe, setVibe } = useVibe();
   const { focusedRoom } = useCanvasFocus();
   const { locale, t } = useLocale();
-  const overlay = vibeOverlays[vibe];
+  const overlay = vibeOverlays.golden;
   const rate = getAnchorRate(selectedProperty);
   const [failedUrls, setFailedUrls] = useState<Set<string>>(new Set());
   const [activeIndex, setActiveIndex] = useState(0);
@@ -61,11 +60,11 @@ export function GalleryCanvas() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col p-3 sm:p-4 md:p-6">
-      <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[20px] bg-zinc-900 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.45)] sm:rounded-[28px]">
+    <div className="flex h-full w-full min-h-0 flex-col p-2 sm:p-4 md:p-6">
+      <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl bg-zinc-900 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.45)] sm:rounded-[28px]">
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="relative h-[115%] w-[115%] -left-[7.5%] -top-[7.5%]"
+            className="relative h-full w-full sm:h-[115%] sm:w-[115%] sm:-left-[7.5%] sm:-top-[7.5%]"
             animate={{
               x: `${panX}%`,
               y: `${panY}%`,
@@ -82,7 +81,7 @@ export function GalleryCanvas() {
               priority
               className="object-cover"
               style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
-              sizes="(max-width: 1200px) 60vw, 55vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1200px) 60vw, 55vw"
               onError={() => {
                 if (current?.url) {
                   setFailedUrls((prev) => new Set(prev).add(current.url));
@@ -92,17 +91,13 @@ export function GalleryCanvas() {
           </motion.div>
         </div>
 
-        <motion.div
-          key={vibe}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+        <div
           className={cn(
             "pointer-events-none absolute inset-0 transition-colors duration-700",
             overlay.overlay,
           )}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
 
         {focusedRoom && (
           <motion.div
@@ -111,7 +106,7 @@ export function GalleryCanvas() {
             animate={{ opacity: 1, scale: 1 }}
             className="pointer-events-none absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
           >
-            <span className="rounded-full border border-white/25 bg-black/35 px-4 py-2 text-[10px] tracking-[0.2em] text-white/90 uppercase backdrop-blur-md">
+            <span className="rounded-full border border-white/25 bg-black/35 px-3 py-1.5 text-[9px] tracking-[0.18em] text-white/90 uppercase backdrop-blur-md sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.2em]">
               {focusedRoom.galleryRoom
                 ? getRoomLabel(locale, focusedRoom.galleryRoom)
                 : focusedRoom.label}
@@ -124,7 +119,7 @@ export function GalleryCanvas() {
             <button
               type="button"
               onClick={() => step(-1)}
-              className="absolute top-1/2 left-3 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md sm:left-5"
+              className="absolute top-1/2 left-2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/35 text-sm text-white backdrop-blur-md sm:left-5 sm:h-9 sm:w-9"
               aria-label={t.gallery.previous}
             >
               ‹
@@ -132,7 +127,7 @@ export function GalleryCanvas() {
             <button
               type="button"
               onClick={() => step(1)}
-              className="absolute top-1/2 right-3 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md sm:right-5"
+              className="absolute top-1/2 right-2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/35 text-sm text-white backdrop-blur-md sm:right-5 sm:h-9 sm:w-9"
               aria-label={t.gallery.next}
             >
               ›
@@ -140,55 +135,38 @@ export function GalleryCanvas() {
           </>
         )}
 
-        <div className="absolute top-4 right-4 z-10 flex max-w-[calc(100%-2rem)] flex-wrap justify-end gap-1 rounded-full border border-white/15 bg-black/30 p-1 backdrop-blur-md sm:top-6 sm:right-6">
-          {(["golden", "midnight", "misty"] as const).map((key) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => setVibe(key)}
-              className={cn(
-                "rounded-full px-3 py-1.5 text-[10px] tracking-wide text-white/70 transition",
-                vibe === key && "bg-white/20 text-white",
-              )}
-            >
-              {vibeOverlays[key].emoji}{" "}
-              {key === "golden" ? t.gallery.day : key === "midnight" ? t.gallery.night : t.gallery.rain}
-            </button>
-          ))}
-        </div>
-
         {displayImages.length > 1 && (
-          <div className="absolute top-16 right-4 left-4 z-10 flex gap-2 overflow-x-auto pb-1 sm:top-20 sm:right-6 sm:left-6">
+          <div className="absolute top-3 right-3 left-3 z-10 flex gap-1.5 overflow-x-auto pb-1 scrollbar-none sm:top-6 sm:right-6 sm:left-6 sm:gap-2">
             {displayImages.slice(0, 12).map((image, index) => (
               <button
                 key={image.id}
                 type="button"
                 onClick={() => setActiveIndex(index)}
                 className={cn(
-                  "relative h-12 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition",
+                  "relative h-10 w-14 shrink-0 overflow-hidden rounded-md border-2 transition sm:h-12 sm:w-16 sm:rounded-lg",
                   index === activeIndex ? "border-white" : "border-white/20 opacity-70",
                 )}
               >
-                <Image src={image.url} alt="" fill className="object-cover" sizes="64px" />
+                <Image src={image.url} alt="" fill className="object-cover" sizes="56px" />
               </button>
             ))}
           </div>
         )}
 
-        <div className="absolute right-6 bottom-6 left-6 z-10 sm:right-10 sm:bottom-10 sm:left-10">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-white/70">
+        <div className="absolute right-4 bottom-[4.5rem] left-4 z-10 sm:right-10 sm:bottom-10 sm:left-10">
+          <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white/70 sm:mb-3 sm:text-xs sm:tracking-[0.28em]">
             {getLocationDisplay(selectedProperty, locale)}
           </p>
-          <h1 className="max-w-xl font-serif text-3xl font-normal tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h1 className="max-w-xl font-serif text-2xl font-normal tracking-tight text-white sm:text-4xl md:text-5xl">
             {getPropertyName(selectedProperty, locale)}
           </h1>
-          <p className="mt-4 text-2xl font-light text-white sm:mt-6 sm:text-3xl md:text-4xl">
+          <p className="mt-2 text-lg font-light text-white sm:mt-6 sm:text-3xl md:text-4xl">
             {t.editorial.from}{" "}
             <span className="font-medium">{formatCurrency(rate)}</span>
-            <span className="text-lg text-white/60"> {t.editorial.perNight}</span>
+            <span className="text-sm text-white/60 sm:text-lg"> {t.editorial.perNight}</span>
           </p>
           {current && (
-            <p className="mt-2 text-xs tracking-[0.16em] text-white/55 uppercase">
+            <p className="mt-1.5 text-[10px] tracking-[0.14em] text-white/55 uppercase sm:mt-2 sm:text-xs sm:tracking-[0.16em]">
               {getRoomLabel(locale, current.room)} · {t.gallery.photoOf(activeIndex + 1, displayImages.length)}
             </p>
           )}

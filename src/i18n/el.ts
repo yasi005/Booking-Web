@@ -29,6 +29,40 @@ export const el: TranslationKey = {
     viewNext: "Επόμενη Συλλογή",
     showing: (visible: number, total: number) =>
       `Εμφάνιση ${visible} από ${total} ${total === 1 ? "Κατοικία" : "Κατοικίες"}`,
+    showingRange: (start: number, end: number, total: number) =>
+      `Εμφάνιση ${start}–${end} από ${total} ${total === 1 ? "Κατοικία" : "Κατοικίες"}`,
+    pageOf: (page: number, totalPages: number) => `Σελίδα ${page} από ${totalPages}`,
+    estate: "Κατοικία",
+    estates: "Κατοικίες",
+    filters: {
+      title: "Φίλτρα",
+      subtitle: "Βελτιώστε την αναζήτηση",
+      open: "Φίλτρα",
+      close: "Κλείσιμο φίλτρων",
+      apply: "Εμφάνιση αποτελεσμάτων",
+      showResults: (count: number) =>
+        `Εμφάνιση ${count} ${count === 1 ? "κατοικίας" : "κατοικιών"}`,
+      reset: "Επαναφορά",
+      sort: "Ταξινόμηση",
+      budget: "Προϋπολογισμός",
+      budgetDistribution: "Κατανομή τιμών ανά βράδυ",
+      season: "Εποχή",
+      architecture: "Αρχιτεκτονική",
+      amenities: "Παροχές",
+      perNight: "/ βράδυ",
+      budgetMin: "Ελάχιστος προϋπολογισμός ανά βράδυ",
+      budgetMax: "Μέγιστος προϋπολογισμός ανά βράδυ",
+      allSeasons: "Όλες οι εποχές",
+      allArchitecture: "Όλες οι κατηγορίες",
+      activeCount: (count: number) =>
+        `${count} ενεργό${count === 1 ? "" : "ά"} φίλτρο`,
+    },
+    pagination: {
+      label: "Σελίδες ακινήτων",
+      previous: "Προηγούμενη",
+      next: "Επόμενη",
+      page: (page: number) => `Μετάβαση στη σελίδα ${page}`,
+    },
   },
   editorial: {
     experience: "Η Εμπειρία",

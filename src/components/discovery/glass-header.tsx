@@ -2,6 +2,7 @@
 
 import { MobileHeaderMenu } from "@/components/discovery/mobile-header-menu";
 import { HeaderAuthActions } from "@/components/auth/header-auth-actions";
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
@@ -90,12 +91,10 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
         <button
           type="button"
           onClick={handleLogoClick}
-          className={cn(
-            "font-serif text-lg tracking-[0.12em] transition-opacity hover:opacity-70 sm:text-xl",
-            onHero && !scrolled ? "text-white" : onHero ? "text-white" : "text-neutral-900",
-          )}
+          className="shrink-0 transition-opacity hover:opacity-80"
+          aria-label="ZEUS home"
         >
-          REMAX
+          <BrandLogo size="header" priority />
         </button>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">

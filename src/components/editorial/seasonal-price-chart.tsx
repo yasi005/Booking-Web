@@ -1,8 +1,13 @@
 "use client";
 
 import { useAppPhase } from "@/context/app-phase-context";
-import { getSeasonalChartData } from "@/lib/property-utils";
+import {
+  formatSeasonalAxisTick,
+  getSeasonalChartData,
+  getSeasonalChartYDomain,
+} from "@/lib/property-utils";
 import { formatCurrency } from "@/lib/utils";
+import { useMemo } from "react";
 import {
   CartesianGrid,
   Line,
@@ -41,6 +46,9 @@ function SeasonalTooltip({
 export function SeasonalPriceChart() {
   const { selectedProperty } = useAppPhase();
   const data = getSeasonalChartData(selectedProperty);
+  const rates = useMemo(() => data.map((point) => point.rate), [data]);
+  const yDomain = useMemo(() => getSeasonalChartYDomain(rates), [rates]);
+  const chartMax = yDomain[1];
 
   return (
     <section className="border-b border-neutral-100 py-8">
@@ -74,10 +82,10 @@ export function SeasonalPriceChart() {
             <YAxis
               axisLine={false}
               tickLine={false}
-              domain={[2400, 7000]}
+              domain={yDomain}
               tick={{ fill: "rgba(0,0,0,0.35)", fontSize: 10 }}
-              tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
-              width={36}
+              tickFormatter={(value) => formatSeasonalAxisTick(Number(value), chartMax)}
+              width={chartMax < 200 ? 40 : 44}
             />
             <Tooltip
               cursor={{

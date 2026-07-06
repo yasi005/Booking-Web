@@ -2,7 +2,7 @@
 
 import { useMarketplace } from "@/context/marketplace-context";
 import { PROPERTY_TYPE_LABELS, SEASON_LABELS } from "@/lib/marketplace-filters";
-import { buildPriceHistogram, PRICE_MAX, PRICE_MIN } from "@/lib/price-histogram";
+import { buildPriceHistogram, getPriceRangeMinGap, getPriceStep } from "@/lib/price-histogram";
 import type { PropertyType, TravelSeason } from "@/types/property";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -34,8 +34,12 @@ const panelMotion = {
 };
 
 function BudgetPanel() {
-  const { filters, setPriceRange } = useMarketplace();
-  const histogram = useMemo(() => buildPriceHistogram(), []);
+  const { filters, setPriceRange, allProperties, defaultPriceRange } = useMarketplace();
+  const [priceMin, priceMax] = defaultPriceRange;
+  const step = getPriceStep(priceMin, priceMax);
+  const minGap = getPriceRangeMinGap(priceMin, priceMax);
+  const rangeSpan = Math.max(priceMax - priceMin, 1);
+  const histogram = useMemo(() => buildPriceHistogram(allProperties), [allProperties]);
   const [min, max] = filters.priceRange;
 
   return (
@@ -65,34 +69,34 @@ function BudgetPanel() {
           <div
             className="absolute inset-y-0 rounded-full bg-neutral-900 transition-all duration-150"
             style={{
-              left: `${((min - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100}%`,
-              right: `${100 - ((max - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * 100}%`,
+              left: `${((min - priceMin) / rangeSpan) * 100}%`,
+              right: `${100 - ((max - priceMin) / rangeSpan) * 100}%`,
             }}
           />
         </div>
 
         <input
           type="range"
-          min={PRICE_MIN}
-          max={PRICE_MAX}
-          step={100}
+          min={priceMin}
+          max={priceMax}
+          step={step}
           value={min}
           onChange={(e) => {
             const next = Number(e.target.value);
-            setPriceRange([Math.min(next, max - 200), max]);
+            setPriceRange([Math.min(next, max - minGap), max]);
           }}
           className="luxury-range absolute inset-x-0 top-2 z-10 h-4 w-full cursor-pointer appearance-none bg-transparent"
           aria-label="Minimum budget"
         />
         <input
           type="range"
-          min={PRICE_MIN}
-          max={PRICE_MAX}
-          step={100}
+          min={priceMin}
+          max={priceMax}
+          step={step}
           value={max}
           onChange={(e) => {
             const next = Number(e.target.value);
-            setPriceRange([min, Math.max(next, min + 200)]);
+            setPriceRange([min, Math.max(next, min + minGap)]);
           }}
           className="luxury-range absolute inset-x-0 top-2 z-20 h-4 w-full cursor-pointer appearance-none bg-transparent"
           aria-label="Maximum budget"
@@ -226,12 +230,14 @@ function PanelContent({ panel }: { panel: Panel }) {
 }
 
 export function MarketplaceFilterBar() {
-  const { filters, resetFilters, filteredProperties, allProperties } = useMarketplace();
+  const { filters, resetFilters, filteredProperties, allProperties, defaultPriceRange } =
+    useMarketplace();
   const [openPanel, setOpenPanel] = useState<Panel | null>(null);
   const barRef = useRef<HTMLDivElement>(null);
 
   const hasBudgetFilter =
-    filters.priceRange[0] !== 2400 || filters.priceRange[1] !== 6800;
+    filters.priceRange[0] !== defaultPriceRange[0] ||
+    filters.priceRange[1] !== defaultPriceRange[1];
   const hasSeasonFilter = filters.season !== null;
   const hasArchFilter = filters.propertyTypes.length > 0;
   const hasAmenityFilter =

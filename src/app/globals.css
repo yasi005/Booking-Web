@@ -35,6 +35,13 @@ body.luxury-cursor * {
   box-shadow: none;
   border-radius: 0;
   pointer-events: auto;
+  max-width: calc(100vw - 2.5rem);
+}
+
+@media (min-width: 640px) {
+  .map-property-popup .maplibregl-popup-content {
+    max-width: none;
+  }
 }
 
 .map-property-popup.maplibregl-popup {

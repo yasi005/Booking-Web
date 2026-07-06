@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/brand/brand-logo";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -33,9 +34,10 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between px-8 md:px-12 lg:px-16">
         <Link
           href="#"
-          className="font-serif text-xl tracking-[0.12em] text-neutral-900 transition-opacity hover:opacity-70"
+          className="shrink-0 transition-opacity hover:opacity-80"
+          aria-label="ZEUS home"
         >
-          REMAX
+          <BrandLogo size="header" />
         </Link>
 
         <nav

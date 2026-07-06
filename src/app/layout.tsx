@@ -19,13 +19,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "REMAX Luxury Estates | Athens Collection",
+  title: "ZEUS | Athens Furnished Apartments",
   description:
-    "An immersive luxury real estate experience hub featuring cinematic gallery views, interactive mapping, and market analytics.",
+    "Better than home. Discover furnished Athens residences with map-first exploration and live Hostaway availability.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://book.vercel.app"),
   openGraph: {
-    title: "REMAX Luxury Estates",
-    description: "Discover exceptional Athens residences with map-first exploration.",
+    title: "ZEUS",
+    description: "Better than home. Discover exceptional Athens residences.",
     type: "website",
   },
 };
