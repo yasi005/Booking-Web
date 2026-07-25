@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    // Next 16 requires quality values to be allowlisted; 90 is for the hero slider.
+    qualities: [75, 90],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",

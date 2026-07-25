@@ -39,7 +39,11 @@ export function MobileHeaderMenu({ onHero = false }: MobileHeaderMenuProps) {
         }
         break;
       case "properties":
-        enterMarketplace();
+        if (phase === "discovery") {
+          document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          enterMarketplace();
+        }
         break;
       case "projects":
       case "market":

@@ -10,6 +10,26 @@ type ListingsPayload = {
   listings: CachedHostawayListing[];
 };
 
+function hasListingImage(listing: CachedHostawayListing): boolean {
+  return (listing.images ?? []).some((image) => Boolean(image.url));
+}
+
+/** Keep one property per Hostaway id; drop image-less listings (shared Unsplash fallback). */
+function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
+  const seen = new Set<number>();
+  const properties: Property[] = [];
+
+  for (const listing of listings) {
+    if (listing.published === false) continue;
+    if (!hasListingImage(listing)) continue;
+    if (seen.has(listing.id)) continue;
+    seen.add(listing.id);
+    properties.push(mapHostawayListingToProperty(listing));
+  }
+
+  return properties;
+}
+
 export async function fetchAllListingsFromApi(): Promise<Property[]> {
   const response = await fetch(`${BACKEND_API}/listings`, { cache: "no-store" });
   if (!response.ok) {
@@ -17,27 +37,12 @@ export async function fetchAllListingsFromApi(): Promise<Property[]> {
   }
 
   const payload = (await response.json()) as ListingsPayload;
-  return payload.listings.map(mapHostawayListingToProperty);
+  return toUniqueCatalog(payload.listings ?? []);
 }
 
-export async function fetchAllListingsFromFile(): Promise<Property[]> {
-  const response = await fetch("/all-hostaway-listings.json");
-  if (!response.ok) {
-    throw new Error("All listings file not found");
-  }
-
-  const payload = (await response.json()) as ListingsPayload;
-  return payload.listings
-    .filter((listing) => listing.published !== false)
-    .map(mapHostawayListingToProperty);
-}
-
+/** Backend-only catalog — no static demo / JSON fallback. */
 export async function loadAllProperties(): Promise<Property[]> {
-  try {
-    return await fetchAllListingsFromApi();
-  } catch {
-    return fetchAllListingsFromFile();
-  }
+  return fetchAllListingsFromApi();
 }
 
 export type CalendarDay = {
@@ -68,8 +73,4 @@ export async function loadKolonakiProperties(): Promise<Property[]> {
 
 export async function fetchKolonakiListingsFromApi(): Promise<Property[]> {
   return fetchAllListingsFromApi();
-}
-
-export async function fetchKolonakiListingsFromFile(): Promise<Property[]> {
-  return fetchAllListingsFromFile();
 }

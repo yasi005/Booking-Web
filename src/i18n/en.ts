@@ -15,6 +15,13 @@ export const en = {
     explore: "Explore Properties",
     planJourney: "Plan Your Journey",
   },
+  homeProperties: {
+    eyebrow: "Our Collection",
+    title: "Our homes",
+    subtitle: "Tap a home to see photos and book your stay.",
+    viewAll: "See all",
+    perNight: " / night",
+  },
   marketplace: {
     eyebrow: "Hostaway Collection · Live inventory",
     title: "Luxury residences across Athens",

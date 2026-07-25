@@ -2,10 +2,11 @@
 
 import { GlassHeader } from "@/components/discovery/glass-header";
 import { HeritageAbout } from "@/components/discovery/heritage-about";
+import { HeroSlider } from "@/components/discovery/hero-slider";
+import { HomePropertiesSection } from "@/components/discovery/home-properties-section";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
 import { Search } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 export function CinematicHome() {
@@ -21,14 +22,7 @@ export function CinematicHome() {
   return (
     <div className="bg-white text-neutral-900">
       <section className="relative min-h-dvh w-full overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80"
-          alt="Ultra-luxury villa destination"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
+        <HeroSlider />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/55" />
 
         <GlassHeader variant="hero" />
@@ -42,7 +36,7 @@ export function CinematicHome() {
           </h1>
 
           <div className="mt-10 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:items-center">
-            <div className="relative flex-1">
+            {/* <div className="relative flex-1">
               <Search className="absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-neutral-400" />
               <input
                 type="text"
@@ -52,7 +46,7 @@ export function CinematicHome() {
                 placeholder={t.hero.searchPlaceholder}
                 className="w-full rounded-full border border-white/20 bg-white/95 py-3.5 pr-4 pl-11 text-sm text-neutral-800 outline-none placeholder:text-neutral-400 focus:border-white/40"
               />
-            </div>
+            </div> */}
             <button
               type="button"
               onClick={handleExplore}
@@ -72,6 +66,7 @@ export function CinematicHome() {
         </div>
       </section>
 
+      <HomePropertiesSection />
       <HeritageAbout />
     </div>
   );

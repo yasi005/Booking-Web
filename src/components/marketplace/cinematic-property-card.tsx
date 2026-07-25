@@ -85,7 +85,10 @@ export function CinematicPropertyCard({
         onMouseLeave={() => setHovered(false)}
         className={cn(
           "group relative block w-full overflow-hidden rounded-[24px] bg-neutral-900 text-left sm:rounded-[28px] lg:rounded-[32px]",
-          isFeatured ? "aspect-[16/11] sm:aspect-[16/10] lg:aspect-[2.2/1]" : "aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5]",
+          // Same portrait ratio on phone so the featured card matches the list; wide only from sm up.
+          isFeatured
+            ? "aspect-[4/5] sm:aspect-[16/10] lg:aspect-[2.2/1]"
+            : "aspect-[4/5] sm:aspect-[5/6] lg:aspect-[4/5]",
         )}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
       >

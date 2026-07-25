@@ -1,9 +1,43 @@
 "use client";
 
+import { useLocale } from "@/context/locale-context";
+import { useMarketplace } from "@/context/marketplace-context";
+import { getPropertyName } from "@/lib/localized-property";
+import { sortProperties } from "@/lib/editorial-grid";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const FALLBACK_IMAGE =
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80";
+
+function pickAboutImages(
+  properties: ReturnType<typeof useMarketplace>["allProperties"],
+  locale: ReturnType<typeof useLocale>["locale"],
+) {
+  const sorted = sortProperties(properties, "featured");
+  const [first, second, third] = sorted;
+
+  return [
+    {
+      src: first?.image ?? FALLBACK_IMAGE,
+      alt: first ? getPropertyName(first, locale) : "Featured residence",
+    },
+    {
+      src: second?.previewImage ?? second?.image ?? first?.previewImage ?? FALLBACK_IMAGE,
+      alt: second ? getPropertyName(second, locale) : "Residence detail",
+    },
+    {
+      src: third?.image ?? second?.image ?? FALLBACK_IMAGE,
+      alt: third ? getPropertyName(third, locale) : "Luxury estate exterior",
+    },
+  ] as const;
+}
+
 export function HeritageAbout() {
+  const { locale } = useLocale();
+  const { allProperties } = useMarketplace();
+  const aboutImages = pickAboutImages(allProperties, locale);
+
   return (
     <section id="projects" className="scroll-mt-24 bg-[#f5f4f1] py-24 md:py-32">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-8 md:grid-cols-12 md:gap-20 md:px-16">
@@ -40,8 +74,8 @@ export function HeritageAbout() {
         >
           <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-[32px] bg-neutral-200">
             <Image
-              src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"
-              alt="Editorial architectural interior"
+              src={aboutImages[0].src}
+              alt={aboutImages[0].alt}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 55vw"
@@ -49,8 +83,8 @@ export function HeritageAbout() {
           </div>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-neutral-200">
             <Image
-              src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80"
-              alt="Architectural detail"
+              src={aboutImages[1].src}
+              alt={aboutImages[1].alt}
               fill
               className="object-cover"
               sizes="40vw"
@@ -58,8 +92,8 @@ export function HeritageAbout() {
           </div>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-neutral-200 md:mt-12">
             <Image
-              src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
-              alt="Luxury estate exterior"
+              src={aboutImages[2].src}
+              alt={aboutImages[2].alt}
               fill
               className="object-cover"
               sizes="40vw"

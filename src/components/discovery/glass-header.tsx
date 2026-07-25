@@ -46,7 +46,11 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
         }
         break;
       case "properties":
-        enterMarketplace();
+        if (phase === "discovery") {
+          document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          enterMarketplace();
+        }
         break;
       case "projects":
       case "market":
@@ -94,7 +98,7 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
           className="shrink-0 transition-opacity hover:opacity-80"
           aria-label="ZEUS home"
         >
-          <BrandLogo size="header" priority />
+          <BrandLogo size="header" tone={onHero ? "light" : "dark"} priority />
         </button>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">

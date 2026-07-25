@@ -17,6 +17,13 @@ export const el: TranslationKey = {
     explore: "Εξερεύνηση Ακινήτων",
     planJourney: "Οργανώστε το Ταξίδι σας",
   },
+  homeProperties: {
+    eyebrow: "Η Συλλογή μας",
+    title: "Τα σπίτια μας",
+    subtitle: "Πατήστε ένα σπίτι για φωτογραφίες και κράτηση.",
+    viewAll: "Όλα",
+    perNight: " / βράδυ",
+  },
   marketplace: {
     eyebrow: "Συλλογή Hostaway · Ζωντανά",
     title: "Πολυτελείς κατοικίες στην Αθήνα",
