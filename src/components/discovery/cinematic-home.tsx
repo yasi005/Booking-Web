@@ -22,23 +22,21 @@ export function CinematicHome() {
 
         <GlassHeader variant="hero" />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-4 pb-[max(3.5rem,env(safe-area-inset-bottom))] pt-24 sm:px-6 sm:pb-20 sm:pt-32">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-4 pb-[max(3.5rem,env(safe-area-inset-bottom))] pt-24 text-center sm:px-6 sm:pb-20 sm:pt-32">
           <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.28em] text-white/60 sm:mb-4 sm:text-[11px] sm:tracking-[0.32em]">
             {t.hero.eyebrow}
           </p>
-          <h1 className="max-w-3xl text-center font-serif text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-6xl">
+          <h1 className="max-w-3xl font-serif text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-6xl">
             {t.hero.title}
           </h1>
 
-          <div className="mt-10 flex w-full justify-center">
-            <button
-              type="button"
-              onClick={handleExplore}
-              className="rounded-full bg-neutral-950 px-10 py-3.5 text-sm font-medium tracking-wide text-white transition hover:bg-neutral-800"
-            >
-              {t.hero.explore}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={handleExplore}
+            className="mt-10 rounded-full bg-neutral-950 px-10 py-3.5 text-sm font-medium tracking-wide text-white transition hover:bg-neutral-800"
+          >
+            {t.hero.explore}
+          </button>
 
           <button
             type="button"
