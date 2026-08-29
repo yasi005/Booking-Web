@@ -37,10 +37,8 @@ export function DashboardPage() {
       setUser(session.user);
       await refreshAuth();
 
-      if (session.user.isVerified) {
-        const myBookings = await fetchMyBookings();
-        setBookings(myBookings.bookings);
-      }
+      const myBookings = await fetchMyBookings();
+      setBookings(myBookings.bookings);
 
       setLoading(false);
     }
@@ -84,14 +82,8 @@ export function DashboardPage() {
               <h2 className="font-medium text-neutral-900">{displayName}</h2>
               <p className="mt-1 truncate text-sm text-neutral-500">{user.email}</p>
               <div className="mt-3">
-                <span
-                  className={
-                    user.isVerified
-                      ? "rounded-full bg-emerald-50 px-2.5 py-1 text-xs text-emerald-700"
-                      : "rounded-full bg-amber-50 px-2.5 py-1 text-xs text-amber-700"
-                  }
-                >
-                  {user.isVerified ? t.dashboard.statusVerified : t.dashboard.statusPending}
+                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs text-emerald-700">
+                  {t.dashboard.statusVerified}
                 </span>
               </div>
             </div>
@@ -108,23 +100,9 @@ export function DashboardPage() {
               <dt className="text-[11px] tracking-[0.12em] text-neutral-400 uppercase">
                 {t.dashboard.accountStatus}
               </dt>
-              <dd className="mt-1 text-sm text-neutral-800">
-                {user.isVerified ? t.dashboard.statusVerified : t.dashboard.statusPending}
-              </dd>
+              <dd className="mt-1 text-sm text-neutral-800">{t.dashboard.statusVerified}</dd>
             </div>
           </dl>
-
-          {!user.isVerified && (
-            <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
-              <p className="text-sm text-amber-900">{t.dashboard.verifyReminder}</p>
-              <Link
-                href="/verify-pending"
-                className="mt-3 inline-block rounded-full bg-neutral-950 px-4 py-2 text-xs font-medium text-white"
-              >
-                {t.dashboard.verifyNow}
-              </Link>
-            </div>
-          )}
 
           <button
             type="button"
@@ -135,8 +113,7 @@ export function DashboardPage() {
           </button>
         </section>
 
-        {user.isVerified && (
-          <section className="mt-10">
+        <section className="mt-10">
             <h2 className="font-serif text-xl text-neutral-900">{t.dashboard.yourBookings}</h2>
             {bookings.length === 0 ? (
               <p className="mt-3 text-sm text-neutral-500">{t.dashboard.noBookings}</p>
@@ -160,7 +137,6 @@ export function DashboardPage() {
               {t.dashboard.browseHomes}
             </Link>
           </section>
-        )}
       </main>
     </div>
   );

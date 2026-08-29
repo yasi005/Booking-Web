@@ -7,6 +7,8 @@ import type { Property } from "@/types/property";
 const BACKEND_API = "/backend/api";
 
 type ListingsPayload = {
+  count?: number;
+  lastSyncedAt?: string | null;
   listings: CachedHostawayListing[];
 };
 
@@ -30,17 +32,33 @@ function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
   return properties;
 }
 
-export async function fetchAllListingsFromApi(): Promise<Property[]> {
-  const response = await fetch(`${BACKEND_API}/listings`, { cache: "no-store" });
+async function fetchDemoListings(): Promise<Property[]> {
+  const response = await fetch("/demo-listings.json", { cache: "force-cache" });
   if (!response.ok) {
-    throw new Error(`Backend listings request failed (${response.status})`);
+    throw new Error(`Demo listings missing (${response.status})`);
   }
-
   const payload = (await response.json()) as ListingsPayload;
   return toUniqueCatalog(payload.listings ?? []);
 }
 
-/** Backend-only catalog — no static demo / JSON fallback. */
+export async function fetchAllListingsFromApi(): Promise<Property[]> {
+  try {
+    const response = await fetch(`${BACKEND_API}/listings`, { cache: "no-store" });
+    if (response.ok) {
+      const payload = (await response.json()) as ListingsPayload;
+      const catalog = toUniqueCatalog(payload.listings ?? []);
+      if (catalog.length > 0) {
+        return catalog;
+      }
+    }
+  } catch {
+    // Fall through to bundled Hostaway snapshot for the demo site.
+  }
+
+  return fetchDemoListings();
+}
+
+/** Prefer live backend; fall back to bundled Hostaway snapshot so the demo never shows 0 homes. */
 export async function loadAllProperties(): Promise<Property[]> {
   return fetchAllListingsFromApi();
 }

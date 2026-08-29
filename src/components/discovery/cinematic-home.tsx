@@ -6,17 +6,12 @@ import { HeroSlider } from "@/components/discovery/hero-slider";
 import { HomePropertiesSection } from "@/components/discovery/home-properties-section";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
-import { Search } from "lucide-react";
-import { useState } from "react";
-
 export function CinematicHome() {
-  const { enterMarketplace, setHomeSearchQuery } = useAppPhase();
+  const { enterMarketplace } = useAppPhase();
   const { t } = useTranslation();
-  const [query, setQuery] = useState("");
 
   const handleExplore = () => {
-    setHomeSearchQuery(query);
-    enterMarketplace(query);
+    enterMarketplace();
   };
 
   return (
@@ -35,22 +30,11 @@ export function CinematicHome() {
             {t.hero.title}
           </h1>
 
-          <div className="mt-10 flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:items-center">
-            {/* <div className="relative flex-1">
-              <Search className="absolute top-1/2 left-4 h-4 w-4 -translate-y-1/2 text-neutral-400" />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleExplore()}
-                placeholder={t.hero.searchPlaceholder}
-                className="w-full rounded-full border border-white/20 bg-white/95 py-3.5 pr-4 pl-11 text-sm text-neutral-800 outline-none placeholder:text-neutral-400 focus:border-white/40"
-              />
-            </div> */}
+          <div className="mt-10 flex w-full justify-center">
             <button
               type="button"
               onClick={handleExplore}
-              className="shrink-0 rounded-full bg-neutral-950 px-8 py-3.5 text-sm font-medium tracking-wide text-white transition hover:bg-neutral-800"
+              className="rounded-full bg-neutral-950 px-10 py-3.5 text-sm font-medium tracking-wide text-white transition hover:bg-neutral-800"
             >
               {t.hero.explore}
             </button>

@@ -24,10 +24,8 @@ export function SignupPage() {
     setError(null);
     try {
       const result = await registerUser({ name, email, password });
-      if (result.devVerifyCode) {
-        sessionStorage.setItem("devVerifyCode", result.devVerifyCode);
-      }
-      router.push("/verify-pending");
+      void result;
+      router.push("/dashboard");
     } catch (submitError) {
       setError(getAuthErrorMessage(submitError, t.auth.errors));
     } finally {

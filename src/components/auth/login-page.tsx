@@ -28,10 +28,7 @@ function LoginForm() {
     try {
       const result = await loginUser({ email, password });
       await refreshAuth();
-      if (result.requiresVerification) {
-        router.push("/verify-pending");
-        return;
-      }
+      void result;
       router.push(nextPath.startsWith("/") ? nextPath : "/dashboard");
     } catch (submitError) {
       setError(getAuthErrorMessage(submitError, t.auth.errors));

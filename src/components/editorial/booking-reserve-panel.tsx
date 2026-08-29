@@ -29,12 +29,8 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
 
     try {
       const session = await fetchSession();
-      if (!session.authenticated) {
+      if (!session.authenticated || !session.user) {
         window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
-        return;
-      }
-      if (!session.user?.isVerified) {
-        window.location.href = "/verify-pending";
         return;
       }
 
