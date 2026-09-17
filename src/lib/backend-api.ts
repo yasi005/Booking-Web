@@ -33,7 +33,7 @@ function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
 }
 
 async function fetchDemoListings(): Promise<Property[]> {
-  const response = await fetch("/demo-listings.json", { cache: "force-cache" });
+  const response = await fetch("/demo-listings.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Demo listings missing (${response.status})`);
   }
@@ -42,23 +42,12 @@ async function fetchDemoListings(): Promise<Property[]> {
 }
 
 export async function fetchAllListingsFromApi(): Promise<Property[]> {
-  try {
-    const response = await fetch(`${BACKEND_API}/listings`, { cache: "no-store" });
-    if (response.ok) {
-      const payload = (await response.json()) as ListingsPayload;
-      const catalog = toUniqueCatalog(payload.listings ?? []);
-      if (catalog.length > 0) {
-        return catalog;
-      }
-    }
-  } catch {
-    // Fall through to bundled Hostaway snapshot for the demo site.
-  }
-
+  // Curated demo catalog — edits to public/demo-listings.json control what shows on the site.
+  // (Live Hostaway via /backend/api/listings returns the full account inventory.)
   return fetchDemoListings();
 }
 
-/** Prefer live backend; fall back to bundled Hostaway snapshot so the demo never shows 0 homes. */
+/** Load homes from the curated demo-listings.json snapshot. */
 export async function loadAllProperties(): Promise<Property[]> {
   return fetchAllListingsFromApi();
 }
