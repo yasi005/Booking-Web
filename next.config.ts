@@ -6,16 +6,19 @@ const backendUrl = (
   "http://127.0.0.1:4000"
 ).replace(/\/$/, "");
 
-// On Vercel, /backend/* proxies to Railway. Without this env, the site HTML loads
-// but every /backend/... call 404s (listings, auth, calendar).
+// On Vercel, /backend/* proxies to Railway. Warn if unset — do not fail the build
+// so the site can still deploy; set BACKEND_INTERNAL_URL + NEXT_PUBLIC_API_URL
+// in Vercel → Settings → Environment Variables, then redeploy for live API.
 if (
   process.env.VERCEL &&
   (!backendUrl ||
     backendUrl.includes("localhost") ||
     backendUrl.includes("127.0.0.1"))
 ) {
-  throw new Error(
-    "Set BACKEND_INTERNAL_URL (and NEXT_PUBLIC_API_URL) on Vercel to your Railway HTTPS URL, e.g. https://your-service.up.railway.app — then Redeploy.",
+  console.warn(
+    "[book] BACKEND_INTERNAL_URL / NEXT_PUBLIC_API_URL is missing or localhost. " +
+      "Set both to your Railway HTTPS URL (e.g. https://your-service.up.railway.app) " +
+      "in Vercel env vars, then redeploy — otherwise /backend/* will not reach the API.",
   );
 }
 
