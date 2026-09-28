@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   title: "ZEUS | Athens Furnished Apartments",
   description:
     "Better than home. Discover furnished Athens residences with map-first exploration and live Hostaway availability.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://book.vercel.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://book.vercel.app",
+  ),
   openGraph: {
     title: "ZEUS",
     description: "Better than home. Discover exceptional Athens residences.",
