@@ -24,9 +24,13 @@ export function BookingAvailabilitySection({ property }: BookingReservePanelProp
   const { t } = useTranslation();
 
   return (
-    <section className="mt-6 rounded-[24px] border border-neutral-200 bg-neutral-50 p-5">
-      <h3 className="font-serif text-lg text-neutral-900">{t.booking.calendarTitle}</h3>
-      <p className="mt-1 text-sm text-neutral-500">{t.booking.calendarSubtitle}</p>
+    <section className="mt-8">
+      <div>
+        <h3 className="font-serif text-xl tracking-tight text-neutral-900">
+          {t.booking.calendarTitle}
+        </h3>
+        <p className="mt-1.5 max-w-sm text-sm text-neutral-500">{t.booking.calendarSubtitle}</p>
+      </div>
       <AvailabilityCalendar listingId={property.id} />
     </section>
   );

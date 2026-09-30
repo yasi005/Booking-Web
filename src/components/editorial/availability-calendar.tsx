@@ -43,6 +43,11 @@ function isPastDate(date: string): boolean {
   return new Date(`${date}T00:00:00`) < today;
 }
 
+function isToday(date: string): boolean {
+  const now = new Date();
+  return date === toIsoDate(now.getFullYear(), now.getMonth(), now.getDate());
+}
+
 export function AvailabilityCalendar({ listingId }: AvailabilityCalendarProps) {
   const { t, locale } = useTranslation();
   const today = new Date();
@@ -93,76 +98,103 @@ export function AvailabilityCalendar({ listingId }: AvailabilityCalendarProps) {
   };
 
   return (
-    <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-4">
-      <div className="flex items-center justify-between gap-2">
+    <div className="mt-5 overflow-hidden rounded-2xl border border-neutral-200/80 bg-gradient-to-b from-white to-neutral-50/80 shadow-[0_1px_0_rgba(0,0,0,0.03)]">
+      <div className="flex items-center justify-between gap-3 border-b border-neutral-100 px-4 py-3.5">
         <button
           type="button"
           onClick={() => shiftMonth(-1)}
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:bg-neutral-50"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-neutral-500 transition hover:bg-neutral-100 hover:text-neutral-900"
           aria-label={t.booking.calendarPrev}
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
-        <p className="text-sm font-medium text-neutral-900">{monthLabel}</p>
+        <p className="font-serif text-base tracking-tight text-neutral-900 capitalize">
+          {monthLabel}
+        </p>
         <button
           type="button"
           onClick={() => shiftMonth(1)}
-          className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 text-neutral-600 transition hover:bg-neutral-50"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-neutral-500 transition hover:bg-neutral-100 hover:text-neutral-900"
           aria-label={t.booking.calendarNext}
         >
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 
-      <div className="mt-3 grid grid-cols-7 gap-1 text-center text-[10px] font-medium tracking-wide text-neutral-400 uppercase">
-        {weekdayLabels.map((label) => (
-          <div key={label}>{label}</div>
-        ))}
-      </div>
-
-      {loading ? (
-        <p className="mt-6 text-center text-sm text-neutral-500">{t.booking.calendarLoading}</p>
-      ) : error ? (
-        <p className="mt-6 text-center text-sm text-red-600">{error}</p>
-      ) : (
-        <div className="mt-2 grid grid-cols-7 gap-1" aria-readonly="true">
-          {cells.map((cell, index) => {
-            if (!cell.date || cell.day === null) {
-              return <div key={`empty-${index}`} className="aspect-square" />;
-            }
-
-            const past = isPastDate(cell.date);
-            const day = daysByDate[cell.date];
-            const available = Boolean(day?.available) && !past;
-            const unavailable = !past && day !== undefined && !day.available;
-
-            return (
-              <div
-                key={cell.date}
-                className={cn(
-                  "flex aspect-square items-center justify-center rounded-lg border text-xs font-medium",
-                  past && "border-transparent bg-neutral-50 text-neutral-300",
-                  available && "border-emerald-200 bg-emerald-100 text-emerald-900",
-                  unavailable && "border-red-200 bg-red-100 text-red-800",
-                  !past && !day && "border-neutral-100 bg-neutral-50 text-neutral-400",
-                )}
-              >
-                {cell.day}
-              </div>
-            );
-          })}
+      <div className="px-3 pb-4 pt-3 sm:px-4">
+        <div className="grid grid-cols-7 gap-y-1 text-center text-[10px] font-medium tracking-[0.14em] text-neutral-400 uppercase">
+          {weekdayLabels.map((label) => (
+            <div key={label} className="py-2">
+              {label}
+            </div>
+          ))}
         </div>
-      )}
 
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-neutral-600">
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded border border-emerald-200 bg-emerald-100" />
-          {t.booking.calendarAvailable}
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded border border-red-200 bg-red-100" />
-          {t.booking.calendarUnavailable}
-        </span>
+        {loading ? (
+          <div className="mt-1 grid grid-cols-7 gap-1.5">
+            {Array.from({ length: 35 }).map((_, index) => (
+              <div
+                key={`skeleton-${index}`}
+                className="aspect-square animate-pulse rounded-xl bg-neutral-100/80"
+              />
+            ))}
+          </div>
+        ) : error ? (
+          <p className="py-10 text-center text-sm text-red-600">{error}</p>
+        ) : (
+          <div className="mt-1 grid grid-cols-7 gap-1.5" aria-readonly="true">
+            {cells.map((cell, index) => {
+              if (!cell.date || cell.day === null) {
+                return <div key={`empty-${index}`} className="aspect-square" />;
+              }
+
+              const past = isPastDate(cell.date);
+              const todayCell = isToday(cell.date);
+              const day = daysByDate[cell.date];
+              const available = Boolean(day?.available) && !past;
+              const unavailable = !past && day !== undefined && !day.available;
+
+              return (
+                <div
+                  key={cell.date}
+                  className={cn(
+                    "relative flex aspect-square flex-col items-center justify-center rounded-xl text-[13px] transition",
+                    past && "text-neutral-300",
+                    available && "bg-[#ebf6ef] text-[#1f5c3a]",
+                    unavailable && "bg-[#f6ecec] text-[#8a4a4a] line-through decoration-neutral-400/50",
+                    !past && !day && "bg-neutral-50 text-neutral-400",
+                    todayCell && "ring-1 ring-neutral-900/80 ring-offset-1 ring-offset-white",
+                  )}
+                >
+                  <span className={cn("leading-none", available && "font-semibold")}>
+                    {cell.day}
+                  </span>
+                  {available && (
+                    <span className="mt-1 h-1 w-1 rounded-full bg-[#2f8a55]" aria-hidden />
+                  )}
+                  {unavailable && (
+                    <span className="mt-1 h-1 w-1 rounded-full bg-[#c06a6a]" aria-hidden />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-5 border-t border-neutral-100 pt-3.5 text-[11px] text-neutral-500">
+          <span className="inline-flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#ebf6ef]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#2f8a55]" />
+            </span>
+            {t.booking.calendarAvailable}
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span className="flex h-5 w-5 items-center justify-center rounded-md bg-[#f6ecec]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#c06a6a]" />
+            </span>
+            {t.booking.calendarUnavailable}
+          </span>
+        </div>
       </div>
     </div>
   );
