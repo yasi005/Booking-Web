@@ -78,15 +78,7 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
       <h3 className="font-serif text-lg text-neutral-900">{t.booking.title}</h3>
       <p className="mt-1 text-sm text-neutral-500">{t.booking.subtitle}</p>
 
-      <AvailabilityCalendar
-        listingId={property.id}
-        checkIn={checkIn}
-        checkOut={checkOut}
-        onRangeChange={(nextCheckIn, nextCheckOut) => {
-          setCheckIn(nextCheckIn);
-          setCheckOut(nextCheckOut);
-        }}
-      />
+      <AvailabilityCalendar listingId={property.id} />
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <label className="text-xs text-neutral-500">

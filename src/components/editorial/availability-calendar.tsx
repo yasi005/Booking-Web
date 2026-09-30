@@ -8,9 +8,6 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 type AvailabilityCalendarProps = {
   listingId: string;
-  checkIn: string;
-  checkOut: string;
-  onRangeChange: (checkIn: string, checkOut: string) => void;
 };
 
 function toIsoDate(year: number, month: number, day: number): string {
@@ -46,17 +43,7 @@ function isPastDate(date: string): boolean {
   return new Date(`${date}T00:00:00`) < today;
 }
 
-function isBetween(date: string, start: string, end: string): boolean {
-  if (!start || !end) return false;
-  return date >= start && date <= end;
-}
-
-export function AvailabilityCalendar({
-  listingId,
-  checkIn,
-  checkOut,
-  onRangeChange,
-}: AvailabilityCalendarProps) {
+export function AvailabilityCalendar({ listingId }: AvailabilityCalendarProps) {
   const { t, locale } = useTranslation();
   const today = new Date();
   const [viewYear, setViewYear] = useState(today.getFullYear());
@@ -64,7 +51,6 @@ export function AvailabilityCalendar({
   const [daysByDate, setDaysByDate] = useState<Record<string, CalendarDay>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectingCheckOut, setSelectingCheckOut] = useState(false);
 
   const loadMonth = useCallback(async () => {
     setLoading(true);
@@ -106,26 +92,6 @@ export function AvailabilityCalendar({
     setViewMonth(next.getMonth());
   };
 
-  const handleDayClick = (date: string) => {
-    const day = daysByDate[date];
-    if (!day?.available || isPastDate(date)) return;
-
-    if (!checkIn || selectingCheckOut === false) {
-      onRangeChange(date, "");
-      setSelectingCheckOut(true);
-      return;
-    }
-
-    if (date <= checkIn) {
-      onRangeChange(date, "");
-      setSelectingCheckOut(true);
-      return;
-    }
-
-    onRangeChange(checkIn, date);
-    setSelectingCheckOut(false);
-  };
-
   return (
     <div className="mt-4 rounded-2xl border border-neutral-200 bg-white p-4">
       <div className="flex items-center justify-between gap-2">
@@ -159,7 +125,7 @@ export function AvailabilityCalendar({
       ) : error ? (
         <p className="mt-6 text-center text-sm text-red-600">{error}</p>
       ) : (
-        <div className="mt-2 grid grid-cols-7 gap-1">
+        <div className="mt-2 grid grid-cols-7 gap-1" aria-label={t.booking.calendarAvailable}>
           {cells.map((cell, index) => {
             if (!cell.date || cell.day === null) {
               return <div key={`empty-${index}`} className="aspect-square" />;
@@ -167,31 +133,21 @@ export function AvailabilityCalendar({
 
             const day = daysByDate[cell.date];
             const available = Boolean(day?.available) && !isPastDate(cell.date);
-            const booked = day !== undefined && !available && !isPastDate(cell.date);
-            const inRange =
-              (checkIn && cell.date === checkIn) ||
-              (checkOut && cell.date === checkOut) ||
-              isBetween(cell.date, checkIn, checkOut);
 
+            // View-only: highlight available nights; everything else stays quiet.
             return (
-              <button
+              <div
                 key={cell.date}
-                type="button"
-                disabled={!available}
-                onClick={() => handleDayClick(cell.date!)}
                 className={cn(
-                  "aspect-square rounded-lg border text-xs font-medium transition",
-                  isPastDate(cell.date) && "border-transparent bg-neutral-50 text-neutral-300",
-                  available &&
-                    !inRange &&
-                    "border-emerald-200 bg-emerald-100 text-emerald-900 hover:bg-emerald-200",
-                  booked && "border-red-200 bg-red-100 text-red-800",
-                  inRange && available && "border-emerald-500 bg-emerald-500 text-white",
-                  !day && !isPastDate(cell.date) && "border-neutral-100 bg-neutral-50 text-neutral-400",
+                  "flex aspect-square items-center justify-center rounded-lg text-xs font-medium",
+                  available
+                    ? "border border-emerald-200 bg-emerald-100 text-emerald-900"
+                    : "border border-transparent text-neutral-300",
                 )}
+                aria-hidden={!available}
               >
-                {cell.day}
-              </button>
+                {available ? cell.day : ""}
+              </div>
             );
           })}
         </div>
@@ -201,10 +157,6 @@ export function AvailabilityCalendar({
         <span className="inline-flex items-center gap-1.5">
           <span className="h-3 w-3 rounded border border-emerald-200 bg-emerald-100" />
           {t.booking.calendarAvailable}
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded border border-red-200 bg-red-100" />
-          {t.booking.calendarBooked}
         </span>
       </div>
     </div>
