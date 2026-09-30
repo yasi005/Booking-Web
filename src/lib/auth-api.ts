@@ -151,6 +151,9 @@ export async function createBookingInquiry(input: {
   listingTitle?: string;
   totalPrice?: number;
   currency?: string;
+  guestName?: string;
+  guestPhone?: string;
+  message?: string;
 }): Promise<{ status: string; waLink: string }> {
   const response = await fetch(`${BACKEND_API}/booking-inquiries`, {
     method: "POST",

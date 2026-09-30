@@ -1,7 +1,10 @@
 "use client";
 
 import { ArchitectureNarrative } from "@/components/editorial/architecture-narrative";
-import { BookingReservePanel } from "@/components/editorial/booking-reserve-panel";
+import {
+  BookingAvailabilitySection,
+  BookingReserveDock,
+} from "@/components/editorial/booking-reserve-panel";
 import { BookingTimeline } from "@/components/editorial/booking-timeline";
 import { EditorialHeaderActions } from "@/components/editorial/editorial-header-actions";
 import { HeritageHeader } from "@/components/editorial/heritage-header";
@@ -43,11 +46,13 @@ export function EditorialPanel() {
             <ArchitectureNarrative />
             <SeasonalPriceChart />
             <BookingTimeline />
-            <BookingReservePanel property={selectedProperty} />
+            <BookingAvailabilitySection property={selectedProperty} />
             {/* <InteractiveFloorPlan /> */}
             <HostValidationCard />
           </div>
         </div>
+
+        <BookingReserveDock property={selectedProperty} />
       </div>
     </aside>
   );
