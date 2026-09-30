@@ -125,28 +125,29 @@ export function AvailabilityCalendar({ listingId }: AvailabilityCalendarProps) {
       ) : error ? (
         <p className="mt-6 text-center text-sm text-red-600">{error}</p>
       ) : (
-        <div className="mt-2 grid grid-cols-7 gap-1" aria-label={t.booking.calendarAvailable}>
+        <div className="mt-2 grid grid-cols-7 gap-1" aria-readonly="true">
           {cells.map((cell, index) => {
             if (!cell.date || cell.day === null) {
               return <div key={`empty-${index}`} className="aspect-square" />;
             }
 
+            const past = isPastDate(cell.date);
             const day = daysByDate[cell.date];
-            const available = Boolean(day?.available) && !isPastDate(cell.date);
+            const available = Boolean(day?.available) && !past;
+            const unavailable = !past && day !== undefined && !day.available;
 
-            // View-only: highlight available nights; everything else stays quiet.
             return (
               <div
                 key={cell.date}
                 className={cn(
-                  "flex aspect-square items-center justify-center rounded-lg text-xs font-medium",
-                  available
-                    ? "border border-emerald-200 bg-emerald-100 text-emerald-900"
-                    : "border border-transparent text-neutral-300",
+                  "flex aspect-square items-center justify-center rounded-lg border text-xs font-medium",
+                  past && "border-transparent bg-neutral-50 text-neutral-300",
+                  available && "border-emerald-200 bg-emerald-100 text-emerald-900",
+                  unavailable && "border-red-200 bg-red-100 text-red-800",
+                  !past && !day && "border-neutral-100 bg-neutral-50 text-neutral-400",
                 )}
-                aria-hidden={!available}
               >
-                {available ? cell.day : ""}
+                {cell.day}
               </div>
             );
           })}
@@ -157,6 +158,10 @@ export function AvailabilityCalendar({ listingId }: AvailabilityCalendarProps) {
         <span className="inline-flex items-center gap-1.5">
           <span className="h-3 w-3 rounded border border-emerald-200 bg-emerald-100" />
           {t.booking.calendarAvailable}
+        </span>
+        <span className="inline-flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded border border-red-200 bg-red-100" />
+          {t.booking.calendarUnavailable}
         </span>
       </div>
     </div>
