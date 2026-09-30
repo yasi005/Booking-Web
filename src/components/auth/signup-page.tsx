@@ -14,6 +14,7 @@ export function SignupPage() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ export function SignupPage() {
     setLoading(true);
     setError(null);
     try {
-      const result = await registerUser({ name, email, password });
+      const result = await registerUser({ name, email, phone, password });
       void result;
       router.push("/dashboard");
     } catch (submitError) {
@@ -56,6 +57,15 @@ export function SignupPage() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-5">
           <Field label={t.auth.name} id="name" value={name} onChange={setName} />
           <Field label={t.auth.email} id="email" type="email" value={email} onChange={setEmail} />
+          <Field
+            label={t.auth.phone}
+            id="phone"
+            type="tel"
+            value={phone}
+            onChange={setPhone}
+            minLength={8}
+            hint={t.auth.phoneHint}
+          />
           <Field
             label={t.auth.password}
             id="password"

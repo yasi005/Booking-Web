@@ -11,6 +11,7 @@ export type AuthUser = {
   id: number;
   email: string | null;
   name: string | null;
+  phone: string | null;
   username: string;
   isVerified: boolean;
   accountStatus: string;
@@ -53,6 +54,7 @@ export async function registerUser(input: {
   email: string;
   password: string;
   name: string;
+  phone: string;
 }): Promise<RegisterResult> {
   return authFetch<RegisterResult>(
     "/register",
@@ -141,19 +143,16 @@ export async function fetchListingAvailability(
   return response.json();
 }
 
-export async function createBooking(input: {
+export async function createBookingInquiry(input: {
   listingId: number;
   checkInDate: string;
   checkOutDate: string;
-  guestFirstName: string;
-  guestLastName: string;
-  guestEmail: string;
-  guestPhone: string;
   numberOfGuests: number;
-  totalPrice: number;
+  listingTitle?: string;
+  totalPrice?: number;
   currency?: string;
-}): Promise<{ status: string; totalPrice: number; currency: string }> {
-  const response = await fetch(`${BACKEND_API}/reservations`, {
+}): Promise<{ status: string; waLink: string }> {
+  const response = await fetch(`${BACKEND_API}/booking-inquiries`, {
     method: "POST",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
@@ -165,5 +164,5 @@ export async function createBooking(input: {
       parseAuthApiError(payload, response.status, response.status === 403 ? "login" : undefined),
     );
   }
-  return payload;
+  return payload as { status: string; waLink: string };
 }

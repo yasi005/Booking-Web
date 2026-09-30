@@ -15,6 +15,8 @@ export type AuthErrorCode =
   | "invalid_email"
   | "name_required"
   | "name_too_long"
+  | "phone_required"
+  | "phone_missing"
   | "too_many_attempts"
   | "verify_expired"
   | "verify_invalid"
@@ -64,6 +66,12 @@ function validationErrorCode(error: ValidationError): AuthErrorCode | null {
   if (field === "name" && error.type === "missing") {
     return "name_required";
   }
+  if (field === "phone" && (error.type === "string_too_short" || error.type === "missing")) {
+    return "phone_required";
+  }
+  if (field === "phone" && error.type === "string_too_long") {
+    return "phone_required";
+  }
 
   if (field === "code" && (error.type === "string_pattern_mismatch" || error.type === "missing")) {
     return "verify_invalid";
@@ -96,6 +104,10 @@ function detailStringCode(detail: string, status: number, context?: AuthErrorCon
       return "account_inactive";
     case "Could not send verification email. Try again later.":
       return "email_send_failed";
+    case "Please enter a valid phone number (8–20 digits, optional +).":
+      return "phone_required";
+    case "A phone number is required. Please sign up again with your phone number.":
+      return "phone_missing";
     default:
       break;
   }

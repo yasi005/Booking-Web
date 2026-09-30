@@ -1,7 +1,7 @@
 "use client";
 
 import { AvailabilityCalendar } from "@/components/editorial/availability-calendar";
-import { createBooking, fetchListingAvailability, fetchSession } from "@/lib/auth-api";
+import { createBookingInquiry, fetchListingAvailability, fetchSession } from "@/lib/auth-api";
 import { getAuthErrorMessage } from "@/lib/auth-errors";
 import { useTranslation } from "@/context/locale-context";
 import { formatCurrency } from "@/lib/utils";
@@ -22,7 +22,7 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleReserve = async () => {
+  const handleSend = async () => {
     setLoading(true);
     setError(null);
     setStatus(null);
@@ -31,6 +31,11 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
       const session = await fetchSession();
       if (!session.authenticated || !session.user) {
         window.location.href = `/login?next=${encodeURIComponent(window.location.pathname)}`;
+        return;
+      }
+
+      if (!session.user.phone?.trim()) {
+        setError(t.booking.phoneMissing);
         return;
       }
 
@@ -46,25 +51,23 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
       const nights = Math.max(1, Math.round((end.getTime() - start.getTime()) / 86400000));
       const totalPrice = nightly * nights;
 
-      const name = session.user.name ?? "Guest";
-      const [firstName, ...rest] = name.split(" ");
-
-      await createBooking({
+      const result = await createBookingInquiry({
         listingId: Number(property.id),
         checkInDate: checkIn,
         checkOutDate: checkOut,
-        guestFirstName: firstName,
-        guestLastName: rest.join(" ") || "Guest",
-        guestEmail: session.user.email ?? "",
-        guestPhone: "+30000000000",
         numberOfGuests: guests,
+        listingTitle: property.name,
         totalPrice,
-        currency: "USD",
+        currency: "EUR",
       });
 
+      if (result.waLink) {
+        window.open(result.waLink, "_blank", "noopener,noreferrer");
+      }
+
       setStatus(t.booking.confirmed);
-    } catch (reserveError) {
-      setError(getAuthErrorMessage(reserveError, t.auth.errors));
+    } catch (sendError) {
+      setError(getAuthErrorMessage(sendError, t.auth.errors));
     } finally {
       setLoading(false);
     }
@@ -127,7 +130,7 @@ export function BookingReservePanel({ property }: BookingReservePanelProps) {
       <button
         type="button"
         disabled={loading || !checkIn || !checkOut}
-        onClick={() => void handleReserve()}
+        onClick={() => void handleSend()}
         className="mt-4 w-full rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white disabled:opacity-50"
       >
         {loading ? "…" : t.booking.reserve}
