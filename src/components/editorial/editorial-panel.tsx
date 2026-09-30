@@ -8,7 +8,6 @@ import {
 import { BookingTimeline } from "@/components/editorial/booking-timeline";
 import { EditorialHeaderActions } from "@/components/editorial/editorial-header-actions";
 import { HeritageHeader } from "@/components/editorial/heritage-header";
-import { HostValidationCard } from "@/components/editorial/host-validation-card";
 // import { InteractiveFloorPlan } from "@/components/editorial/interactive-floor-plan";
 import { SeasonalPriceChart } from "@/components/editorial/seasonal-price-chart";
 import { SpecRow } from "@/components/editorial/spec-row";
@@ -48,7 +47,6 @@ export function EditorialPanel() {
             <BookingTimeline />
             <BookingAvailabilitySection property={selectedProperty} />
             {/* <InteractiveFloorPlan /> */}
-            <HostValidationCard />
           </div>
         </div>
 
