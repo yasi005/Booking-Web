@@ -114,12 +114,6 @@ export function HeritageAbout() {
           VIP amenities — with live map synchronization on every selection.
         </p>
       </section>
-
-      <footer className="mx-auto mt-20 max-w-[1400px] border-t border-neutral-200/80 px-8 py-12 md:px-16">
-        <p className="text-[10px] uppercase tracking-[0.28em] text-neutral-400">
-          Premium Real Estate & Venue Experience Hub
-        </p>
-      </footer>
     </section>
   );
 }

@@ -215,6 +215,15 @@ export const el: TranslationKey = {
     calendarPrev: "Προηγούμενος μήνας",
     calendarNext: "Επόμενος μήνας",
   },
+  footer: {
+    brand: "ZEUS Suites",
+    tagline: "Πολυτελείς επιπλωμένες κατοικίες στην Αθήνα. Καλύτερα από το σπίτι.",
+    contact: "Επικοινωνία",
+    explore: "Εξερεύνηση",
+    whatsapp: "WhatsApp",
+    chatWhatsapp: "Συνομιλία στο WhatsApp",
+    rights: "Με επιφύλαξη παντός δικαιώματος.",
+  },
   admin: {
     title: "Διαχείριση Ακινήτων",
     subtitle: "Διαχειριστείτε όλα τα σπίτια του καταλόγου",

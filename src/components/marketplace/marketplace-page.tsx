@@ -4,6 +4,7 @@ import { GlassHeader } from "@/components/discovery/glass-header";
 import { EditorialPropertyGrid } from "@/components/marketplace/editorial-property-grid";
 import { MarketplaceStickyControls } from "@/components/marketplace/marketplace-sticky-controls";
 import { PropertyPagination } from "@/components/marketplace/property-pagination";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
 import { useMarketplace } from "@/context/marketplace-context";
@@ -115,6 +116,8 @@ export function MarketplacePage() {
           </motion.div>
         )}
       </div>
+
+      <SiteFooter />
     </div>
   );
 }

@@ -212,6 +212,15 @@ export const en = {
     calendarPrev: "Previous month",
     calendarNext: "Next month",
   },
+  footer: {
+    brand: "ZEUS Suites",
+    tagline: "Luxury furnished residences in Athens. Better than home.",
+    contact: "Contact",
+    explore: "Explore",
+    whatsapp: "WhatsApp",
+    chatWhatsapp: "Chat on WhatsApp",
+    rights: "All rights reserved.",
+  },
   admin: {
     title: "Property Admin",
     subtitle: "Manage every house in the catalog",

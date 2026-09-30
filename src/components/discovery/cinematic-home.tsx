@@ -4,8 +4,10 @@ import { GlassHeader } from "@/components/discovery/glass-header";
 import { HeritageAbout } from "@/components/discovery/heritage-about";
 import { HeroSlider } from "@/components/discovery/hero-slider";
 import { HomePropertiesSection } from "@/components/discovery/home-properties-section";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
+
 export function CinematicHome() {
   const { enterMarketplace } = useAppPhase();
   const { t } = useTranslation();
@@ -50,6 +52,7 @@ export function CinematicHome() {
 
       <HomePropertiesSection />
       <HeritageAbout />
+      <SiteFooter />
     </div>
   );
 }
