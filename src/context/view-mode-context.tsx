@@ -22,7 +22,7 @@ type ViewModeContextValue = {
 const ViewModeContext = createContext<ViewModeContextValue | null>(null);
 
 export function ViewModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<ViewMode>("map");
+  const [mode, setMode] = useState<ViewMode>("gallery");
 
   const toggleMode = useCallback(() => {
     setMode((current) => (current === "gallery" ? "map" : "gallery"));
