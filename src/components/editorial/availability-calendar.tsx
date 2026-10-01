@@ -81,6 +81,7 @@ export function AvailabilityCalendar({ listingId, selection, onSelect }: Availab
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [rangeBlocked, setRangeBlocked] = useState(false);
+  const [hoverDate, setHoverDate] = useState("");
   const selectable = Boolean(onSelect);
   const checkIn = selection?.checkIn ?? "";
   const checkOut = selection?.checkOut ?? "";
@@ -128,6 +129,12 @@ export function AvailabilityCalendar({ listingId, selection, onSelect }: Availab
     const day = daysByDate[date];
     const nightFree = !day || day.available;
 
+    // Clicking the check-in again while choosing check-out deselects it.
+    if (checkIn && !checkOut && date === checkIn) {
+      clearSelection();
+      return;
+    }
+
     if (checkIn && !checkOut && date > checkIn) {
       const blocked = nightsBetween(checkIn, date).some(
         (night) => daysByDate[night] && !daysByDate[night].available,
@@ -137,6 +144,7 @@ export function AvailabilityCalendar({ listingId, selection, onSelect }: Availab
         return;
       }
       setRangeBlocked(false);
+      setHoverDate("");
       onSelect({ checkIn, checkOut: date });
       return;
     }
@@ -202,54 +210,78 @@ export function AvailabilityCalendar({ listingId, selection, onSelect }: Availab
         ) : error ? (
           <p className="py-10 text-center text-sm text-red-600">{error}</p>
         ) : (
-          <div className="mt-1 grid grid-cols-7 gap-1.5" aria-readonly={!selectable}>
+          <div
+            className="mt-1 grid grid-cols-7 gap-y-1.5"
+            aria-readonly={!selectable}
+            onMouseLeave={() => setHoverDate("")}
+          >
             {cells.map((cell, index) => {
               if (!cell.date || cell.day === null) {
                 return <div key={`empty-${index}`} className="aspect-square" />;
               }
 
-              const past = isPastDate(cell.date);
-              const todayCell = isToday(cell.date);
-              const day = daysByDate[cell.date];
+              const date = cell.date;
+              const past = isPastDate(date);
+              const todayCell = isToday(date);
+              const day = daysByDate[date];
               const available = Boolean(day?.available) && !past;
               const unavailable = !past && day !== undefined && !day.available;
-              const isEndpoint = cell.date === checkIn || cell.date === checkOut;
-              const inRange =
-                Boolean(checkIn && checkOut) && cell.date > checkIn && cell.date < checkOut;
               // An unavailable day can still be a check-out (you leave that morning).
-              const canPickAsCheckOut =
-                Boolean(checkIn && !checkOut) && cell.date > checkIn && !past;
+              const canPickAsCheckOut = Boolean(checkIn && !checkOut) && date > checkIn && !past;
               const clickable = selectable && !past && (!unavailable || canPickAsCheckOut);
 
+              // Selected range is a solid band; while choosing check-out, hover previews it.
+              const preview = Boolean(checkIn && !checkOut);
+              const bandEnd = checkOut || (preview && hoverDate > checkIn ? hoverDate : "");
+              const inBand = Boolean(checkIn && bandEnd) && date >= checkIn && date <= bandEnd;
+              const isStart = date === checkIn;
+              const isEnd = Boolean(bandEnd) && date === bandEnd;
+              const isEndpoint = isStart || (isEnd && !preview);
+              const styled = !inBand && !isStart;
+
               return (
-                <button
-                  type="button"
-                  key={cell.date}
-                  disabled={!clickable}
-                  onClick={() => handleDayClick(cell.date!)}
-                  aria-pressed={selectable ? isEndpoint : undefined}
+                <div
+                  key={date}
                   className={cn(
-                    "relative flex aspect-square flex-col items-center justify-center rounded-xl text-[13px] transition disabled:cursor-default",
-                    clickable && "cursor-pointer hover:ring-1 hover:ring-neutral-400",
-                    past && "text-neutral-300",
-                    available && "bg-[#ebf6ef] text-[#1f5c3a]",
-                    unavailable && "bg-[#f6ecec] text-[#8a4a4a] line-through decoration-neutral-400/50",
-                    !past && !day && "bg-neutral-50 text-neutral-400",
-                    inRange && "bg-[#cfe9d8] text-[#1f5c3a]",
-                    isEndpoint && "bg-neutral-950 text-white no-underline",
-                    todayCell && "ring-1 ring-neutral-900/80 ring-offset-1 ring-offset-white",
+                    "px-[3px]",
+                    inBand && (preview ? "bg-neutral-200" : "bg-neutral-950"),
+                    inBand && isStart && "rounded-l-xl",
+                    inBand && isEnd && "rounded-r-xl",
                   )}
                 >
-                  <span className={cn("leading-none", (available || isEndpoint) && "font-semibold")}>
-                    {cell.day}
-                  </span>
-                  {available && !isEndpoint && (
-                    <span className="mt-1 h-1 w-1 rounded-full bg-[#2f8a55]" aria-hidden />
-                  )}
-                  {unavailable && !isEndpoint && (
-                    <span className="mt-1 h-1 w-1 rounded-full bg-[#c06a6a]" aria-hidden />
-                  )}
-                </button>
+                  <button
+                    type="button"
+                    disabled={!clickable}
+                    onClick={() => handleDayClick(date)}
+                    onMouseEnter={() => preview && setHoverDate(date)}
+                    aria-pressed={selectable ? isEndpoint : undefined}
+                    className={cn(
+                      "relative flex aspect-square w-full flex-col items-center justify-center rounded-xl text-[13px] disabled:cursor-default",
+                      clickable && styled && "cursor-pointer hover:ring-1 hover:ring-neutral-900",
+                      clickable && !styled && "cursor-pointer",
+                      styled && past && "text-neutral-300",
+                      styled && available && "bg-[#ebf6ef] text-[#1f5c3a]",
+                      styled &&
+                        unavailable &&
+                        "bg-[#f6ecec] text-[#8a4a4a] line-through decoration-neutral-400/50",
+                      styled && !past && !day && "bg-neutral-50 text-neutral-400",
+                      inBand && !preview && "text-white",
+                      inBand && preview && "text-neutral-900",
+                      (isStart || isEnd) && "bg-neutral-950 font-semibold text-white",
+                      todayCell && styled && "ring-1 ring-neutral-900/80 ring-offset-1 ring-offset-white",
+                    )}
+                  >
+                    <span className={cn("leading-none", available && "font-semibold")}>
+                      {cell.day}
+                    </span>
+                    {styled && available && (
+                      <span className="mt-1 h-1 w-1 rounded-full bg-[#2f8a55]" aria-hidden />
+                    )}
+                    {styled && unavailable && (
+                      <span className="mt-1 h-1 w-1 rounded-full bg-[#c06a6a]" aria-hidden />
+                    )}
+                  </button>
+                </div>
               );
             })}
           </div>

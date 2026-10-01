@@ -11,7 +11,7 @@ import { getAuthErrorMessage } from "@/lib/auth-errors";
 import { useTranslation } from "@/context/locale-context";
 import { formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
-import { X } from "lucide-react";
+import { Clock, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 
@@ -51,9 +51,9 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(2);
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
 
   useEffect(() => {
     if (!open) return;
@@ -70,7 +70,6 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
         setName(session.user.name?.trim() || "");
         setPhone(session.user.phone?.trim() || "");
         setError(null);
-        setStatus(null);
       } catch {
         if (!cancelled) setError(t.auth.errors.generic);
       }
@@ -101,7 +100,6 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
   const handleReserve = async () => {
     setLoading(true);
     setError(null);
-    setStatus(null);
 
     try {
       if (!user) {
@@ -146,7 +144,12 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
         window.open(result.waLink, "_blank", "noopener,noreferrer");
       }
 
-      setStatus(t.booking.confirmed);
+      // Close the form, reset it, and show the confirmation popup.
+      setOpen(false);
+      setCheckIn("");
+      setCheckOut("");
+      setMessage("");
+      setSent(true);
     } catch (sendError) {
       setError(getAuthErrorMessage(sendError, t.auth.errors));
     } finally {
@@ -163,6 +166,7 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
             <p className="text-xs text-neutral-500">
               {t.booking.from} {formatCurrency(property.rent)} {t.editorial.perNight}
             </p>
+            <p className="text-[11px] text-neutral-400">{t.booking.vatIncluded}</p>
           </div>
           <button
             type="button"
@@ -281,27 +285,71 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
               </label>
 
               {error && <p className="text-sm text-red-600">{error}</p>}
-              {status && <p className="text-sm text-emerald-700">{status}</p>}
 
-              <p className="text-center text-xs text-neutral-400">
-                <Link href="/signup" className="underline">
-                  {t.auth.signupSubmit}
-                </Link>
-                {" · "}
-                <Link href="/login" className="underline">
-                  {t.nav.login}
-                </Link>
-              </p>
+              {!user && (
+                <p className="text-center text-xs text-neutral-400">
+                  <Link href="/signup" className="underline">
+                    {t.auth.signupSubmit}
+                  </Link>
+                  {" · "}
+                  <Link href="/login" className="underline">
+                    {t.nav.login}
+                  </Link>
+                </p>
+              )}
             </div>
 
             <div className="border-t border-neutral-100 px-5 py-4">
+              <p className="mb-3 text-center text-xs text-neutral-500">{t.booking.vatIncluded}</p>
               <button
                 type="button"
-                disabled={loading || Boolean(status)}
+                disabled={loading}
                 onClick={() => void handleReserve()}
                 className="w-full rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white disabled:opacity-50"
               >
                 {loading ? "…" : t.booking.reserve}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {sent && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-6"
+          role="presentation"
+          onClick={() => setSent(false)}
+        >
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby={`${titleId}-sent`}
+            className="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-50 text-amber-600">
+              <Clock className="h-6 w-6" />
+            </div>
+            <h3 id={`${titleId}-sent`} className="mt-4 font-serif text-xl text-neutral-900">
+              {t.booking.sentTitle}
+            </h3>
+            <span className="mt-2 inline-block rounded-full bg-amber-50 px-2.5 py-1 text-xs text-amber-700">
+              {t.dashboard.bookingStatus.pending}
+            </span>
+            <p className="mt-3 text-sm text-neutral-500">{t.booking.sentBody}</p>
+            <div className="mt-6 flex flex-col gap-2">
+              <Link
+                href="/dashboard"
+                className="rounded-full bg-neutral-950 px-5 py-3 text-sm font-medium text-white"
+              >
+                {t.booking.viewBookings}
+              </Link>
+              <button
+                type="button"
+                onClick={() => setSent(false)}
+                className="rounded-full px-5 py-3 text-sm text-neutral-600 hover:bg-neutral-100"
+              >
+                {t.booking.done}
               </button>
             </div>
           </div>

@@ -114,16 +114,22 @@ export async function logoutUser(): Promise<void> {
   await fetch("/backend/logout", { method: "POST", credentials: "include" });
 }
 
+export type MyBooking = {
+  id: number;
+  kind: "reservation" | "inquiry";
+  listing_id: number;
+  listing_title?: string | null;
+  check_in_date: string;
+  check_out_date: string;
+  number_of_guests?: number | null;
+  total_price: number | null;
+  booking_status: string;
+  created_at: string;
+};
+
 export async function fetchMyBookings(): Promise<{
   count: number;
-  bookings: Array<{
-    id: number;
-    listing_id: number;
-    check_in_date: string;
-    check_out_date: string;
-    total_price: number;
-    booking_status: string;
-  }>;
+  bookings: MyBooking[];
 }> {
   return authFetch("/bookings");
 }
@@ -143,6 +149,12 @@ export async function fetchListingAvailability(
   return response.json();
 }
 
+type BookingInquiryResult = {
+  status: string;
+  waLink: string;
+  inquiry?: { id: number; status: string };
+};
+
 export async function createBookingInquiry(input: {
   listingId: number;
   checkInDate: string;
@@ -154,7 +166,7 @@ export async function createBookingInquiry(input: {
   guestName?: string;
   guestPhone?: string;
   message?: string;
-}): Promise<{ status: string; waLink: string }> {
+}): Promise<BookingInquiryResult> {
   const response = await fetch(`${BACKEND_API}/booking-inquiries`, {
     method: "POST",
     credentials: "include",
@@ -167,5 +179,5 @@ export async function createBookingInquiry(input: {
       parseAuthApiError(payload, response.status, response.status === 403 ? "login" : undefined),
     );
   }
-  return payload as { status: string; waLink: string };
+  return payload as BookingInquiryResult;
 }

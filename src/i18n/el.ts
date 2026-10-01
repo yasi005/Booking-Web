@@ -185,6 +185,12 @@ export const el: TranslationKey = {
     browseHomes: "Περιήγηση σε σπίτια",
     yourBookings: "Οι κρατήσεις σας",
     noBookings: "Δεν υπάρχουν κρατήσεις ακόμα.",
+    guestsCount: (count: number) => `${count} ${count === 1 ? "επισκέπτης" : "επισκέπτες"}`,
+    bookingStatus: {
+      pending: "Σε αναμονή",
+      confirmed: "Επιβεβαιωμένη",
+      cancelled: "Ακυρωμένη",
+    },
   },
   booking: {
     title: "Αίτημα για αυτή την κατοικία",
@@ -219,6 +225,11 @@ export const el: TranslationKey = {
     calendarRangeBlocked: "Ορισμένες νύχτες σε αυτό το διάστημα δεν είναι διαθέσιμες.",
     calendarClear: "Καθαρισμός ημερομηνιών",
     selectDates: "Επιλογή ημερομηνιών",
+    vatIncluded: "Όλες οι τιμές περιλαμβάνουν ΦΠΑ.",
+    sentTitle: "Το αίτημα στάλθηκε",
+    sentBody: "Το αίτημα κράτησής σας εκκρεμεί. Θα το επιβεβαιώσουμε μαζί σας μέσω WhatsApp.",
+    viewBookings: "Οι κρατήσεις μου",
+    done: "Εντάξει",
   },
   footer: {
     brand: "ZEUS Suites",

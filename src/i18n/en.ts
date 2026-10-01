@@ -182,6 +182,12 @@ export const en = {
     browseHomes: "Browse homes to book",
     yourBookings: "Your bookings",
     noBookings: "No bookings yet.",
+    guestsCount: (count: number) => `${count} ${count === 1 ? "guest" : "guests"}`,
+    bookingStatus: {
+      pending: "Pending",
+      confirmed: "Confirmed",
+      cancelled: "Cancelled",
+    } as Record<string, string>,
   },
   booking: {
     title: "Request this home",
@@ -216,6 +222,11 @@ export const en = {
     calendarRangeBlocked: "Some nights in that range are not available.",
     calendarClear: "Clear dates",
     selectDates: "Select dates",
+    vatIncluded: "All prices include VAT.",
+    sentTitle: "Request sent",
+    sentBody: "Your booking request is pending. We’ll confirm it with you on WhatsApp.",
+    viewBookings: "View my bookings",
+    done: "Done",
   },
   footer: {
     brand: "ZEUS Suites",

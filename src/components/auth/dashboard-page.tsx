@@ -4,8 +4,14 @@ import { UserAvatar } from "@/components/auth/user-avatar";
 import { GlassHeader } from "@/components/discovery/glass-header";
 import { getUserProfileHref, useAuth } from "@/context/auth-context";
 import { useTranslation } from "@/context/locale-context";
-import { fetchMyBookings, fetchSession, logoutUser, type AuthUser } from "@/lib/auth-api";
-import { formatCurrency } from "@/lib/utils";
+import {
+  fetchMyBookings,
+  fetchSession,
+  logoutUser,
+  type AuthUser,
+  type MyBooking,
+} from "@/lib/auth-api";
+import { cn, formatCurrency } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -15,15 +21,7 @@ export function DashboardPage() {
   const router = useRouter();
   const { refreshAuth, clearAuth } = useAuth();
   const [user, setUser] = useState<AuthUser | null>(null);
-  const [bookings, setBookings] = useState<
-    Array<{
-      id: number;
-      listing_id: number;
-      check_in_date: string;
-      check_out_date: string;
-      total_price: number;
-    }>
-  >([]);
+  const [bookings, setBookings] = useState<MyBooking[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -119,15 +117,42 @@ export function DashboardPage() {
               <p className="mt-3 text-sm text-neutral-500">{t.dashboard.noBookings}</p>
             ) : (
               <ul className="mt-4 space-y-3">
-                {bookings.map((booking) => (
-                  <li
-                    key={booking.id}
-                    className="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-700"
-                  >
-                    Listing #{booking.listing_id} · {booking.check_in_date} → {booking.check_out_date} ·{" "}
-                    {formatCurrency(booking.total_price)}
-                  </li>
-                ))}
+                {bookings.map((booking) => {
+                  const status = (booking.booking_status || "pending").toLowerCase();
+                  return (
+                    <li
+                      key={`${booking.kind}-${booking.id}`}
+                      className="flex items-start justify-between gap-4 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-700"
+                    >
+                      <div className="min-w-0">
+                        <p className="truncate font-medium text-neutral-900">
+                          {booking.listing_title || `Listing #${booking.listing_id}`}
+                        </p>
+                        <p className="mt-0.5 text-neutral-500">
+                          {booking.check_in_date} → {booking.check_out_date}
+                          {booking.number_of_guests
+                            ? ` · ${t.dashboard.guestsCount(booking.number_of_guests)}`
+                            : ""}
+                          {booking.total_price != null
+                            ? ` · ${formatCurrency(booking.total_price)}`
+                            : ""}
+                        </p>
+                      </div>
+                      <span
+                        className={cn(
+                          "shrink-0 rounded-full px-2.5 py-1 text-xs",
+                          status === "confirmed" && "bg-emerald-50 text-emerald-700",
+                          status === "cancelled" && "bg-red-50 text-red-700",
+                          status !== "confirmed" &&
+                            status !== "cancelled" &&
+                            "bg-amber-50 text-amber-700",
+                        )}
+                      >
+                        {t.dashboard.bookingStatus[status] ?? status}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             )}
             <Link

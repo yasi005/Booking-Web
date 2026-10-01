@@ -5,7 +5,7 @@ import { useTranslation } from "@/context/locale-context";
 import { MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 
-const WHATSAPP_NUMBER = "306949255886";
+const WHATSAPP_NUMBER = "306932906966";
 const WHATSAPP_DISPLAY = "+30 693 290 6966";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
