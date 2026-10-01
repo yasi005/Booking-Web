@@ -12,7 +12,7 @@ export function usePreviewProperty() {
 
   return (property: Property) => {
     enterWorkspace(property);
-    setMode("map");
+    setMode("gallery");
     window.setTimeout(() => flyToProperty(property), 480);
   };
 }
