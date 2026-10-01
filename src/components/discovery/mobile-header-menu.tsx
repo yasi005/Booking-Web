@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 type MobileHeaderMenuProps = {
@@ -18,6 +19,8 @@ export function MobileHeaderMenu({ onHero = false }: MobileHeaderMenuProps) {
   const { user, loading } = useAuth();
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const navItems = [
     { label: t.nav.home, action: "home" as const },
@@ -28,6 +31,11 @@ export function MobileHeaderMenu({ onHero = false }: MobileHeaderMenuProps) {
 
   const handleNav = (action: (typeof navItems)[number]["action"]) => {
     setOpen(false);
+    if (pathname !== "/") {
+      exitToDiscovery();
+      router.push(action === "home" ? "/" : `/#${action}`);
+      return;
+    }
     switch (action) {
       case "home":
         if (phase === "workspace") {
