@@ -32,22 +32,16 @@ function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
   return properties;
 }
 
-async function fetchDemoListings(): Promise<Property[]> {
-  const response = await fetch("/demo-listings.json", { cache: "no-store" });
+/** Homes and nightly prices straight from Hostaway (backend re-syncs every few minutes). */
+export async function fetchAllListingsFromApi(): Promise<Property[]> {
+  const response = await fetch(`${BACKEND_API}/listings`, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`Demo listings missing (${response.status})`);
+    throw new Error(`Could not load listings (${response.status})`);
   }
   const payload = (await response.json()) as ListingsPayload;
   return toUniqueCatalog(payload.listings ?? []);
 }
 
-export async function fetchAllListingsFromApi(): Promise<Property[]> {
-  // Curated demo catalog — edits to public/demo-listings.json control what shows on the site.
-  // (Live Hostaway via /backend/api/listings returns the full account inventory.)
-  return fetchDemoListings();
-}
-
-/** Load homes from the curated demo-listings.json snapshot. */
 export async function loadAllProperties(): Promise<Property[]> {
   return fetchAllListingsFromApi();
 }

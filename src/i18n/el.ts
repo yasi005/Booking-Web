@@ -226,6 +226,7 @@ export const el: TranslationKey = {
     calendarClear: "Καθαρισμός ημερομηνιών",
     selectDates: "Επιλογή ημερομηνιών",
     vatIncluded: "Όλες οι τιμές περιλαμβάνουν ΦΠΑ.",
+    minimumStay: "Οι ημερομηνίες είναι λιγότερες από την ελάχιστη διαμονή.",
     sentTitle: "Το αίτημα στάλθηκε",
     sentBody: "Το αίτημα κράτησής σας εκκρεμεί. Θα το επιβεβαιώσουμε μαζί σας μέσω WhatsApp.",
     viewBookings: "Οι κρατήσεις μου",

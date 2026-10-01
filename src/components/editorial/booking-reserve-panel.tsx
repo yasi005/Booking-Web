@@ -116,16 +116,14 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
       }
 
       const availability = await fetchListingAvailability(property.id, checkIn, checkOut);
+      if (availability.minimumStayViolation) {
+        setError(t.booking.minimumStay);
+        return;
+      }
       if (!availability.available) {
         setError(t.booking.unavailable);
         return;
       }
-
-      const nightly = property.rent;
-      const start = new Date(checkIn);
-      const end = new Date(checkOut);
-      const nights = Math.max(1, Math.round((end.getTime() - start.getTime()) / 86400000));
-      const totalPrice = nightly * nights;
 
       const result = await createBookingInquiry({
         listingId: Number(property.id),
@@ -133,8 +131,6 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
         checkOutDate: checkOut,
         numberOfGuests: guests,
         listingTitle: property.name,
-        totalPrice,
-        currency: "EUR",
         guestName: name.trim() || undefined,
         guestPhone: phone.trim(),
         message: message.trim() || undefined,

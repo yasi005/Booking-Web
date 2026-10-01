@@ -3,7 +3,12 @@
 import { useMarketplace } from "@/context/marketplace-context";
 import { useTranslation } from "@/context/locale-context";
 import { PROPERTY_TYPE_LABELS, SEASON_LABELS } from "@/lib/marketplace-filters";
-import { buildPriceHistogram, getPriceRangeMinGap, getPriceStep } from "@/lib/price-histogram";
+import {
+  buildPriceHistogram,
+  getPriceRangeMinGap,
+  getPriceStep,
+  isOpenEndedMax,
+} from "@/lib/price-histogram";
 import type { SortOption } from "@/lib/editorial-grid";
 import type { PropertyType, TravelSeason } from "@/types/property";
 import { cn } from "@/lib/utils";
@@ -217,11 +222,11 @@ export function BudgetPanel({ variant = "compact" }: { variant?: FilterPanelVari
             : "text-[11px]",
         )}
       >
-        ${min.toLocaleString()}
+        €{min.toLocaleString()}
         <span className={cn(isBar || isMobile ? "mx-2 text-neutral-300" : "")}>
           {isBar || isMobile ? "—" : " — "}
         </span>
-        ${max.toLocaleString()}
+        €{max.toLocaleString()}{isOpenEndedMax(max) && "+"}
         <span className={cn(isBar || isMobile ? "ml-1 text-sm text-neutral-400" : "")}>
           {" "}
           {t.marketplace.filters.perNight}

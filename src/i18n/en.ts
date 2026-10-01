@@ -223,6 +223,7 @@ export const en = {
     calendarClear: "Clear dates",
     selectDates: "Select dates",
     vatIncluded: "All prices include VAT.",
+    minimumStay: "These dates are shorter than the minimum stay.",
     sentTitle: "Request sent",
     sentBody: "Your booking request is pending. We’ll confirm it with you on WhatsApp.",
     viewBookings: "View my bookings",

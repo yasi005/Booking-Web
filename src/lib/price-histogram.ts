@@ -3,41 +3,32 @@ import { getAnchorRate } from "@/lib/property-utils";
 import type { Property } from "@/types/property";
 
 const BUCKETS = 12;
+/** Budget slider always spans €0–€1000; the top end means "€1000 and up". */
 const FALLBACK_BOUNDS = { min: 0, max: 1000 } as const;
 
 export type PriceBounds = { min: number; max: number };
 
-function roundBounds(rawMin: number, rawMax: number): PriceBounds {
-  const min = Math.max(0, Math.floor(rawMin / 10) * 10);
-  let max = Math.ceil(rawMax / 10) * 10;
-  if (max <= min) max = min + 10;
-  return { min, max };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function getCatalogPriceBounds(_catalog?: Property[]): PriceBounds {
+  return { ...FALLBACK_BOUNDS };
 }
 
-export function getCatalogPriceBounds(catalog?: Property[]): PriceBounds {
-  const properties = catalog ?? getAllProperties();
-  const rates = properties
-    .map(getAnchorRate)
-    .filter((rate) => Number.isFinite(rate) && rate > 0);
-
-  if (rates.length === 0) {
-    return { ...FALLBACK_BOUNDS };
-  }
-
-  return roundBounds(Math.min(...rates), Math.max(...rates));
+/** True when the max handle is at the top, i.e. no upper price limit. */
+export function isOpenEndedMax(max: number): boolean {
+  return max >= FALLBACK_BOUNDS.max;
 }
 
 export function getPriceStep(min: number, max: number): number {
   const span = max - min;
   if (span <= 100) return 5;
-  if (span <= 500) return 10;
+  if (span <= 1000) return 10;
   if (span <= 2000) return 25;
   if (span <= 5000) return 50;
   return 100;
 }
 
 export function getPriceRangeMinGap(min: number, max: number): number {
-  return Math.max(getPriceStep(min, max), Math.round((max - min) * 0.05));
+  return getPriceStep(min, max);
 }
 
 export function buildPriceHistogram(catalog?: Property[]) {

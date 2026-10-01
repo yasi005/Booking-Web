@@ -53,7 +53,7 @@ body.luxury-cursor * {
 }
 
 .luxury-range {
-  pointer-events: auto;
+  pointer-events: none;
   background: transparent;
 }
 

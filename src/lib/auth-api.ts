@@ -138,7 +138,15 @@ export async function fetchListingAvailability(
   listingId: string,
   checkIn: string,
   checkOut: string,
-): Promise<{ available: boolean; blockedDates: string[]; currency: string }> {
+): Promise<{
+  available: boolean;
+  blockedDates: string[];
+  currency: string;
+  nights: number;
+  /** Sum of Hostaway's live nightly prices for the stay. */
+  subtotal: number;
+  minimumStayViolation: boolean;
+}> {
   const response = await fetch(
     `${BACKEND_API}/availability/${listingId}?checkInDate=${checkIn}&checkOutDate=${checkOut}`,
     { cache: "no-store" },

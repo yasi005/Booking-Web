@@ -1,3 +1,4 @@
+import { isOpenEndedMax } from "@/lib/price-histogram";
 import { getAnchorRate } from "@/lib/property-utils";
 import type { Property, PropertyType, TravelSeason } from "@/types/property";
 
@@ -32,7 +33,7 @@ export function filterProperties(
     const rate = getAnchorRate(property);
     const [minPrice, maxPrice] = filters.priceRange;
 
-    if (rate < minPrice || rate > maxPrice) return false;
+    if (rate < minPrice || (!isOpenEndedMax(maxPrice) && rate > maxPrice)) return false;
 
     if (filters.propertyTypes.length > 0 && !filters.propertyTypes.includes(property.propertyType)) {
       return false;

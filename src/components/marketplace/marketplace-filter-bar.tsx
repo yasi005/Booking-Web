@@ -2,7 +2,12 @@
 
 import { useMarketplace } from "@/context/marketplace-context";
 import { PROPERTY_TYPE_LABELS, SEASON_LABELS } from "@/lib/marketplace-filters";
-import { buildPriceHistogram, getPriceRangeMinGap, getPriceStep } from "@/lib/price-histogram";
+import {
+  buildPriceHistogram,
+  getPriceRangeMinGap,
+  getPriceStep,
+  isOpenEndedMax,
+} from "@/lib/price-histogram";
 import type { PropertyType, TravelSeason } from "@/types/property";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -104,9 +109,9 @@ function BudgetPanel() {
       </div>
 
       <p className="text-center font-serif text-lg tracking-tight text-neutral-800">
-        ${min.toLocaleString()}
+        €{min.toLocaleString()}
         <span className="mx-2 text-neutral-300">—</span>
-        ${max.toLocaleString()}
+        €{max.toLocaleString()}{isOpenEndedMax(max) && "+"}
         <span className="ml-1 text-sm text-neutral-400">/ night</span>
       </p>
     </div>
