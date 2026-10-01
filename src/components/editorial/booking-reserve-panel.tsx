@@ -9,7 +9,7 @@ import {
 } from "@/lib/auth-api";
 import { getAuthErrorMessage } from "@/lib/auth-errors";
 import { useTranslation } from "@/context/locale-context";
-import { formatCurrency } from "@/lib/utils";
+import { cn, formatCurrency } from "@/lib/utils";
 import type { Property } from "@/types/property";
 import { Clock, X } from "lucide-react";
 import Link from "next/link";
@@ -40,7 +40,10 @@ export function BookingAvailabilitySection({ property }: BookingReservePanelProp
  * Sticky Reserve bar at the bottom of the property panel.
  * Opens a form prefilled from the signed-in profile, then sends to WhatsApp.
  */
-export function BookingReserveDock({ property }: BookingReservePanelProps) {
+export function BookingReserveDock({
+  property,
+  compact = false,
+}: BookingReservePanelProps & { compact?: boolean }) {
   const { t, locale } = useTranslation();
   const titleId = useId();
   const [open, setOpen] = useState(false);
@@ -155,10 +158,17 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
 
   return (
     <>
-      <div className="shrink-0 border-t border-neutral-200 bg-white/95 px-6 py-4 backdrop-blur-md lg:px-8">
+      <div
+        className={cn(
+          "shrink-0 bg-white/95 backdrop-blur-md",
+          compact ? "flex-1" : "border-t border-neutral-200 px-6 py-4 lg:px-8",
+        )}
+      >
         <div className="flex items-center justify-between gap-4">
           <div className="min-w-0">
-            <p className="truncate text-sm font-medium text-neutral-900">{property.name}</p>
+            {!compact && (
+              <p className="truncate text-sm font-medium text-neutral-900">{property.name}</p>
+            )}
             <p className="text-xs text-neutral-500">
               {t.booking.from} {formatCurrency(property.rent)} {t.editorial.perNight}
             </p>

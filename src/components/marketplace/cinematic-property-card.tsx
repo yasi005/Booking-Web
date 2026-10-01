@@ -50,6 +50,10 @@ export function CinematicPropertyCard({
   const { isSaved, toggleSave } = useSaves();
   const { locale } = useLocale();
   const [hovered, setHovered] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const images = property.galleryImages.length
+    ? property.galleryImages.map((image) => image.url)
+    : [property.image];
   const liked = isSaved(property.id);
   const rate = getAnchorRate(property);
 
@@ -92,13 +96,35 @@ export function CinematicPropertyCard({
         )}
         transition={{ type: "spring", stiffness: 260, damping: 28 }}
       >
-        <Image
-          src={property.image}
-          alt={getPropertyName(property, locale)}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-          sizes={isFeatured ? "(max-width: 1024px) 100vw, 80vw" : "(max-width: 1024px) 100vw, 33vw"}
-        />
+        <div
+          className="absolute inset-0 flex snap-x snap-mandatory overflow-x-auto scrollbar-none"
+          onScroll={(e) =>
+            setSlide(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))
+          }
+        >
+          {images.map((url, i) => (
+            <div key={url + i} className="relative h-full w-full shrink-0 snap-center">
+              <Image
+                src={url}
+                alt={getPropertyName(property, locale)}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                sizes={isFeatured ? "(max-width: 1024px) 100vw, 80vw" : "(max-width: 1024px) 100vw, 33vw"}
+              />
+            </div>
+          ))}
+        </div>
+
+        {images.length > 1 && (
+          <div className="pointer-events-none absolute top-4 left-1/2 z-30 flex -translate-x-1/2 gap-1 sm:top-6">
+            {images.map((url, i) => (
+              <span
+                key={url + i}
+                className={cn("h-1.5 w-1.5 rounded-full", i === slide ? "bg-white" : "bg-white/45")}
+              />
+            ))}
+          </div>
+        )}
 
         <motion.div
           initial={false}
