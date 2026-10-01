@@ -211,6 +211,11 @@ export const en = {
     calendarError: "Could not load availability calendar.",
     calendarPrev: "Previous month",
     calendarNext: "Next month",
+    calendarPickCheckIn: "Select your check-in date",
+    calendarPickCheckOut: "Now select your check-out date",
+    calendarRangeBlocked: "Some nights in that range are not available.",
+    calendarClear: "Clear dates",
+    selectDates: "Select dates",
   },
   footer: {
     brand: "ZEUS Suites",

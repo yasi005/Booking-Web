@@ -214,6 +214,11 @@ export const el: TranslationKey = {
     calendarError: "Αδυναμία φόρτωσης ημερολογίου.",
     calendarPrev: "Προηγούμενος μήνας",
     calendarNext: "Επόμενος μήνας",
+    calendarPickCheckIn: "Επιλέξτε ημερομηνία άφιξης",
+    calendarPickCheckOut: "Τώρα επιλέξτε ημερομηνία αναχώρησης",
+    calendarRangeBlocked: "Ορισμένες νύχτες σε αυτό το διάστημα δεν είναι διαθέσιμες.",
+    calendarClear: "Καθαρισμός ημερομηνιών",
+    selectDates: "Επιλογή ημερομηνιών",
   },
   footer: {
     brand: "ZEUS Suites",

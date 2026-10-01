@@ -41,7 +41,7 @@ export function BookingAvailabilitySection({ property }: BookingReservePanelProp
  * Opens a form prefilled from the signed-in profile, then sends to WhatsApp.
  */
 export function BookingReserveDock({ property }: BookingReservePanelProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const titleId = useId();
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -79,6 +79,15 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
       cancelled = true;
     };
   }, [open, t.auth.errors.generic]);
+
+  const formatDay = (date: string) =>
+    date
+      ? new Date(`${date}T00:00:00`).toLocaleDateString(locale === "el" ? "el-GR" : "en-US", {
+          weekday: "short",
+          day: "numeric",
+          month: "short",
+        })
+      : "—";
 
   const handleOpen = () => {
     setOpen(true);
@@ -222,25 +231,31 @@ export function BookingReserveDock({ property }: BookingReservePanelProps) {
                 </p>
               )}
 
-              <div className="grid gap-3 sm:grid-cols-2">
-                <label className="text-xs text-neutral-500">
-                  {t.booking.checkIn}
-                  <input
-                    type="date"
-                    value={checkIn}
-                    onChange={(e) => setCheckIn(e.target.value)}
-                    className="mt-1 w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm"
-                  />
-                </label>
-                <label className="text-xs text-neutral-500">
-                  {t.booking.checkOut}
-                  <input
-                    type="date"
-                    value={checkOut}
-                    onChange={(e) => setCheckOut(e.target.value)}
-                    className="mt-1 w-full rounded-xl border border-neutral-200 px-3 py-2.5 text-sm"
-                  />
-                </label>
+              <div>
+                <p className="text-xs text-neutral-500">{t.booking.selectDates}</p>
+                <div className="mt-1 grid grid-cols-2 gap-3">
+                  <div className="rounded-xl border border-neutral-200 px-3 py-2.5">
+                    <p className="text-[10px] tracking-[0.14em] text-neutral-400 uppercase">
+                      {t.booking.checkIn}
+                    </p>
+                    <p className="mt-0.5 text-sm text-neutral-900">{formatDay(checkIn)}</p>
+                  </div>
+                  <div className="rounded-xl border border-neutral-200 px-3 py-2.5">
+                    <p className="text-[10px] tracking-[0.14em] text-neutral-400 uppercase">
+                      {t.booking.checkOut}
+                    </p>
+                    <p className="mt-0.5 text-sm text-neutral-900">{formatDay(checkOut)}</p>
+                  </div>
+                </div>
+                <AvailabilityCalendar
+                  listingId={property.id}
+                  selection={{ checkIn, checkOut }}
+                  onSelect={(range) => {
+                    setCheckIn(range.checkIn);
+                    setCheckOut(range.checkOut);
+                    setError(null);
+                  }}
+                />
               </div>
 
               <label className="block text-xs text-neutral-500">
