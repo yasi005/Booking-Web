@@ -83,16 +83,20 @@ def main() -> None:
     bust = full.crop((0, 0, int(full.width * 0.68), full.height))
     bust = bust.crop(content_bbox(bust, pad=12))
 
-    white_on_transparent(full, 512, 0.08).save(APP / "icon.png", "PNG", optimize=True)
-    white_on_transparent(full, 180, 0.08).save(APP / "apple-icon.png", "PNG", optimize=True)
-    white_on_transparent(full, 192, 0.08).save(PUBLIC / "icon-192.png", "PNG", optimize=True)
-    white_on_transparent(full, 512, 0.08).save(PUBLIC / "icon-512.png", "PNG", optimize=True)
+    # Extra padding so the mark reads smaller/cleaner in browser tabs.
+    pad_large = 0.22
+    pad_small = 0.28
+
+    white_on_transparent(full, 512, pad_large).save(APP / "icon.png", "PNG", optimize=True)
+    white_on_transparent(full, 180, pad_large).save(APP / "apple-icon.png", "PNG", optimize=True)
+    white_on_transparent(full, 192, pad_large).save(PUBLIC / "icon-192.png", "PNG", optimize=True)
+    white_on_transparent(full, 512, pad_large).save(PUBLIC / "icon-512.png", "PNG", optimize=True)
 
     for size, name in ((16, "favicon-16.png"), (32, "favicon-32.png"), (48, "favicon-48.png")):
-        white_on_transparent(bust, size, 0.06).save(PUBLIC / name, "PNG", optimize=True)
+        white_on_transparent(bust, size, pad_small).save(PUBLIC / name, "PNG", optimize=True)
 
     (PUBLIC / "favicon.ico").write_bytes(
-        ico_bytes([white_on_transparent(bust, size, 0.06) for size in (16, 32, 48)])
+        ico_bytes([white_on_transparent(bust, size, pad_small) for size in (16, 32, 48)])
     )
 
     app_ico = APP / "favicon.ico"
