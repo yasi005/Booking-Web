@@ -1,5 +1,6 @@
 "use client";
 
+import { BookingReserveDock } from "@/components/editorial/booking-reserve-panel";
 import { EditorialPanel } from "@/components/editorial/editorial-panel";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useLocale } from "@/context/locale-context";
@@ -23,26 +24,31 @@ export function MobileEditorialSheet() {
           expanded ? "h-[min(72vh,640px)]" : "h-auto",
         )}
       >
-        <button
-          type="button"
-          onClick={() => setExpanded((open) => !open)}
-          className="flex w-full items-center gap-3 border-b border-neutral-100 px-4 py-3 text-left"
-          aria-expanded={expanded}
-        >
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-[10px] tracking-[0.18em] text-neutral-400 uppercase">
-              {getLocationDisplay(selectedProperty, locale)}
-            </p>
-            <p className="truncate font-serif text-lg text-neutral-900">
-              {getPropertyName(selectedProperty, locale)}
-            </p>
-          </div>
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-600">
+        <div className="flex items-center gap-3 border-b border-neutral-100 px-4 py-3">
+          {expanded ? (
+            <div className="min-w-0 flex-1">
+              <p className="truncate text-[10px] tracking-[0.18em] text-neutral-400 uppercase">
+                {getLocationDisplay(selectedProperty, locale)}
+              </p>
+              <p className="truncate font-serif text-lg text-neutral-900">
+                {getPropertyName(selectedProperty, locale)}
+              </p>
+            </div>
+          ) : (
+            <BookingReserveDock property={selectedProperty} compact />
+          )}
+          <button
+            type="button"
+            onClick={() => setExpanded((open) => !open)}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600"
+            aria-expanded={expanded}
+            aria-label={expanded ? "Collapse details" : "Expand details"}
+          >
             <ChevronUp
               className={cn("h-4 w-4 transition-transform", expanded && "rotate-180")}
             />
-          </span>
-        </button>
+          </button>
+        </div>
 
         {expanded && (
           <div className="h-[calc(100%-4.25rem)] overflow-hidden">

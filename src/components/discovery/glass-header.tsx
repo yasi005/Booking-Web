@@ -7,6 +7,7 @@ import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type GlassHeaderProps = {
@@ -16,6 +17,8 @@ type GlassHeaderProps = {
 export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
   const { phase, enterMarketplace, exitToDiscovery, exitToMarketplace } = useAppPhase();
   const { t } = useTranslation();
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const onHero = variant === "hero";
 
@@ -35,6 +38,11 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
   }, [onHero]);
 
   const handleNav = (action: (typeof navItems)[number]["action"]) => {
+    if (pathname !== "/") {
+      exitToDiscovery();
+      router.push(action === "home" ? "/" : `/#${action}`);
+      return;
+    }
     switch (action) {
       case "home":
         if (phase === "workspace") {
@@ -69,6 +77,11 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
   };
 
   const handleLogoClick = () => {
+    if (pathname !== "/") {
+      exitToDiscovery();
+      router.push("/");
+      return;
+    }
     if (phase === "workspace") {
       exitToMarketplace();
       return;
