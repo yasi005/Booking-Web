@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   ),
   icons: {
     icon: [
-      { url: "/favicon.ico?v=3", sizes: "any" },
-      { url: "/favicon-32.png?v=3", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192.png?v=3", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico?v=5", sizes: "any" },
+      { url: "/favicon-32.png?v=5", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png?v=5", sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/icon-192.png?v=3", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/icon-192.png?v=5", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: "ZEUS",
