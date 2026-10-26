@@ -2,6 +2,9 @@
 
 Small icons (16/32/48) use the Zeus bust (head + lightning) for clarity.
 Large icons (180/192/512) use the full figure mark.
+
+Note: do NOT put favicon.ico in src/app/ — Next.js Turbopack fails on many
+ICO encodings. Use app/icon.png + public/favicon.ico instead.
 """
 from __future__ import annotations
 
@@ -15,7 +18,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 APP = ROOT / "src" / "app"
-BG = (17, 17, 17)
+BG = (17, 17, 17, 255)
 
 
 def content_bbox(img: Image.Image, threshold: float = 12.0, pad: int = 16) -> tuple[int, int, int, int]:
@@ -29,14 +32,14 @@ def content_bbox(img: Image.Image, threshold: float = 12.0, pad: int = 16) -> tu
     )
 
 
-def fit_square(src: Image.Image, size: int, padding_ratio: float) -> Image.Image:
+def fit_square_rgba(src: Image.Image, size: int, padding_ratio: float) -> Image.Image:
     rgba = src.convert("RGBA")
     pix = np.array(rgba)
     brightness = pix[:, :, :3].mean(axis=2)
     pix[:, :, 3] = np.where(brightness > 8, 255, 0).astype(np.uint8)
     src_t = Image.fromarray(pix)
 
-    canvas = Image.new("RGBA", (size, size), (*BG, 255))
+    canvas = Image.new("RGBA", (size, size), BG)
     pad = max(1, int(size * padding_ratio))
     box = size - pad * 2
     ratio = min(box / src_t.width, box / src_t.height)
@@ -44,12 +47,14 @@ def fit_square(src: Image.Image, size: int, padding_ratio: float) -> Image.Image
     nh = max(1, int(src_t.height * ratio))
     resized = src_t.resize((nw, nh), Image.Resampling.LANCZOS)
     canvas.paste(resized, ((size - nw) // 2, (size - nh) // 2), resized)
-    return canvas.convert("RGB")
+    return canvas
 
 
 def ico_bytes(images: list[Image.Image]) -> bytes:
     pngs: list[bytes] = []
     for image in images:
+        if image.mode != "RGBA":
+            image = image.convert("RGBA")
         buf = BytesIO()
         image.save(buf, format="PNG")
         pngs.append(buf.getvalue())
@@ -76,17 +81,21 @@ def main() -> None:
     bust = full.crop((0, 0, int(full.width * 0.68), full.height))
     bust = bust.crop(content_bbox(bust, pad=12))
 
-    fit_square(full, 512, 0.08).save(APP / "icon.png", "PNG", optimize=True)
-    fit_square(full, 180, 0.08).save(APP / "apple-icon.png", "PNG", optimize=True)
-    fit_square(full, 192, 0.08).save(PUBLIC / "icon-192.png", "PNG", optimize=True)
-    fit_square(full, 512, 0.08).save(PUBLIC / "icon-512.png", "PNG", optimize=True)
+    fit_square_rgba(full, 512, 0.08).convert("RGB").save(APP / "icon.png", "PNG", optimize=True)
+    fit_square_rgba(full, 180, 0.08).convert("RGB").save(APP / "apple-icon.png", "PNG", optimize=True)
+    fit_square_rgba(full, 192, 0.08).convert("RGB").save(PUBLIC / "icon-192.png", "PNG", optimize=True)
+    fit_square_rgba(full, 512, 0.08).convert("RGB").save(PUBLIC / "icon-512.png", "PNG", optimize=True)
 
     for size, name in ((16, "favicon-16.png"), (32, "favicon-32.png"), (48, "favicon-48.png")):
-        fit_square(bust, size, 0.06).save(PUBLIC / name, "PNG", optimize=True)
+        fit_square_rgba(bust, size, 0.06).convert("RGB").save(PUBLIC / name, "PNG", optimize=True)
 
-    data = ico_bytes([fit_square(bust, size, 0.06) for size in (16, 32, 48)])
+    data = ico_bytes([fit_square_rgba(bust, size, 0.06) for size in (16, 32, 48)])
     (PUBLIC / "favicon.ico").write_bytes(data)
-    (APP / "favicon.ico").write_bytes(data)
+
+    # Next.js Turbopack cannot decode many ICO files in src/app/favicon.ico
+    app_ico = APP / "favicon.ico"
+    if app_ico.exists():
+        app_ico.unlink()
 
     full.save(PUBLIC / "zeus-mark.png")
     bust.save(PUBLIC / "zeus-mark-bust.png")
