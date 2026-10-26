@@ -1,10 +1,9 @@
-"""Regenerate favicons from public/zeus-logo.webp (header logo).
+"""Regenerate transparent ZEUS favicons from public/zeus-logo.webp.
 
-Small icons (16/32/48) use the Zeus bust (head + lightning) for clarity.
-Large icons (180/192/512) use the full figure mark.
+No black background — white mark on transparent pixels so the browser tab
+chrome shows through. Small sizes use the bust crop; large sizes use full figure.
 
-Note: do NOT put favicon.ico in src/app/ — Next.js Turbopack fails on many
-ICO encodings. Use app/icon.png + public/favicon.ico instead.
+Do NOT write src/app/favicon.ico (Next.js Turbopack ICO decode issues).
 """
 from __future__ import annotations
 
@@ -18,7 +17,6 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
 APP = ROOT / "src" / "app"
-BG = (17, 17, 17, 255)
 
 
 def content_bbox(img: Image.Image, threshold: float = 12.0, pad: int = 16) -> tuple[int, int, int, int]:
@@ -32,14 +30,19 @@ def content_bbox(img: Image.Image, threshold: float = 12.0, pad: int = 16) -> tu
     )
 
 
-def fit_square_rgba(src: Image.Image, size: int, padding_ratio: float) -> Image.Image:
+def white_on_transparent(src: Image.Image, size: int, padding_ratio: float = 0.08) -> Image.Image:
     rgba = src.convert("RGBA")
     pix = np.array(rgba)
     brightness = pix[:, :, :3].mean(axis=2)
-    pix[:, :, 3] = np.where(brightness > 8, 255, 0).astype(np.uint8)
-    src_t = Image.fromarray(pix)
+    mask = brightness > 18
+    out = np.zeros((pix.shape[0], pix.shape[1], 4), dtype=np.uint8)
+    out[mask, 0] = 255
+    out[mask, 1] = 255
+    out[mask, 2] = 255
+    out[mask, 3] = 255
+    src_t = Image.fromarray(out, "RGBA")
 
-    canvas = Image.new("RGBA", (size, size), BG)
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     pad = max(1, int(size * padding_ratio))
     box = size - pad * 2
     ratio = min(box / src_t.width, box / src_t.height)
@@ -77,29 +80,28 @@ def main() -> None:
     logo = Image.open(PUBLIC / "zeus-logo.webp").convert("RGBA")
     figure = logo.crop((0, 0, logo.width, 800))
     full = figure.crop(content_bbox(figure))
-
     bust = full.crop((0, 0, int(full.width * 0.68), full.height))
     bust = bust.crop(content_bbox(bust, pad=12))
 
-    fit_square_rgba(full, 512, 0.08).convert("RGB").save(APP / "icon.png", "PNG", optimize=True)
-    fit_square_rgba(full, 180, 0.08).convert("RGB").save(APP / "apple-icon.png", "PNG", optimize=True)
-    fit_square_rgba(full, 192, 0.08).convert("RGB").save(PUBLIC / "icon-192.png", "PNG", optimize=True)
-    fit_square_rgba(full, 512, 0.08).convert("RGB").save(PUBLIC / "icon-512.png", "PNG", optimize=True)
+    white_on_transparent(full, 512, 0.08).save(APP / "icon.png", "PNG", optimize=True)
+    white_on_transparent(full, 180, 0.08).save(APP / "apple-icon.png", "PNG", optimize=True)
+    white_on_transparent(full, 192, 0.08).save(PUBLIC / "icon-192.png", "PNG", optimize=True)
+    white_on_transparent(full, 512, 0.08).save(PUBLIC / "icon-512.png", "PNG", optimize=True)
 
     for size, name in ((16, "favicon-16.png"), (32, "favicon-32.png"), (48, "favicon-48.png")):
-        fit_square_rgba(bust, size, 0.06).convert("RGB").save(PUBLIC / name, "PNG", optimize=True)
+        white_on_transparent(bust, size, 0.06).save(PUBLIC / name, "PNG", optimize=True)
 
-    data = ico_bytes([fit_square_rgba(bust, size, 0.06) for size in (16, 32, 48)])
-    (PUBLIC / "favicon.ico").write_bytes(data)
+    (PUBLIC / "favicon.ico").write_bytes(
+        ico_bytes([white_on_transparent(bust, size, 0.06) for size in (16, 32, 48)])
+    )
 
-    # Next.js Turbopack cannot decode many ICO files in src/app/favicon.ico
     app_ico = APP / "favicon.ico"
     if app_ico.exists():
         app_ico.unlink()
 
     full.save(PUBLIC / "zeus-mark.png")
     bust.save(PUBLIC / "zeus-mark-bust.png")
-    print(f"Regenerated favicons from {PUBLIC / 'zeus-logo.webp'}")
+    print("Regenerated transparent ZEUS favicons (no black background)")
 
 
 if __name__ == "__main__":
