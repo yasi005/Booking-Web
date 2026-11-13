@@ -29,7 +29,7 @@ export function FooterLocationMap() {
   );
 
   return (
-    <div className="relative h-[280px] w-full overflow-hidden rounded-2xl border-2 border-white/25 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.65)] sm:h-[300px]">
+    <div className="relative h-[180px] w-full overflow-hidden rounded-xl border border-[#c9a961] shadow-[0_0_0_1px_rgba(201,169,97,0.25),0_10px_30px_-14px_rgba(201,169,97,0.45)] transition-shadow duration-300 hover:shadow-[0_0_0_1px_rgba(201,169,97,0.5),0_14px_36px_-12px_rgba(201,169,97,0.6)] sm:h-[200px]">
       <Map
         mapStyle={MAP_STYLES.default}
         initialViewState={initialViewState}
