@@ -19,16 +19,26 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const SERVICES: { icon: LucideIcon; label: string; note?: string }[] = [
+const SERVICES: {
+  icon: LucideIcon;
+  label: string;
+  note?: string;
+  noteBottom?: string;
+}[] = [
   { icon: Landmark, label: "Acropolis Views" },
   { icon: KeyRound, label: "24H Self Check-in" },
   { icon: Wifi, label: "High-Speed Wi-Fi" },
   { icon: AirVent, label: "Air Conditioning" },
-  { icon: Coffee, label: "Coffee & Tea" },
+  { icon: Coffee, label: "Coffee" },
   { icon: Tv, label: "Smart TV" },
   { icon: Bath, label: "Towels" },
   { icon: Luggage, label: "Luggage Storage" },
-  { icon: BusFront, label: "Airport Transfer", note: "on request" },
+  {
+    icon: BusFront,
+    label: "Airport Transfer",
+    note: "on request,",
+    noteBottom: "with additional cost",
+  },
 ];
 
 const FALLBACK_IMAGE =
@@ -163,7 +173,7 @@ export function HeritageAbout() {
                 aria-hidden={copy === 1 || undefined}
                 className="flex shrink-0"
               >
-                {SERVICES.map(({ icon: Icon, label, note }) => (
+                {SERVICES.map(({ icon: Icon, label, note, noteBottom }) => (
                   <li
                     key={label}
                     className="group mr-5 flex h-[190px] w-[240px] shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border border-[#c9a961]/70 px-4 text-center transition duration-300 hover:-translate-y-1 hover:border-[#c9a961] hover:shadow-[0_0_0_1px_rgba(201,169,97,0.35),0_14px_36px_-16px_rgba(201,169,97,0.55)]"
@@ -178,6 +188,9 @@ export function HeritageAbout() {
                       {note ? (
                         <span className="mt-1 block font-sans text-[10px] uppercase tracking-[0.2em] text-neutral-500">
                           {note}
+                          {noteBottom ? (
+                            <span className="block">{noteBottom}</span>
+                          ) : null}
                         </span>
                       ) : null}
                     </span>

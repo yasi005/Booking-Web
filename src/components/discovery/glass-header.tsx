@@ -12,8 +12,8 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-/** Scroll distance (px) over which the header fades from glass to brand gradient. */
-const COLOR_RAMP = 420;
+/** Scroll distance (px) over which the header fades from glass to navy→gold. */
+const COLOR_RAMP = 160;
 
 type GlassHeaderProps = {
   variant?: "hero" | "solid";
@@ -26,20 +26,16 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
   const router = useRouter();
   const onHero = variant === "hero";
   const headerRef = useRef<HTMLElement>(null);
-  // Scroll position at which the header's bottom edge meets the end of the hero.
-  const rampStartRef = useRef(Number.POSITIVE_INFINITY);
   const { scrollY } = useScroll();
   const gradientOpacity = useTransform(scrollY, (y) => {
     if (!onHero) return 1;
-    const t = (y - rampStartRef.current) / COLOR_RAMP;
+    const t = y / COLOR_RAMP;
     return t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t); // smoothstep
   });
-  // Ease the opacity toward its target so the colour glides rather than
-  // tracking every scroll tick.
   const smoothOpacity = useSpring(gradientOpacity, {
-    stiffness: 70,
-    damping: 22,
-    mass: 0.9,
+    stiffness: 90,
+    damping: 24,
+    mass: 0.8,
   });
 
   const navItems = [
@@ -51,21 +47,7 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
 
   useEffect(() => {
     if (!onHero) return;
-    const header = headerRef.current;
-    // The hero header is rendered inside the hero section.
-    const hero = header?.parentElement;
-    if (!header || !hero) return;
-    const measure = () => {
-      const heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
-      // Centre the fade on the moment the header leaves the hero.
-      rampStartRef.current = heroBottom - header.offsetHeight - COLOR_RAMP / 2;
-      scrollY.set(window.scrollY); // re-evaluate opacity with the new bounds
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(hero);
-    ro.observe(header);
-    return () => ro.disconnect();
+    scrollY.set(window.scrollY);
   }, [onHero, scrollY]);
 
   const handleNav = (action: (typeof navItems)[number]["action"]) => {
@@ -134,9 +116,7 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
         style={{ opacity: smoothOpacity }}
         className={cn(
           "pointer-events-none absolute inset-0",
-          onHero
-            ? "border-b border-white/10 bg-neutral-900/55 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-xl"
-            : brandNavyGoldBgClass,
+          brandNavyGoldBgClass,
         )}
       />
       <div className="relative mx-auto flex h-14 max-w-[1600px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 md:px-12 lg:px-16">
