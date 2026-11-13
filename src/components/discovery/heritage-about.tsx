@@ -1,9 +1,5 @@
 "use client";
 
-import { useLocale } from "@/context/locale-context";
-import { useMarketplace } from "@/context/marketplace-context";
-import { getPropertyName } from "@/lib/localized-property";
-import { sortProperties } from "@/lib/editorial-grid";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
@@ -41,36 +37,25 @@ const SERVICES: {
   },
 ];
 
-const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80";
-
-function pickAboutImages(
-  properties: ReturnType<typeof useMarketplace>["allProperties"],
-  locale: ReturnType<typeof useLocale>["locale"],
-) {
-  const sorted = sortProperties(properties, "featured");
-  const [first, second, third] = sorted;
-
-  return [
-    {
-      src: first?.image ?? FALLBACK_IMAGE,
-      alt: first ? getPropertyName(first, locale) : "Featured residence",
-    },
-    {
-      src: second?.previewImage ?? second?.image ?? first?.previewImage ?? FALLBACK_IMAGE,
-      alt: second ? getPropertyName(second, locale) : "Residence detail",
-    },
-    {
-      src: third?.image ?? second?.image ?? FALLBACK_IMAGE,
-      alt: third ? getPropertyName(third, locale) : "Luxury estate exterior",
-    },
-  ] as const;
-}
+// Photos live in public/after-hero-images. File names are case-sensitive on the
+// server (".PNG"), so keep these paths exactly as the files are named.
+const ABOUT_IMAGES = [
+  {
+    src: "/after-hero-images/1.PNG",
+    alt: "Bright suite with a turquoise bed, sofa, desk and smart TV",
+  },
+  {
+    src: "/after-hero-images/2.PNG",
+    alt: "Sunlit suite with a city view, desk and fresh towels on the bed",
+  },
+  {
+    src: "/after-hero-images/3.PNG",
+    alt: "Living area with a yellow chair, white desk and beach artwork",
+  },
+] as const;
 
 export function HeritageAbout() {
-  const { locale } = useLocale();
-  const { allProperties } = useMarketplace();
-  const aboutImages = pickAboutImages(allProperties, locale);
+  const aboutImages = ABOUT_IMAGES;
 
   return (
     <section id="projects" className="scroll-mt-24 bg-[#f5f4f1] py-24 md:py-32">
