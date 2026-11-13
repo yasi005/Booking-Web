@@ -11,6 +11,8 @@ const SIZE_CLASS = {
   header: "h-8 w-auto sm:h-10",
   /** Auth pages */
   auth: "h-9 w-auto sm:h-11",
+  /** Footer wordmark */
+  footer: "h-28 w-auto sm:h-36 md:h-44",
 } as const;
 
 /** Source asset is white; `dark` maps it to near-black for light backgrounds. */

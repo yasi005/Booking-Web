@@ -35,7 +35,7 @@ export function CinematicHome() {
                 <button
                   type="button"
                   onClick={() => enterMarketplace()}
-                  className="rounded-full bg-neutral-800/90 px-10 py-3.5 text-sm font-medium tracking-wide text-white shadow-[0_8px_24px_-10px_rgba(0,0,0,0.55)] transition hover:bg-neutral-700"
+                  className="rounded-full bg-gradient-to-r from-[#e0c05a]/90 via-[#d4af37]/90 to-[#b8941f]/90 px-10 py-3.5 text-[12px] font-semibold tracking-[0.14em] text-white uppercase shadow-[0_8px_24px_-8px_rgba(212,175,55,0.65)] transition hover:brightness-105"
                 >
                   {t.hero.explore}
                 </button>

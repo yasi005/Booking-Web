@@ -8,6 +8,8 @@ import {
   GOOGLE_MAPS_URL,
 } from "@/components/layout/footer-location-map";
 import { useTranslation } from "@/context/locale-context";
+import { brandNavyGoldBgClass } from "@/lib/brand-gradient";
+import { cn } from "@/lib/utils";
 import { ArrowUpRight, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 
@@ -29,13 +31,13 @@ export function SiteFooter() {
       : FOOTER_LOCATION.neighborhoodEn;
 
   return (
-    <footer className="bg-neutral-950 text-zinc-400">
+    <footer className={cn(brandNavyGoldBgClass, "text-zinc-400")}>
       <div className="mx-auto max-w-[1400px] px-6 py-5 sm:px-8 md:px-16">
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Brand */}
           <div className="lg:col-span-3">
             <Link href="/" className="inline-block opacity-90 transition hover:opacity-100">
-              <BrandLogo size="compact" />
+              <BrandLogo size="footer" />
             </Link>
             <p className="mt-2 max-w-[220px] font-serif text-sm leading-snug text-zinc-300">
               {t.footer.tagline}

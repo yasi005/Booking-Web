@@ -6,9 +6,14 @@ import { BrandLogo } from "@/components/brand/brand-logo";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useAppPhase } from "@/context/app-phase-context";
 import { useTranslation } from "@/context/locale-context";
+import { brandNavyGoldBgClass } from "@/lib/brand-gradient";
 import { cn } from "@/lib/utils";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+
+/** Scroll distance (px) over which the header fades from glass to brand gradient. */
+const COLOR_RAMP = 420;
 
 type GlassHeaderProps = {
   variant?: "hero" | "solid";
@@ -19,8 +24,23 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
   const { t } = useTranslation();
   const pathname = usePathname();
   const router = useRouter();
-  const [scrolled, setScrolled] = useState(false);
   const onHero = variant === "hero";
+  const headerRef = useRef<HTMLElement>(null);
+  // Scroll position at which the header's bottom edge meets the end of the hero.
+  const rampStartRef = useRef(Number.POSITIVE_INFINITY);
+  const { scrollY } = useScroll();
+  const gradientOpacity = useTransform(scrollY, (y) => {
+    if (!onHero) return 1;
+    const t = (y - rampStartRef.current) / COLOR_RAMP;
+    return t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t); // smoothstep
+  });
+  // Ease the opacity toward its target so the colour glides rather than
+  // tracking every scroll tick.
+  const smoothOpacity = useSpring(gradientOpacity, {
+    stiffness: 70,
+    damping: 22,
+    mass: 0.9,
+  });
 
   const navItems = [
     { label: t.nav.home, action: "home" as const },
@@ -31,11 +51,22 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
 
   useEffect(() => {
     if (!onHero) return;
-    const onScroll = () => setScrolled(window.scrollY > 48);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [onHero]);
+    const header = headerRef.current;
+    // The hero header is rendered inside the hero section.
+    const hero = header?.parentElement;
+    if (!header || !hero) return;
+    const measure = () => {
+      const heroBottom = hero.getBoundingClientRect().bottom + window.scrollY;
+      // Centre the fade on the moment the header leaves the hero.
+      rampStartRef.current = heroBottom - header.offsetHeight - COLOR_RAMP / 2;
+      scrollY.set(window.scrollY); // re-evaluate opacity with the new bounds
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(hero);
+    ro.observe(header);
+    return () => ro.disconnect();
+  }, [onHero, scrollY]);
 
   const handleNav = (action: (typeof navItems)[number]["action"]) => {
     if (pathname !== "/") {
@@ -95,23 +126,27 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 right-0 left-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-500",
-        onHero
-          ? scrolled
-            ? "border-b border-white/10 bg-black/30 backdrop-blur-md"
-            : "border-b border-white/10 bg-white/10 backdrop-blur-md"
-          : "border-b border-neutral-100 bg-white/90 backdrop-blur-xl",
-      )}
+      ref={headerRef}
+      className="fixed top-0 right-0 left-0 z-50 border-b border-white/10 bg-white/10 pt-[env(safe-area-inset-top)] backdrop-blur-md"
     >
-      <div className="mx-auto flex h-14 max-w-[1600px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 md:px-12 lg:px-16">
+      <motion.div
+        aria-hidden
+        style={{ opacity: smoothOpacity }}
+        className={cn(
+          "pointer-events-none absolute inset-0",
+          onHero
+            ? "border-b border-white/10 bg-neutral-900/55 shadow-[0_18px_50px_-24px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+            : brandNavyGoldBgClass,
+        )}
+      />
+      <div className="relative mx-auto flex h-14 max-w-[1600px] items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-8 md:px-12 lg:px-16">
         <button
           type="button"
           onClick={handleLogoClick}
           className="shrink-0 transition-opacity hover:opacity-80"
           aria-label="ZEUS home"
         >
-          <BrandLogo size="header" tone={onHero ? "light" : "dark"} priority />
+          <BrandLogo size="header" tone="light" priority />
         </button>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">
@@ -121,28 +156,22 @@ export function GlassHeader({ variant = "hero" }: GlassHeaderProps) {
               type="button"
               onClick={() => handleNav(action)}
               className={cn(
-                "group relative text-[13px] tracking-wide transition-colors",
-                onHero ? "text-white/75 hover:text-white" : "text-neutral-500 hover:text-neutral-900",
+                "group relative text-[13px] tracking-wide text-white/80 transition-colors hover:text-white",
                 action === "properties" &&
                   (phase === "marketplace" || phase === "workspace") &&
-                  (onHero ? "text-white" : "text-neutral-900"),
+                  "text-white",
               )}
             >
               {label}
-              <span
-                className={cn(
-                  "absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full",
-                  onHero ? "bg-white" : "bg-neutral-900",
-                )}
-              />
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
             </button>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-4">
-          <LanguageSwitcher variant={variant} />
-          <HeaderAuthActions onHero={onHero} />
-          <MobileHeaderMenu onHero={onHero} />
+          <LanguageSwitcher variant="hero" />
+          <HeaderAuthActions onHero />
+          <MobileHeaderMenu onHero />
         </div>
       </div>
     </header>
