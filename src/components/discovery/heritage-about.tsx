@@ -6,6 +6,30 @@ import { getPropertyName } from "@/lib/localized-property";
 import { sortProperties } from "@/lib/editorial-grid";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import {
+  AirVent,
+  Bath,
+  BusFront,
+  Coffee,
+  KeyRound,
+  Landmark,
+  Luggage,
+  Tv,
+  Wifi,
+  type LucideIcon,
+} from "lucide-react";
+
+const SERVICES: { icon: LucideIcon; label: string; note?: string }[] = [
+  { icon: Landmark, label: "Acropolis Views" },
+  { icon: KeyRound, label: "24H Self Check-in" },
+  { icon: Wifi, label: "High-Speed Wi-Fi" },
+  { icon: AirVent, label: "Air Conditioning" },
+  { icon: Coffee, label: "Coffee & Tea" },
+  { icon: Tv, label: "Smart TV" },
+  { icon: Bath, label: "Towels" },
+  { icon: Luggage, label: "Luggage Storage" },
+  { icon: BusFront, label: "Airport Transfer", note: "on request" },
+];
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80";
@@ -102,7 +126,70 @@ export function HeritageAbout() {
         </motion.div>
       </div>
 
-      <section id="market" className="mx-auto mt-24 max-w-[1400px] border-t border-neutral-200/80 px-8 pt-20 md:px-16">
+      <section
+        id="services"
+        aria-labelledby="services-title"
+        className="mt-20 scroll-mt-24 border-t border-neutral-200/80 pt-16"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-[1400px] px-8 text-center md:px-16"
+        >
+          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#a88a4f]">
+            Amenities &amp; Services
+          </p>
+          <h2
+            id="services-title"
+            className="mt-3 font-serif text-3xl leading-tight tracking-tight text-neutral-900 md:text-4xl"
+          >
+            Everything handled, nothing fussy.
+          </h2>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+          className="services-marquee mt-10 overflow-hidden py-4"
+        >
+          <div className="services-marquee-track flex w-max">
+            {[0, 1].map((copy) => (
+              <ul
+                key={copy}
+                aria-hidden={copy === 1 || undefined}
+                className="flex shrink-0"
+              >
+                {SERVICES.map(({ icon: Icon, label, note }) => (
+                  <li
+                    key={label}
+                    className="group mr-5 flex h-[190px] w-[240px] shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border border-[#c9a961]/70 px-4 text-center transition duration-300 hover:-translate-y-1 hover:border-[#c9a961] hover:shadow-[0_0_0_1px_rgba(201,169,97,0.35),0_14px_36px_-16px_rgba(201,169,97,0.55)]"
+                  >
+                    <Icon
+                      aria-hidden
+                      strokeWidth={1.9}
+                      className="h-10 w-10 text-[#b8934a] transition-colors duration-300 group-hover:text-[#9c7a35]"
+                    />
+                    <span className="font-serif text-xl leading-tight text-neutral-900">
+                      {label}
+                      {note ? (
+                        <span className="mt-1 block font-sans text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+                          {note}
+                        </span>
+                      ) : null}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      <section id="market" className="mx-auto mt-20 max-w-[1400px] px-8 md:px-16">
         <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-400">
           Market Intelligence
         </p>
