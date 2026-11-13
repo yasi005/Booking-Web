@@ -38,11 +38,11 @@ const SERVICES: {
 ];
 
 // Photos live in public/after-hero-images. File names are case-sensitive on the
-// server (".PNG"), so keep these paths exactly as the files are named.
+// server (".PNG", ".JPG"), so keep these paths exactly as the files are named.
 const ABOUT_IMAGES = [
   {
-    src: "/after-hero-images/1.PNG",
-    alt: "Bright suite with a turquoise bed, sofa, desk and smart TV",
+    src: "/after-hero-images/1.JPG",
+    alt: "Suite with cherry-blossom wallpaper, gold-framed glass partition and lounge beyond",
   },
   {
     src: "/after-hero-images/2.PNG",

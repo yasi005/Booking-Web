@@ -3,8 +3,14 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-/** Drop the five hero photos in `public/hero/` using these exact filenames. */
-const HERO_IMAGES = [
+/** Hero photos live in `public/hero/` under these exact filenames. */
+const HERO_IMAGES: { src: string; alt: string; durationMs?: number }[] = [
+  // Opening shot: held longer so the Acropolis view sets the scene.
+  {
+    src: "/hero/1-10s.jpeg",
+    alt: "The Acropolis above a forest of pines at golden hour",
+    durationMs: 10_000,
+  },
   { src: "/hero/1.jpg", alt: "Suite with jacuzzi and breakfast served in bed" },
   { src: "/hero/2.jpg", alt: "The Acropolis seen from the street at dusk" },
   { src: "/hero/3.jpg", alt: "Black and gold suite with mirrored wall" },
@@ -12,18 +18,20 @@ const HERO_IMAGES = [
   { src: "/hero/5.jpg", alt: "Studio suite with jacuzzi and private balcony" },
 ];
 
-const SLIDE_MS = 3000;
+/** How long every other slide stays on screen. */
+const SLIDE_MS = 5000;
 
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
 
+  // Each slide schedules the next one, so slides can have their own duration.
   useEffect(() => {
-    const timer = setInterval(
+    const timer = setTimeout(
       () => setIndex((current) => (current + 1) % HERO_IMAGES.length),
-      SLIDE_MS,
+      HERO_IMAGES[index].durationMs ?? SLIDE_MS,
     );
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [index]);
 
   return (
     <div className="absolute inset-0 bg-neutral-900">

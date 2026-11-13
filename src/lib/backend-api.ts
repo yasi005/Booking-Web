@@ -16,6 +16,9 @@ function hasListingImage(listing: CachedHostawayListing): boolean {
   return (listing.images ?? []).some((image) => Boolean(image.url));
 }
 
+/** Hidden from the public catalog (removed from site curation). */
+const HIDDEN_LISTING_IDS = new Set([366908]);
+
 /** Keep one property per Hostaway id; drop image-less listings (shared Unsplash fallback). */
 function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
   const seen = new Set<number>();
@@ -23,6 +26,7 @@ function toUniqueCatalog(listings: CachedHostawayListing[]): Property[] {
 
   for (const listing of listings) {
     if (listing.published === false) continue;
+    if (HIDDEN_LISTING_IDS.has(listing.id)) continue;
     if (!hasListingImage(listing)) continue;
     if (seen.has(listing.id)) continue;
     seen.add(listing.id);
