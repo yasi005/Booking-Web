@@ -30,14 +30,14 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-neutral-950 text-zinc-400">
-      <div className="mx-auto max-w-[1400px] px-6 pt-16 pb-8 sm:px-8 md:px-16">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
+      <div className="mx-auto max-w-[1400px] px-6 pt-8 pb-5 sm:px-8 md:px-16">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block opacity-90 transition hover:opacity-100">
               <BrandLogo size="compact" />
             </Link>
-            <p className="mt-5 max-w-xs font-serif text-lg leading-snug text-zinc-200">
+            <p className="mt-3 max-w-xs font-serif text-base leading-snug text-zinc-200">
               {t.footer.tagline}
             </p>
           </div>
@@ -45,7 +45,7 @@ export function SiteFooter() {
           {/* Explore */}
           <nav className="lg:col-span-2" aria-label={t.footer.explore}>
             <p className={headingClass}>{t.footer.explore}</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-3 space-y-2">
               <li>
                 <Link href="/" className={linkClass}>
                   {t.nav.home}
@@ -62,7 +62,7 @@ export function SiteFooter() {
           {/* Contact */}
           <div className="lg:col-span-3">
             <p className={headingClass}>{t.footer.contact}</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-3 space-y-2">
               <li>
                 <a
                   href={WHATSAPP_URL}
@@ -79,7 +79,7 @@ export function SiteFooter() {
                   <Phone className="h-4 w-4 shrink-0" aria-hidden />
                   {WHATSAPP_DISPLAY}
                 </a>
-                <p className="mt-1 pl-6 text-xs text-zinc-500">
+                <p className="mt-0.5 pl-6 text-xs text-zinc-500">
                   {t.footer.callHours}
                 </p>
               </li>
@@ -98,10 +98,10 @@ export function SiteFooter() {
           {/* Location */}
           <div className="md:col-span-2 lg:col-span-3">
             <p className={headingClass}>{t.footer.thePoint}</p>
-            <div className="mt-5">
+            <div className="mt-3">
               <FooterLocationMap />
             </div>
-            <div className="mt-3 flex gap-5 text-xs">
+            <div className="mt-2 flex gap-5 text-xs">
               <a
                 href={GOOGLE_MAPS_URL}
                 target="_blank"
@@ -122,7 +122,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-6 text-xs text-zinc-500">
+        <div className="mt-8 border-t border-white/10 pt-4 text-xs text-zinc-500">
           <p>
             © {year} {t.footer.brand}. {t.footer.rights}
           </p>

@@ -29,9 +29,9 @@ export function FooterLocationMap() {
   );
 
   return (
-    <div className="relative h-[200px] w-full overflow-hidden rounded-2xl border border-[#c9a961]/30">
+    <div className="relative h-[240px] w-full overflow-hidden rounded-2xl border border-white/15 sm:h-[260px]">
       <Map
-        mapStyle={MAP_STYLES.midnight}
+        mapStyle={MAP_STYLES.default}
         initialViewState={initialViewState}
         attributionControl={false}
         dragRotate={false}
@@ -44,11 +44,11 @@ export function FooterLocationMap() {
         <Marker
           latitude={FOOTER_LOCATION.lat}
           longitude={FOOTER_LOCATION.lng}
-          anchor="bottom"
+          anchor="center"
         >
-          <span className="relative flex h-9 w-7 items-center justify-center">
-            <span className="absolute bottom-0 h-2 w-2 rounded-full bg-white/90 shadow" />
-            <span className="mb-1.5 h-7 w-5 rounded-full rounded-b-[40%] bg-[#c9a961] shadow-[0_4px_12px_rgba(201,169,97,0.5)]" />
+          <span className="relative flex h-4 w-4 items-center justify-center" aria-hidden>
+            <span className="absolute inset-0 animate-ping rounded-full bg-red-500/55" />
+            <span className="relative h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_0_2px_rgba(255,255,255,0.9)]" />
           </span>
         </Marker>
       </Map>
